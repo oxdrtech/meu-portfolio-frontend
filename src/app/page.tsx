@@ -5,7 +5,7 @@ import useDevices from "@/hooks/useDevices";
 import { Flex, Group, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Loading from "./loading";
-import NavLinks from "@/components/_ui/navLinks/navLinks";
+import NavigationBar from "@/components/_ui/navigationBar/navigationBar";
 
 export default function Home() {
   const { isMobile } = useDevices();
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <Flex maw={"100vw"}>
       <Background />
-      <NavLinks />
+      <NavigationBar />
       {
         !isLoaded
           ? (

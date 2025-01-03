@@ -7,7 +7,7 @@ const links = [
   { icon: IconBrandGithub, url: 'https://github.com/DDR23' }
 ];
 
-export default function NavLinks() {
+export default function NavigationBar() {
   return (
     <Flex pos={"fixed"} w={"100vw"} h={"100vh"} justify={"space-between"} px={"lg"} style={{
       zIndex: 100
