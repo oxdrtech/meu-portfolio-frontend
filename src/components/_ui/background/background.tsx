@@ -22,11 +22,11 @@ export default function Background() {
 
   return (
     <>
-      <Flex pos={"absolute"} w={"100vw"} h={"100vh"} style={{
+      <Flex pos={"absolute"} left={"0"} right={"0"} h={"100vh"} style={{
         overflow: "hidden",
         zIndex: -1,
       }}>
-        <Group ref={gsapRef} m={"auto"} h={isDesktop ? "90vh" : isMobile ? "60vh" : "90vh"}>
+        <Group ref={gsapRef} m={"auto"} h={"90vh"}>
           <DotLottieReact
             src="./background.lottie"
             speed={.5}
@@ -36,5 +36,5 @@ export default function Background() {
         </Group>
       </Flex>
     </>
-  )
+  );
 }
