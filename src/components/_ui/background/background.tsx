@@ -1,5 +1,4 @@
 "use client"
-import useDevices from "@/hooks/useDevices";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { Flex, Group } from "@mantine/core";
 import { useGSAP } from "@gsap/react";
@@ -7,7 +6,6 @@ import gsap from "gsap";
 import { useRef } from "react";
 
 export default function Background() {
-  const { isDesktop, isMobile } = useDevices();
   const gsapRef = useRef(null);
 
   useGSAP(() => {

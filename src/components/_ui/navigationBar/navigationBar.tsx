@@ -1,4 +1,4 @@
-import { ActionIcon, Flex, Text } from "@mantine/core";
+import { ActionIcon, Flex, UnstyledButton } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
@@ -6,6 +6,14 @@ const links = [
   { icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/ddr23/' },
   { icon: IconBrandGithub, url: 'https://github.com/DDR23' }
 ];
+
+const indices = [
+  { target: 'inicio', label: 'Início' },
+  { target: 'sobre-mim', label: 'Sobre mim' },
+  { target: 'habilidades', label: 'Habilidades' },
+  { target: 'projetos', label: 'Projetos' },
+  { target: 'contato', label: 'Contato' },
+]
 
 export default function NavigationBar() {
   return (
@@ -31,10 +39,10 @@ export default function NavigationBar() {
           );
         })}
       </Flex>
-      <Flex direction={"column"} mt={"100"} gap={"md"}>
-        <Text>item 1</Text>
-        <Text>item 2</Text>
-        <Text>item 3</Text>
+      <Flex direction={"column"} w={"max-content"} mt={"100"} gap={"md"} px={"md"}>
+        {indices.map((indice, index) => (
+          <UnstyledButton component="a" href={`#${indice.target}`} ta={"end"} key={index}>{indice.label}</UnstyledButton>
+        ))}
       </Flex>
     </Flex>
   );
