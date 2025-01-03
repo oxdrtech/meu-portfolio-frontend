@@ -29,7 +29,7 @@ export default function Home() {
           : (
             <>
               <Flex h={"100vh"} w={"100vw"} justify={"center"} align={"center"} direction={"column"} style={{
-                // backdropFilter: isMobile ? "blur(32px)" : "blur(64px)",
+                backdropFilter: isMobile ? "blur(32px)" : "blur(64px)",
               }}>
                 <Hero />
               </Flex>
