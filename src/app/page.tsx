@@ -2,7 +2,7 @@
 import Background from "@/components/_ui/background/background";
 import Hero from "@/components/_ui/hero/hero";
 import useDevices from "@/hooks/useDevices";
-import { Flex, Group, Paper, Stack, Text } from "@mantine/core";
+import { Flex } from "@mantine/core";
 
 
 export default function Home() {
