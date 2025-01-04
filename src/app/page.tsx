@@ -23,17 +23,19 @@ export default function Home() {
     <Stack display={"block"}>
       <Loading onComplete={() => setTriggerGSAP(true)} />
       <Background />
-      <Stack display={"block"} className="main" h={"100vh"} w={"100vw"} style={{
-        overflowY: "scroll",
-        scrollSnapType: "y mandatory",
+      <Stack display={"block"} className="main" h={"100vh"} style={{
         backdropFilter: isMobile ? "blur(32px)" : "blur(64px)",
       }}>
-        <Hero user={response?.data} />
-        <Flex className="panel" h={"100vh"} justify={"center"} align={"center"} style={{
-          scrollSnapAlign: "start",
-        }}>
-          teste 2
-        </Flex>
+        {triggerGSAP && (
+          <>
+            <Hero user={response?.data} />
+            <Flex className="panel" h={"100vh"} justify={"center"} align={"center"} style={{
+              scrollSnapAlign: "start",
+            }}>
+              teste 2
+            </Flex>
+          </>
+        )}
       </Stack>
     </Stack>
   );
