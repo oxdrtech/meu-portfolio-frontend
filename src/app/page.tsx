@@ -8,10 +8,11 @@ import Hero from "@/components/pages/hero/hero";
 import useGet from "@/hooks/useGet";
 import { userDetails } from "@/types/userDetails";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
+import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 
 export default function Home() {
   const { isMobile } = useDevices();
-  const [triggerGSAP, setTriggerGSAP] = useState(false);
+  const [renderCompleted, setRenderCompleted] = useState(false);
 
   const { response, sendRequest } = useGet<userDetails>(`${API_GIT_URL}/users/DDR23`);
 
@@ -21,12 +22,13 @@ export default function Home() {
 
   return (
     <Stack display={"block"}>
-      <Loading onComplete={() => setTriggerGSAP(true)} />
+      <Loading onComplete={() => setRenderCompleted(true)} />
       <Background />
+      <LeftNavigation triggerGSAP={renderCompleted} />
       <Stack display={"block"} className="main" h={"100vh"} style={{
         backdropFilter: isMobile ? "blur(32px)" : "blur(64px)",
       }}>
-        {triggerGSAP && (
+        {renderCompleted && (
           <>
             <Hero user={response?.data} />
             <Flex className="panel" h={"100vh"} justify={"center"} align={"center"} style={{

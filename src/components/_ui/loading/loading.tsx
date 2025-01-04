@@ -49,15 +49,5 @@ export default function Loading({ onComplete }: Props) {
     </Flex>
   );
 
-  return (
-    <LoadingOverlay
-      ref={gsapRef}
-      visible={true}
-      zIndex={1000}
-      overlayProps={{ blur: 64 }}
-      loaderProps={{
-        children: loaderAnimation,
-      }}
-    />
-  );
+  return <LoadingOverlay ref={gsapRef} visible={true} zIndex={1000} overlayProps={{ blur: 64 }} loaderProps={{ children: loaderAnimation }} />
 }

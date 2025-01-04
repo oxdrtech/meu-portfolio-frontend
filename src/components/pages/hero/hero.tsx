@@ -84,7 +84,7 @@ export default function Hero({ user }: Props) {
             </Text>
           </Group>
           <Group>
-            <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"}></Paper>
+            <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
             <Group component={"span"} style={{ overflow: "hidden" }}>
               <Text className="objectup-animated" component="h1" fw={"normal"} fz={isMobile ? "md" : "xl"} ta={"end"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",

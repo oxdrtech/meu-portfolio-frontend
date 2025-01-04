@@ -42,27 +42,14 @@ export default function Background() {
         overflow: "hidden",
       }}>
         <Group className="background-animated" m={"auto"} h={"90vh"}>
-          <DotLottieReact
-            src="./background.lottie"
-            speed={.5}
-            loop
-            autoplay
-          />
+          <DotLottieReact src="./background.lottie" speed={.5} loop autoplay />
         </Group>
         <Group>
-          <Paper
-            className="light-animated"
-            radius="50%"
-            w={"7000px"}
-            h={"7000px"}
-            bg={"defaultColor"}
-            pos={"absolute"}
-            style={{
-              left: "50%",
-              top: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          />
+          <Paper className="light-animated" radius="50%" w={"7000px"} h={"7000px"} bg={"defaultColor"} pos={"absolute"} style={{
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+          }} />
         </Group>
       </Flex>
     </>
