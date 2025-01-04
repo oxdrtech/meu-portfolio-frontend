@@ -10,13 +10,12 @@ export default function Background() {
 
   useGSAP(() => {
     gsap.to(gsapRef.current, {
-      duration: 20,
-      rotate: 320,
+      duration: 10,
+      rotate: 360,
       repeat: -1,
-      yoyo: true,
       ease: "linear",
     })
-  })
+  }, [])
 
   return (
     <>
