@@ -15,11 +15,11 @@ export default function Loading({ onComplete }: Props) {
 
   useGSAP(() => {
     if (gsapRef.current) {
-      gsap.timeline({
-        onComplete,
-      }).to(
-        { count: 0 },
-        {
+      gsap
+        .timeline({
+          onComplete,
+        })
+        .to({ count: 0 }, {
           count: 100,
           delay: 1,
           duration: 5,
@@ -27,13 +27,13 @@ export default function Loading({ onComplete }: Props) {
           onUpdate: function () {
             setProgress(Math.round(this.targets()[0].count));
           },
-        }
-      ).to(gsapRef.current, {
-        delay: .2,
-        duration: .2,
-        opacity: 0,
-        display: "none",
-      });
+        })
+        .to(gsapRef.current, {
+          delay: .2,
+          duration: .2,
+          opacity: 0,
+          display: "none",
+        });
     }
   }, [onComplete]);
 

@@ -46,6 +46,7 @@ export default function Hero({ user }: Props) {
         .to(".objectup-animated", {
           yPercent: 0,
           duration: .2,
+          stagger: .5
         }, "-=0.2")
         .to(".line-animated", {
           scaleX: 1,
