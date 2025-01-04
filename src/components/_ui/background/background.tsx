@@ -9,19 +9,20 @@ export default function Background() {
   const gsapRef = useRef(null);
 
   useGSAP(() => {
-    gsap.to(gsapRef.current, {
-      duration: 10,
-      rotate: 360,
-      repeat: -1,
-      ease: "linear",
-    })
+    if (gsapRef.current) {
+      gsap.to(gsapRef.current, {
+        duration: 10,
+        rotate: 360,
+        repeat: -1,
+        ease: "linear",
+      })
+    }
   }, [])
 
   return (
     <>
       <Flex pos={"absolute"} left={"0"} right={"0"} h={"100vh"} style={{
         overflow: "hidden",
-        zIndex: -1,
       }}>
         <Group ref={gsapRef} m={"auto"} h={"90vh"}>
           <DotLottieReact
