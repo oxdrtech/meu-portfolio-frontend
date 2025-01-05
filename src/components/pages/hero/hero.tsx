@@ -68,13 +68,13 @@ export default function Hero({ user }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} className="panel" h={"100vh"} justify={"center"} align={"center"} direction={"column"} style={{
+      <Flex ref={gsapRef} className="panel" id="inicio" h={"100vh"} justify={"center"} align={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
         overflow: "hidden"
       }}>
         <Stack h={"90vh"} gap={0} justify={"center"} pt={"10vw"}>
           <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} mb={"xl"} radius={"50%"} p={2} shadow="xl">
-            <Avatar className="avatar-animated" size={isMobile ? "200" : "300"} src={user?.avatar_url} />
+            <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
           </Paper>
           <Group component={"span"} style={{ overflow: "hidden" }}>
             <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={"8vw"} ta={"end"} inline style={{

@@ -9,6 +9,7 @@ import useGet from "@/hooks/useGet";
 import { userDetails } from "@/types/userDetails";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
+import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 
 export default function Home() {
   const { isMobile } = useDevices();
@@ -25,16 +26,32 @@ export default function Home() {
       <Loading onComplete={() => setRenderCompleted(true)} />
       <Background />
       <LeftNavigation triggerGSAP={renderCompleted} />
+      <RightNavigation triggerGSAP={renderCompleted} />
       <Stack display={"block"} className="main" h={"100vh"} style={{
         backdropFilter: isMobile ? "blur(32px)" : "blur(64px)",
       }}>
         {renderCompleted && (
           <>
             <Hero user={response?.data} />
-            <Flex className="panel" h={"100vh"} justify={"center"} align={"center"} style={{
+            <Flex className="panel" id="sobre-mim" h={"100vh"} justify={"center"} align={"center"} style={{
               scrollSnapAlign: "start",
             }}>
-              teste 2
+              cobre mim
+            </Flex>
+            <Flex className="panel" id="habilidades" h={"100vh"} justify={"center"} align={"center"} style={{
+              scrollSnapAlign: "start",
+            }}>
+              habilidades
+            </Flex>
+            <Flex className="panel" id="projetos" h={"100vh"} justify={"center"} align={"center"} style={{
+              scrollSnapAlign: "start",
+            }}>
+              projetos
+            </Flex>
+            <Flex className="panel" id="contato" h={"100vh"} justify={"center"} align={"center"} style={{
+              scrollSnapAlign: "start",
+            }}>
+              contato
             </Flex>
           </>
         )}
