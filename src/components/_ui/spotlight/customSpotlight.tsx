@@ -1,13 +1,17 @@
 import { useClipboard } from "@mantine/hooks";
 import { Spotlight, SpotlightActionData } from "@mantine/spotlight";
 import { IconBrandGithub, IconBrandLinkedin, IconCode, IconCopy, IconDownload, IconMail, IconSearch } from "@tabler/icons-react";
+import CustomNotification from "../notification/customNotification";
 
 export default function CustomSpotlight() {
   const clipboard = useClipboard();
 
   const copyLink = () => {
-    clipboard.copy(window.location.href)
-    // TODO - adicionar disparo de notification
+    clipboard.copy(window.location.href);
+    CustomNotification({
+      title: "Sucesso",
+      message: "Link copiado 👍",
+    })
   };
 
   const downloadCV = (filePath: string) => {

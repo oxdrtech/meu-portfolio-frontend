@@ -1,9 +1,11 @@
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
+import '@mantine/notifications/styles.css';
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import type { Metadata } from "next";
 import { theme } from "../styles/theme";
 import "../styles/globals.css";
+import { Notifications } from '@mantine/notifications';
 
 export const metadata: Metadata = {
   title: "DDR23 | Portfólio",
@@ -22,6 +24,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
+          <Notifications />
           {children}
         </MantineProvider>
       </body>
