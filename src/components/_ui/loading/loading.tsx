@@ -22,7 +22,7 @@ export default function Loading({ onComplete }: Props) {
         .to({ count: 0 }, {
           count: 100,
           delay: 1,
-          duration: 5,
+          duration: 3,
           ease: "sine.Out",
           onUpdate: function () {
             setProgress(Math.round(this.targets()[0].count));
