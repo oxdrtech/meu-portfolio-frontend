@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Hero({ user }: Props) {
-  const { isMobile } = useDevices();
+  const { isDesktop, isMobile } = useDevices();
   const gsapRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -72,12 +72,22 @@ export default function Hero({ user }: Props) {
         scrollSnapAlign: "start",
         overflow: "hidden"
       }}>
-        <Stack h={"90vh"} gap={0} justify={"center"} pt={"10vw"}>
+        <Stack h={"90vh"} gap={0} justify={"center"} pt={"9vw"}>
           <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} mb={"xl"} radius={"50%"} p={2} shadow="xl">
             <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
           </Paper>
+          <Group>
+            <Group component={"span"} style={{ overflow: "hidden" }}>
+              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} ta={"end"} inline style={{
+                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+              }}>
+                André Campos
+              </Text>
+            </Group>
+            <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
+          </Group>
           <Group component={"span"} style={{ overflow: "hidden" }}>
-            <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={"8vw"} ta={"end"} inline style={{
+            <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={ isDesktop ? "7vw" : "9vw"} ta={"end"} inline style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
               Desenvolvedor Web
@@ -86,7 +96,7 @@ export default function Hero({ user }: Props) {
           <Group>
             <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
             <Group component={"span"} style={{ overflow: "hidden" }}>
-              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isMobile ? "md" : "xl"} ta={"end"} inline style={{
+              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} ta={"end"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 FULLSTACK | React & Node
