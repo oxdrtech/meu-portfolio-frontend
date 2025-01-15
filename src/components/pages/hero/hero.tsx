@@ -7,6 +7,27 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
+const techIcons = [
+  { src: "./icon-docker.webp", angle: 0 },
+  { src: "./icon-expressjs.webp", angle: 60 },
+  { src: "./icon-figma.webp", angle: 120 },
+  { src: "./icon-git.webp", angle: 180 },
+  { src: "./icon-javascript.webp", angle: 240 },
+  { src: "./icon-jest.webp", angle: 300 },
+  { src: "./icon-mantine.webp", angle: 300 },
+  { src: "./icon-mongodb.webp", angle: 300 },
+  { src: "./icon-mysql.webp", angle: 300 },
+  { src: "./icon-nestjs.webp", angle: 300 },
+  { src: "./icon-nextjs.webp", angle: 300 },
+  { src: "./icon-postegres.webp", angle: 300 },
+  { src: "./icon-postman.webp", angle: 300 },
+  { src: "./icon-prisma.webp", angle: 300 },
+  { src: "./icon-redis.webp", angle: 300 },
+  { src: "./icon-typescript.webp", angle: 300 },
+  { src: "./icon-vercel.webp", angle: 300 },
+  { src: "./icon-vite.webp", angle: 300 },
+];
+
 interface Props {
   user?: userDetails;
 }
@@ -65,6 +86,8 @@ export default function Hero({ user }: Props) {
         })
     }
   }, { scope: gsapRef })
+
+  // TODO - adicionar area dos icones
 
   return (
     <>
