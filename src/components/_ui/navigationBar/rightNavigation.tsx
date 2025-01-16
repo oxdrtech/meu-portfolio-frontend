@@ -72,7 +72,7 @@ export default function RightNavigation({ triggerGSAP }: Props) {
 
   return (
     <Flex ref={gsapRef} pos={"fixed"} w={"max-content"} direction={"column"} right={"1rem"} pt={isMobile ? "3rem" : "5rem"} pr={".3rem"} gap={"8"} align={"end"} style={{
-      zIndex: 1000
+      zIndex: 300,
     }}>
       {pages.map((page, index) => (
         <Group key={index} component={"span"} style={{ overflow: "hidden" }}>

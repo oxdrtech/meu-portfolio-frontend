@@ -53,7 +53,9 @@ export default function LeftNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} w={"max-content"} h={"100vh"} direction={"column"} left={"1rem"} py={isMobile ? "3rem" : "5rem"} justify={"space-between"} style={{ zIndex: 1000 }}>
+      <Flex ref={gsapRef} pos={"fixed"} w={"max-content"} h={"100vh"} direction={"column"} left={"1rem"} py={isMobile ? "3rem" : "5rem"} justify={"space-between"} style={{
+        zIndex: 300,
+      }}>
         <Flex direction={"column"} gap={"sm"}>
           {links.map((link, index) => {
             const { hovered, ref } = useHover();

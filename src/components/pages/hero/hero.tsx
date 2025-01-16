@@ -8,24 +8,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
 const techIcons = [
-  { src: "./icon-docker.webp", angle: 0 },
-  { src: "./icon-expressjs.webp", angle: 60 },
-  { src: "./icon-figma.webp", angle: 120 },
-  { src: "./icon-git.webp", angle: 180 },
-  { src: "./icon-javascript.webp", angle: 240 },
-  { src: "./icon-jest.webp", angle: 300 },
-  { src: "./icon-mantine.webp", angle: 300 },
-  { src: "./icon-mongodb.webp", angle: 300 },
-  { src: "./icon-mysql.webp", angle: 300 },
-  { src: "./icon-nestjs.webp", angle: 300 },
-  { src: "./icon-nextjs.webp", angle: 300 },
-  { src: "./icon-postegres.webp", angle: 300 },
-  { src: "./icon-postman.webp", angle: 300 },
-  { src: "./icon-prisma.webp", angle: 300 },
-  { src: "./icon-redis.webp", angle: 300 },
-  { src: "./icon-typescript.webp", angle: 300 },
-  { src: "./icon-vercel.webp", angle: 300 },
-  { src: "./icon-vite.webp", angle: 300 },
+  { src: "./icon-docker.webp" },
+  { src: "./icon-expressjs.webp" },
+  { src: "./icon-figma.webp" },
+  { src: "./icon-git.webp" },
+  { src: "./icon-javascript.webp" },
+  { src: "./icon-jest.webp" },
+  { src: "./icon-mantine.webp" },
+  { src: "./icon-mongodb.webp" },
+  { src: "./icon-mysql.webp" },
+  { src: "./icon-nestjs.webp" },
+  { src: "./icon-nextjs.webp" },
+  { src: "./icon-postegres.webp" },
+  { src: "./icon-postman.webp" },
+  { src: "./icon-prisma.webp" },
+  { src: "./icon-redis.webp" },
+  { src: "./icon-typescript.webp" },
+  { src: "./icon-vercel.webp" },
+  { src: "./icon-vite.webp" },
 ];
 
 interface Props {
@@ -110,7 +110,7 @@ export default function Hero({ user }: Props) {
             <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
           </Group>
           <Group component={"span"} style={{ overflow: "hidden" }}>
-            <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={ isDesktop ? "6rem" : "7.5vw"} ta={"end"} inline style={{
+            <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={isDesktop ? "6rem" : "7.5vw"} ta={"end"} inline style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
               Desenvolvedor Web
