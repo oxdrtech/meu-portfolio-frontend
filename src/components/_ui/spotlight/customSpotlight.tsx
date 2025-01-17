@@ -4,14 +4,15 @@ import { IconBrandGithub, IconBrandLinkedin, IconCode, IconCopy, IconDownload, I
 import CustomNotification from "../notification/customNotification";
 
 export default function CustomSpotlight() {
-  const clipboard = useClipboard();
-
-  const copyLink = () => {
-    clipboard.copy(window.location.href);
-    CustomNotification({
-      title: "Sucesso",
-      message: "Link copiado 👍",
-    })
+  const copyLink = (url: string) => {
+    const clipboard = useClipboard();
+    return () => {
+      clipboard.copy(url);
+      CustomNotification({
+        title: "Sucesso",
+        message: "Link copiado 👍",
+      })
+    }
   };
 
   const downloadCV = (filePath: string) => {
@@ -34,7 +35,7 @@ export default function CustomSpotlight() {
       id: "link",
       label: "Link",
       description: "Copiar endereço desta pagina",
-      onClick: copyLink,
+      onClick: copyLink(window.location.href),
       leftSection: <IconCopy size={22} />,
     },
     {
