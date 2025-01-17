@@ -11,16 +11,16 @@ import CustomSpotlight from "../spotlight/customSpotlight";
 const links = [
   {
     icon: IconBrandLinkedin,
-    url: 'https://www.linkedin.com/in/ddr23/'
+    url: 'https://www.linkedin.com/in/ddr23/',
   },
   {
     icon: IconBrandGithub,
-    url: 'https://github.com/DDR23'
+    url: 'https://github.com/DDR23',
   }
 ];
 
 const buttons = [
-  { icon: IconSearch }
+  { icon: IconSearch },
 ]
 
 interface Props {
@@ -53,9 +53,19 @@ export default function LeftNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} w={"max-content"} h={"100vh"} direction={"column"} left={"1rem"} py={isMobile ? "3rem" : "5rem"} justify={"space-between"} style={{
-        zIndex: 300,
-      }}>
+      <Flex
+        ref={gsapRef}
+        pos={"fixed"}
+        w={"max-content"}
+        h={"100vh"}
+        direction={"column"}
+        left={"1rem"}
+        pt={isMobile ? "3rem" : "5rem"}
+        pb={"5rem"}
+        justify={isMobile ? "" : "space-between"}
+        style={{
+          zIndex: 300,
+        }}>
         <Flex direction={"column"} gap={"sm"}>
           {links.map((link, index) => {
             const { hovered, ref } = useHover();
@@ -68,7 +78,7 @@ export default function LeftNavigation({ triggerGSAP }: Props) {
             );
           })}
         </Flex>
-        <Flex direction={"column"} gap={"sm"}>
+        <Flex direction={"column"} mt={"sm"}>
           {buttons.map((button, index) => {
             const { hovered, ref } = useHover();
             return (
