@@ -18,8 +18,9 @@ export default function CustomSpotlight() {
   const downloadCV = (filePath: string) => {
     return () => {
       const link = document.createElement('a');
+      const currentYear = new Date().getFullYear();
       link.href = filePath;
-      link.download = 'adnre-campos-cv2025.pdf';
+      link.download = `andre-campos-cv${currentYear}.pdf`;
       link.click();
     }
   };
@@ -42,7 +43,7 @@ export default function CustomSpotlight() {
       id: "curriculo",
       label: "Currículo",
       description: "Baixar meu currículo",
-      onClick: downloadCV("./andre-campos-cv2025.pdf"),
+      onClick: downloadCV("./andre-campos-cv.pdf"),
       leftSection: <IconDownload size={22} />,
     },
     {
