@@ -1,7 +1,8 @@
 "use client";
+import useDevices from "@/hooks/useDevices";
 import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Flex, LoadingOverlay, Text } from "@mantine/core";
+import { Flex, Text } from "@mantine/core";
 import gsap from "gsap";
 import { useRef, useState } from "react";
 
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function Loading({ onComplete }: Props) {
+  const { isDesktop } = useDevices();
   const gsapRef = useRef(null);
   const [progress, setProgress] = useState(0);
 
@@ -42,12 +44,19 @@ export default function Loading({ onComplete }: Props) {
       <Flex w={"220"}>
         <DotLottieReact src="./loader.lottie" autoplay loop speed={1} />
       </Flex>
-      <Text pos={"absolute"} fz={"5rem"} bottom={0} right={50} c={"defaultColor"}>
+      <Text pos={isDesktop ? "absolute" : "static"} fz={"5rem"} bottom={0} right={50} c={"defaultColor"} inline>
         {progress}
-        <Text component="span" fz={"2rem"}>%</Text>
       </Text>
     </Flex>
   );
 
-  return <LoadingOverlay ref={gsapRef} visible={true} zIndex={1000} overlayProps={{ blur: 64 }} loaderProps={{ children: loaderAnimation }} />
+  return (
+    <>
+      <Flex ref={gsapRef} pos={"absolute"} style={{
+        zIndex: 1000,
+      }}>
+        {loaderAnimation}
+      </Flex>
+    </>
+  )
 }

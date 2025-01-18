@@ -2,31 +2,9 @@ import useDevices from "@/hooks/useDevices";
 import { userDetails } from "@/types/userDetails";
 import { useGSAP } from "@gsap/react";
 import { Avatar, Flex, Group, Paper, Stack, Text } from "@mantine/core";
-import { IconMouse } from "@tabler/icons-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-
-const techIcons = [
-  { src: "./icon-docker.webp" },
-  { src: "./icon-expressjs.webp" },
-  { src: "./icon-figma.webp" },
-  { src: "./icon-git.webp" },
-  { src: "./icon-javascript.webp" },
-  { src: "./icon-jest.webp" },
-  { src: "./icon-mantine.webp" },
-  { src: "./icon-mongodb.webp" },
-  { src: "./icon-mysql.webp" },
-  { src: "./icon-nestjs.webp" },
-  { src: "./icon-nextjs.webp" },
-  { src: "./icon-postegres.webp" },
-  { src: "./icon-postman.webp" },
-  { src: "./icon-prisma.webp" },
-  { src: "./icon-redis.webp" },
-  { src: "./icon-typescript.webp" },
-  { src: "./icon-vercel.webp" },
-  { src: "./icon-vite.webp" },
-];
 
 interface Props {
   user?: userDetails;
@@ -87,8 +65,6 @@ export default function Hero({ user }: Props) {
     }
   }, { scope: gsapRef })
 
-  // TODO - adicionar area dos icones
-
   return (
     <>
       <Flex ref={gsapRef} className="panel" id="inicio" h={"100vh"} justify={"center"} align={"center"} direction={"column"} style={{
@@ -127,7 +103,6 @@ export default function Hero({ user }: Props) {
             </Group>
           </Group>
         </Stack>
-        <IconMouse className="objectup-animated icon-animated" size={28} color="#DAFF01" />
       </Flex>
     </>
   );
