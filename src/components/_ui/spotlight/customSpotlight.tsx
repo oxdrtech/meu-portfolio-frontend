@@ -2,8 +2,18 @@ import { useClipboard } from "@mantine/hooks";
 import { Spotlight, SpotlightActionData } from "@mantine/spotlight";
 import { IconBrandGithub, IconBrandLinkedin, IconCode, IconCopy, IconDownload, IconMail, IconSearch } from "@tabler/icons-react";
 import CustomNotification from "../notification/customNotification";
+import { useEffect, useState } from "react";
 
 export default function CustomSpotlight() {
+  const [currentURL, setCurrentURL] = useState<string>("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const url = window?.location?.href || "";
+      setCurrentURL(url);
+    }
+  }, []);
+
   const copyLink = (url: string) => {
     const clipboard = useClipboard();
     return () => {
@@ -11,8 +21,11 @@ export default function CustomSpotlight() {
       CustomNotification({
         title: "Sucesso",
         message: "Link copiado 👍",
-      })
-    }
+      });
+      setTimeout(() => {
+        clipboard.reset();
+      }, 3000);
+    };
   };
 
   const downloadCV = (filePath: string) => {
@@ -36,7 +49,7 @@ export default function CustomSpotlight() {
       id: "link",
       label: "Link",
       description: "Copiar endereço desta pagina",
-      onClick: copyLink(window.location.href),
+      onClick: copyLink(currentURL || "URL não disponível"),
       leftSection: <IconCopy size={22} />,
     },
     {

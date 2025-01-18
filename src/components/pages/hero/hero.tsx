@@ -55,14 +55,7 @@ export default function Hero({ user }: Props) {
           duration: .2,
           transformOrigin: "left center",
         }, "-=0.2")
-        .to(".icon-animated", {
-          duration: 2,
-          y: "-5px",
-          repeat: -1,
-          yoyo: true,
-          ease: "bounce.in",
-        })
-    }
+    };
   }, { scope: gsapRef })
 
   return (
@@ -71,7 +64,7 @@ export default function Hero({ user }: Props) {
         scrollSnapAlign: "start",
         overflow: "hidden"
       }}>
-        <Stack h={"90vh"} gap={0} justify={"center"} pt={"9vw"}>
+        <Stack h={"90vh"} gap={0} justify={"center"}>
           <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} mb={"xl"} radius={"50%"} p={2} shadow="xl">
             <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
           </Paper>
