@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 import '@mantine/notifications/styles.css';
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from "@mantine/core";
 import type { Metadata } from "next";
 import { theme } from "../styles/theme";
 import "../styles/globals.css";
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript defaultColorScheme="dark" />
       </head>

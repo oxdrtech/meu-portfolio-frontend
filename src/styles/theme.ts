@@ -1,4 +1,5 @@
 "use client";
+import { themeColors } from "@/utils/themeColors";
 import { createTheme, rem } from "@mantine/core";
 
 export const theme = createTheme({
@@ -12,18 +13,5 @@ export const theme = createTheme({
     lg: rem(18),
     xl: rem(20),
   },
-  colors: {
-    defaultColor: [
-      "#fbffe2",
-      "#f8ffcc",
-      "#f0ff9a",
-      "#e8ff64",
-      "#e2ff38",
-      "#deff1d",
-      "#dbff09",
-      "#c2e300",
-      "#abca00",
-      "#92ae00"
-    ],
-  },
+  colors: themeColors,
 });
