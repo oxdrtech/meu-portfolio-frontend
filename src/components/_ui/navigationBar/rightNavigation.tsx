@@ -77,7 +77,8 @@ export default function RightNavigation({ triggerGSAP }: Props) {
       {pages.map((page, index) => (
         <Group key={index} component={"span"} style={{ overflow: "hidden" }}>
           <Text className={`target-${index + 1} pages-animated`} component="span" onClick={() => scrollToSection(page.target)} display={"none"} inline style={{
-            cursor: "pointer"
+            cursor: "pointer",
+            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
           }}>
             {page.label}
           </Text>

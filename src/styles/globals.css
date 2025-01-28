@@ -18,7 +18,6 @@ html {
   display: none;
 }
 
-::selection{
-  color: #232323;
-  background-color: #DAFF01;
+* {
+  user-select: none;
 }

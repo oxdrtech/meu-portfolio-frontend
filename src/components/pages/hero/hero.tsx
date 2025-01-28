@@ -64,37 +64,41 @@ export default function Hero({ user }: Props) {
         scrollSnapAlign: "start",
         overflow: "hidden"
       }}>
-        <Stack h={"90vh"} gap={0} justify={"center"}>
-          <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} mb={"xl"} radius={"50%"} p={2} shadow="xl">
-            <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
-          </Paper>
-          <Group>
+        <Stack h={"80vh"} justify={"space-between"}>
+          <Stack gap={0} flex={1} justify={"center"} mt={"50"}>
+            <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} my={"lg"} radius={"50%"} p={2} shadow="xl">
+              <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
+            </Paper>
+            <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
+              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} style={{
+                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+              }}>
+                🙋‍♂️ Olá, meu nome é
+              </Text>
+            </Group>
             <Group component={"span"} style={{ overflow: "hidden" }}>
-              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} ta={"end"} inline style={{
+              <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={isDesktop ? "64" : "36"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 André Campos
               </Text>
             </Group>
-            <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
-          </Group>
-          <Group component={"span"} style={{ overflow: "hidden" }}>
-            <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={isDesktop ? "6rem" : "7.5vw"} ta={"end"} inline style={{
-              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-            }}>
-              Desenvolvedor Web
-            </Text>
-          </Group>
-          <Group>
-            <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
-            <Group component={"span"} style={{ overflow: "hidden" }}>
-              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} ta={"end"} inline style={{
-                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-              }}>
-                FULLSTACK | React & Node
-              </Text>
+            <Group>
+              <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
+              <Group component={"span"} style={{ overflow: "hidden" }}>
+                <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} inline style={{
+                  textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+                }}>
+                  FULLSTACK | React & Node
+                </Text>
+              </Group>
             </Group>
-          </Group>
+          </Stack>
+          <Text className="objectup-animated" component="h1" fw={"normal"} fz={"md"} c={"defaultColor"} ta={"center"} pb={"lg"} inline style={{
+            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+          }}>
+            Seja bem vindo ao meu portifólio
+          </Text>
         </Stack>
       </Flex>
     </>
