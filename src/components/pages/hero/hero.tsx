@@ -1,4 +1,4 @@
-import useDevices from "@/hooks/useDevices";
+import themeDevices from "@/styles/themeDevices";
 import { userDetails } from "@/types/userDetails";
 import { useGSAP } from "@gsap/react";
 import { Avatar, Flex, Group, Paper, Stack, Text } from "@mantine/core";
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Hero({ user }: Props) {
-  const { isDesktop, isMobile } = useDevices();
+  const { isDesktop, isMobile } = themeDevices();
   const gsapRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 

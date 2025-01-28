@@ -1,4 +1,3 @@
-import useDevices from "@/hooks/useDevices";
 import { useGSAP } from "@gsap/react";
 import { ActionIcon, Flex, Group, HoverCard, Kbd } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
@@ -7,6 +6,7 @@ import { IconBrandGithub, IconBrandLinkedin, IconSearch } from "@tabler/icons-re
 import gsap from "gsap";
 import { useRef } from "react";
 import CustomSpotlight from "../spotlight/customSpotlight";
+import themeDevices from "@/styles/themeDevices";
 
 const links = [
   {
@@ -28,7 +28,7 @@ interface Props {
 }
 
 export default function LeftNavigation({ triggerGSAP }: Props) {
-  const { isDesktop, isMobile } = useDevices();
+  const { isDesktop, isMobile } = themeDevices();
   const gsapRef = useRef(null);
 
   useGSAP(() => {

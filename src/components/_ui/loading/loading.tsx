@@ -1,5 +1,5 @@
 "use client";
-import useDevices from "@/hooks/useDevices";
+import themeDevices from "@/styles/themeDevices";
 import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { Flex, Text } from "@mantine/core";
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Loading({ onComplete }: Props) {
-  const { isDesktop } = useDevices();
+  const { isDesktop } = themeDevices();
   const gsapRef = useRef(null);
   const [progress, setProgress] = useState(0);
 

@@ -1,6 +1,5 @@
 "use client";
 import Background from "@/components/_ui/background/background";
-import useDevices from "@/hooks/useDevices";
 import { Flex, Stack } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Loading from "@/components/_ui/loading/loading";
@@ -10,9 +9,10 @@ import { userDetails } from "@/types/userDetails";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
+import themeDevices from "@/styles/themeDevices";
 
 export default function Home() {
-  const { isMobile } = useDevices();
+  const { isMobile } = themeDevices();
   const [renderCompleted, setRenderCompleted] = useState(false);
 
   const { response, sendRequest } = useGet<userDetails>(`${API_GIT_URL}/users/DDR23`);
@@ -22,7 +22,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Stack display={"block"}>
+    <Stack>
       <Loading onComplete={() => setRenderCompleted(true)} />
       <Background />
       <LeftNavigation triggerGSAP={renderCompleted} />

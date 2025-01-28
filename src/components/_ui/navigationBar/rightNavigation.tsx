@@ -1,4 +1,4 @@
-import useDevices from "@/hooks/useDevices";
+import themeDevices from "@/styles/themeDevices";
 import { useGSAP } from "@gsap/react";
 import { Flex, Group, Text } from "@mantine/core";
 import gsap from "gsap";
@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default function RightNavigation({ triggerGSAP }: Props) {
-  const { isMobile } = useDevices();
+  const { isMobile } = themeDevices();
   const gsapRef = useRef(null);
 
   gsap.registerPlugin(ScrollToPlugin);
