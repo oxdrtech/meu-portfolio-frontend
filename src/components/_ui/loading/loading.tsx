@@ -44,7 +44,7 @@ export default function Loading({ onComplete }: Props) {
       <Flex w={"220"}>
         <DotLottieReact src="./loader.lottie" autoplay loop speed={1} />
       </Flex>
-      <Text pos={isDesktop ? "absolute" : "static"} fz={"5rem"} bottom={0} right={50} c={"defaultColor"} inline>
+      <Text pos={isDesktop ? "absolute" : "static"} fz={"5rem"} bottom={0} right={50} c={"defaultColor.7"} inline>
         {progress}
       </Text>
     </Flex>

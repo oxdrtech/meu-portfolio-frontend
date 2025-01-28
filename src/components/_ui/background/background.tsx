@@ -45,7 +45,7 @@ export default function Background() {
           <DotLottieReact src="./background.lottie" speed={.5} loop autoplay />
         </Group>
         <Group>
-          <Paper className="light-animated" radius="50%" w={"7000px"} h={"7000px"} bg={"defaultColor"} pos={"absolute"} style={{
+          <Paper className="light-animated" radius="50%" w={"7000px"} h={"7000px"} bg={"defaultColor.7"} pos={"absolute"} style={{
             left: "50%",
             top: "50%",
             transform: "translate(-50%, -50%)",
