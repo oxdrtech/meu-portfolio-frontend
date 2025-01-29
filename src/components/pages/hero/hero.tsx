@@ -76,7 +76,7 @@ export default function Hero({ user }: Props) {
                 🙋‍♂️ Olá, meu nome é
               </Text>
             </Group>
-            <Group component={"span"} style={{ overflow: "hidden" }}>
+            <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
               <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={isDesktop ? "64" : "36"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
