@@ -10,6 +10,7 @@ import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
+import About from "@/components/pages/about/about";
 
 export default function Home() {
   const { isMobile } = themeDevices();
@@ -34,11 +35,7 @@ export default function Home() {
         {renderCompleted && (
           <>
             <Hero user={response?.data} />
-            <Flex className="panel" id="sobre-mim" h={"100vh"} justify={"center"} align={"center"} style={{
-              scrollSnapAlign: "start",
-            }}>
-              cobre mim
-            </Flex>
+            <About />
             <Flex className="panel" id="habilidades" h={"100vh"} justify={"center"} align={"center"} style={{
               scrollSnapAlign: "start",
             }}>
