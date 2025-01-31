@@ -19,7 +19,7 @@ export default function About() {
               </Text>
               <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
             </Paper>
-            <Text ta={"center"} py={"xs"} fz={isMobile ? "sm" : "md"} c={"defaultColor"} style={{
+            <Text ta={"center"} py={"xs"} fw={"lighter"} fz={isMobile ? "md" : "lg"} c={"defaultColor"} style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
               Há 2 anos desenvolvendo sites e aplicações web sob medida para empresas e negócios independentes, transformo ideias em soluções reais que unem qualidade, alta performance, design elegante e uma experiência do usuário marcante
@@ -34,6 +34,7 @@ export default function About() {
               </Text>
               <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
             </Paper>
+            {/* TODO - adicionar area de carreira */}
           </Stack>
         </Stack>
       </Flex>

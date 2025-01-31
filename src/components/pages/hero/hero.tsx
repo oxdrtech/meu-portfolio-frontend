@@ -94,7 +94,7 @@ export default function Hero({ user }: Props) {
               </Group>
             </Group>
           </Stack>
-          <Text className="objectup-animated" component="h1" fw={"normal"} fz={"md"} c={"defaultColor"} ta={"center"} pb={"lg"} inline style={{
+          <Text className="objectup-animated" component="h1" fw={"lighter"} fz={isMobile ? "md" : "lg"} c={"defaultColor"} ta={"center"} pb={"lg"} inline style={{
             textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
           }}>
             Seja bem vindo ao meu portfólio
