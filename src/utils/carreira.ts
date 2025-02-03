@@ -27,7 +27,7 @@ export const carreira = [
     inicio: "fev de 2023",
     termino: "",
     tipo: "Remota",
-    descricao: `Já desenvolvi CMS's, API's RESTfull, paineis de usúario, sistema de cotação industrial, automações, raspagem de dados, SPA's para projetos individuais entre outros...`,
+    descricao: `Já desenvolvi CMS's, API's RESTfull, paineis de usúario, sistema de cotação industrial, automações, raspagem de dados, Landingpages entre outros...`,
     competencias: [
       "Node.js",
       "Next.js",
@@ -49,7 +49,7 @@ export const carreira = [
   {
     empresa: "",
     empresa_logo: "",
-    cargo: "Seu Projeto aqui",
+    cargo: "Seu projeto aqui",
     inicio: "",
     termino: "",
     tipo: "",
