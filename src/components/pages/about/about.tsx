@@ -1,6 +1,6 @@
 import themeDevices from "@/styles/themeDevices";
 import { carreira } from "@/utils/carreira";
-import { Avatar, Badge, Card, Flex, Group, Popover, Stack, Table, Text } from "@mantine/core";
+import { Avatar, Badge, Card, Flex, Group, HoverCard, Stack, Table, Text } from "@mantine/core";
 import { IconBriefcaseFilled } from "@tabler/icons-react";
 
 export default function About() {
@@ -39,20 +39,20 @@ export default function About() {
               <Badge variant="outline" key={index}>{comp}</Badge>
             ))}
             {trabalho.competencias.length > 5 && (
-              <Popover width={200} position="bottom" withArrow shadow="md">
-                <Popover.Target>
+              <HoverCard width={200} position="bottom" withArrow shadow="md">
+                <HoverCard.Target>
                   <Badge variant="light" style={{ cursor: "pointer" }}>
                     + {trabalho.competencias.length - 5} competências
                   </Badge>
-                </Popover.Target>
-                <Popover.Dropdown>
+                </HoverCard.Target>
+                <HoverCard.Dropdown>
                   <Stack gap="xs">
                     {trabalho.competencias.slice(5).map((comp, index) => (
                       <Text key={index} fz={"sm"} c={"defaultColor"} inline>{comp}</Text>
                     ))}
                   </Stack>
-                </Popover.Dropdown>
-              </Popover>
+                </HoverCard.Dropdown>
+              </HoverCard>
             )}
           </Group>
         </Stack>
