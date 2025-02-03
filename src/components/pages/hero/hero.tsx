@@ -62,7 +62,6 @@ export default function Hero({ user }: Props) {
     <>
       <Flex ref={gsapRef} className="panel" id="inicio" h={"100vh"} justify={"center"} align={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
-        overflow: "hidden"
       }}>
         <Stack h={"80vh"} justify={"space-between"}>
           <Stack gap={0} flex={1} justify={"center"} mt={"50"}>
@@ -70,14 +69,14 @@ export default function Hero({ user }: Props) {
               <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
             </Paper>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-              <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} style={{
+              <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 🙋‍♂️ Olá, meu nome é
               </Text>
             </Group>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-              <Text className="objectup-animated" component={"h1"} fw={"bold"} fz={isDesktop ? "64" : "36"} inline style={{
+              <Text className="objectup-animated" opacity={"0"} component={"h1"} fw={"bold"} fz={isDesktop ? "64" : "36"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 André Campos
@@ -86,7 +85,7 @@ export default function Hero({ user }: Props) {
             <Group>
               <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
               <Group component={"span"} style={{ overflow: "hidden" }}>
-                <Text className="objectup-animated" component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} inline style={{
+                <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} inline style={{
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                 }}>
                   FULLSTACK | React & Node
@@ -94,11 +93,13 @@ export default function Hero({ user }: Props) {
               </Group>
             </Group>
           </Stack>
-          <Text className="objectup-animated" component="h1" fw={"lighter"} fz={isMobile ? "md" : "lg"} c={"defaultColor"} ta={"center"} pb={"lg"} inline style={{
-            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-          }}>
-            Seja bem vindo ao meu portfólio
-          </Text>
+          <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
+            <Text className="objectup-animated" opacity={"0"} component="h1" fw={"lighter"} fz={isMobile ? "md" : "lg"} c={"defaultColor"} mb={"lg"} inline style={{
+              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+            }}>
+              Seja bem vindo ao meu portfólio
+            </Text>
+          </Group>
         </Stack>
       </Flex>
     </>
