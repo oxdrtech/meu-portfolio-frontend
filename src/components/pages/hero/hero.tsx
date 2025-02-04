@@ -1,5 +1,5 @@
 import themeDevices from "@/styles/themeDevices";
-import { userDetails } from "@/types/userDetails";
+import { User } from "@/types/hero";
 import { useGSAP } from "@gsap/react";
 import { Avatar, Flex, Group, Paper, Stack, Text } from "@mantine/core";
 import gsap from "gsap";
@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
 interface Props {
-  user?: userDetails;
+  user?: User;
 }
 
 export default function Hero({ user }: Props) {

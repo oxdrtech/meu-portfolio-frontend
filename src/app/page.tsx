@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Loading from "@/components/_ui/loading/loading";
 import Hero from "@/components/pages/hero/hero";
 import useGet from "@/hooks/useGet";
-import { userDetails } from "@/types/userDetails";
+import { userDetails } from "@/types/hero";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
