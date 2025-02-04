@@ -15,34 +15,22 @@ export default function Skills() {
       onMouseEnter={() => setOpenedItem(skill.field)}
       onMouseLeave={() => setOpenedItem(skillsMock[0]?.field)}
     >
-      <Accordion.Control>
-        <Group gap={"xs"}>
-          <Text
-            fw={"bold"}
-            fz={"lg"}
-            c={"defaultColor"}
-            inline
-            style={{
+      <Accordion.Control px={"sm"}>
+        <Stack gap={"xs"} pt={openedItem === skill.field ? "lg" : ""} style={{
+          transition: "0.4s ease",
+        }}>
+          <Group>
+            <Text fw={"bold"} fz={"lg"} c={"defaultColor"} inline style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
-            {skill.title}
-          </Text>
-          <Text fw={"bold"} c={"dimmed"} inline>
-            {skill.field}
-          </Text>
-        </Group>
-      </Accordion.Control>
-      <Accordion.Panel>
-        <Stack
-          px={"xs"}
-          style={{
-            overflow: "hidden",
-            transition: "0.5s ease",
-          }}
-        >
-          <Stack pl={"xl"}>
-            <Text inline>{skill.description}</Text>
-            <Text c={"dimmed"} inline>
+              {skill.title}
+            </Text>
+            <Text fw={"bold"} inline>
+              {skill.field}
+            </Text>
+          </Group>
+          <Stack gap={"xs"} px={"sm"}>
+            <Text fz={"xs"} c={"dimmed"} inline>
               Habilidades
             </Text>
             <Group gap={isMobile ? "6" : "xs"}>
@@ -71,6 +59,15 @@ export default function Skills() {
               )}
             </Group>
           </Stack>
+        </Stack>
+      </Accordion.Control>
+      <Accordion.Panel>
+        <Stack px={"sm"} pb={openedItem === skill.field ? "lg" : ""} style={{
+          transition: "0.4s ease",
+        }}>
+          <Text inline>
+            {skill.description}
+          </Text>
         </Stack>
       </Accordion.Panel>
     </Accordion.Item>
