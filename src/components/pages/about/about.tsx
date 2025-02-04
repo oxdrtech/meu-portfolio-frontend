@@ -1,6 +1,6 @@
 import { carreira } from "@/mocks/carreira";
 import themeDevices from "@/styles/themeDevices";
-import { Avatar, Badge, Card, Flex, Group, HoverCard, Stack, Table, Text } from "@mantine/core";
+import { Avatar, Badge, Card, Flex, Group, Highlight, HoverCard, Stack, Table, Text } from "@mantine/core";
 import { IconBriefcaseFilled } from "@tabler/icons-react";
 
 export default function About() {
@@ -9,7 +9,11 @@ export default function About() {
   const rows = carreira.map((trabalho, index) => (
     <Table.Tr key={index}>
       <Table.Td pl={"lg"}>
-        <Avatar src={trabalho.empresa_logo && trabalho.empresa_logo} size={"50"} radius={"sm"} >{!trabalho.empresa_logo && <IconBriefcaseFilled color="#DAFF01" />}</Avatar>
+        <Avatar
+          src={trabalho.empresa_logo && trabalho.empresa_logo}
+          size={"50"} radius={"sm"}>
+          {!trabalho.empresa_logo && <IconBriefcaseFilled color="#DAFF01" />}
+        </Avatar>
       </Table.Td>
       <Table.Td py={"md"} pr={"lg"}>
         <Stack gap={"xs"}>
@@ -66,11 +70,27 @@ export default function About() {
         scrollSnapAlign: "start",
       }}>
         <Stack h={"90vh"} w={"70rem"} maw={"90vw"} justify="space-around" align={"center"} gap={"xl"}>
-          <Text ta={"center"} fw={"bold"} fz={isMobile ? "h4" : "h1"} mt={isMobile ? "40" : "80"} inline style={{
-            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-          }}>
+          <Highlight
+            highlight={[
+              "qualidade",
+              "performance",
+              "design",
+              "experiência",
+            ]}
+            highlightStyles={{
+              color: "#DAFF01",
+              WebkitBackgroundClip: 'text',
+            }}
+            ta={"center"}
+            fw={"bold"}
+            fz={isMobile ? "h4" : "h1"}
+            mt={isMobile ? "40" : "80"}
+            inline
+            style={{
+              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+            }}>
             Há 2 anos desenvolvendo sites e aplicações web sob medida para empresas e negócios independentes, transformando ideias em soluções reais que unem qualidade, alta performance, design elegante e uma experiência do usuário marcante
-          </Text>
+          </Highlight>
           <Stack justify={"center"}>
             <Card p={"0"} radius={"md"} style={{
               backdropFilter: "blur(100px)",
