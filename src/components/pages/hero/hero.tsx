@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Hero({ user }: Props) {
-  const { isDesktop, isMobile } = themeDevices();
+  const { isMobile } = themeDevices();
   const gsapRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -69,14 +69,14 @@ export default function Hero({ user }: Props) {
               <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
             </Paper>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-              <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} style={{
+              <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "md" : "xl"} style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 🙋‍♂️ Olá, meu nome é
               </Text>
             </Group>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-              <Text className="objectup-animated" opacity={"0"} component={"h1"} fw={"bold"} fz={isDesktop ? "64" : "36"} inline style={{
+              <Text className="objectup-animated" opacity={"0"} component={"h1"} fw={"bold"} fz={isMobile ? "36" : "64"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 André Campos
@@ -85,7 +85,7 @@ export default function Hero({ user }: Props) {
             <Group>
               <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
               <Group component={"span"} style={{ overflow: "hidden" }}>
-                <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isDesktop ? "xl" : "md"} inline style={{
+                <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "md" : "xl"} inline style={{
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                 }}>
                   FULLSTACK | React & Node
