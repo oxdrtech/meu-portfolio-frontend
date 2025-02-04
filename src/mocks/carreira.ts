@@ -1,4 +1,6 @@
-export const carreira = [
+import { careerDetails } from "@/types/careerDetails";
+
+export const carreira: careerDetails[] = [
   {
     empresa: "Ômega Screen Indústria",
     empresa_logo: "https://media.licdn.com/dms/image/v2/C4D0BAQGOFOwukbCi5g/company-logo_200_200/company-logo_200_200/0/1669890865489/mega_indstria_e_comrcio_de_tintas_ltda_logo?e=1746662400&v=beta&t=riQ6QdLEHo5OfSNvkWktxfjDLrELbBTnP131ayLhBvI",

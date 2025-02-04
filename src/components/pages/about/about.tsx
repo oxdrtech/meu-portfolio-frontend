@@ -1,5 +1,5 @@
+import { carreira } from "@/mocks/carreira";
 import themeDevices from "@/styles/themeDevices";
-import { carreira } from "@/utils/carreira";
 import { Avatar, Badge, Card, Flex, Group, HoverCard, Stack, Table, Text } from "@mantine/core";
 import { IconBriefcaseFilled } from "@tabler/icons-react";
 
