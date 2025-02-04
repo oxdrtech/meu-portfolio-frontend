@@ -11,6 +11,7 @@ import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
 import About from "@/components/pages/about/about";
+import Skills from "@/components/pages/skills/skills";
 
 export default function Home() {
   const { isMobile } = themeDevices();
@@ -36,11 +37,7 @@ export default function Home() {
           <>
             <Hero user={response?.data} />
             <About />
-            <Flex className="panel" id="habilidades" h={"100vh"} justify={"center"} align={"center"} style={{
-              scrollSnapAlign: "start",
-            }}>
-              habilidades
-            </Flex>
+            <Skills />
             <Flex className="panel" id="projetos" h={"100vh"} justify={"center"} align={"center"} style={{
               scrollSnapAlign: "start",
             }}>
