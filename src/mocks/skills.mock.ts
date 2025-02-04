@@ -2,7 +2,7 @@ import { Skills } from "@/types/skills";
 
 export const skillsMock: Skills[] = [
   {
-    title: "Desenvolvimento de interfaces",
+    title: "Desenvolvimento de Interfaces",
     field: "Front-end",
     description: "Com o uso de tecnologias e bibliotecas avançadas de ferramentas, transformo layouts em realidade, programando linha a linha aplico características únicas e originais para cada projeto. Programando de paginas simples até interfaces mais complexas e integradas à servidores e banco de dados",
     skills: [
@@ -24,7 +24,7 @@ export const skillsMock: Skills[] = [
       "Node.js",
       "Git",
       "SQL",
-      "MongoBD",
+      "MongoDB",
       "Postgrees",
       "TypeScript",
       "Nest.js",

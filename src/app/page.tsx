@@ -5,19 +5,19 @@ import { useEffect, useState } from "react";
 import Loading from "@/components/_ui/loading/loading";
 import Hero from "@/components/pages/hero/hero";
 import useGet from "@/hooks/useGet";
-import { userDetails } from "@/types/hero";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
 import About from "@/components/pages/about/about";
 import Skills from "@/components/pages/skills/skills";
+import { User } from "@/types/hero";
 
 export default function Home() {
   const { isMobile } = themeDevices();
   const [renderCompleted, setRenderCompleted] = useState(false);
 
-  const { response, sendRequest } = useGet<userDetails>(`${API_GIT_URL}/users/DDR23`);
+  const { response, sendRequest } = useGet<User>(`${API_GIT_URL}/users/DDR23`);
 
   useEffect(() => {
     sendRequest();
