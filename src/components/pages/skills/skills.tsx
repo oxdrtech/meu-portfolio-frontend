@@ -1,106 +1,80 @@
 import { skillsMock } from "@/mocks/skills.mock";
 import themeDevices from "@/styles/themeDevices";
-import { Badge, Card, Flex, Group, Highlight, HoverCard, Stack, Table, Text } from "@mantine/core";
-import { useHover } from "@mantine/hooks";
+import { Accordion, Badge, Card, Flex, Group, Highlight, HoverCard, Stack, Text } from "@mantine/core";
 import { IconArrowDownLeft } from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function Skills() {
   const { isMobile } = themeDevices();
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [openedItem, setOpenedItem] = useState<string | null>(skillsMock[0]?.field || null);
 
-  const rows = skillsMock.map((skill, index) => {
-    const { ref, hovered } = useHover();
-
-    const responsiveMinHeight = isMobile ? "150px" : "100px";
-    const responsiveMaxHeight = isMobile ? "350px" : "200px";
-
-    const height = index === 0 ? (activeIndex === 1 ? responsiveMinHeight : responsiveMaxHeight) : hovered ? responsiveMaxHeight : responsiveMinHeight;
-    const padding = index === 0 ? (activeIndex === 1 ? "xs" : "lg") : hovered ? "lg" : "xs";
-    const rotate = index === 0 ? (activeIndex === 1 ? "0deg" : "180deg") : hovered ? "180deg" : "0deg";
-
-    return (
-      <Table.Tr
-        key={index}
-        ref={ref}
-        onMouseEnter={() => setActiveIndex(index)}
-        onMouseLeave={() => setActiveIndex(null)}
-      >
-        <Table.Td>
-          <Stack
-            px={"xs"}
-            py={padding}
+  const skills = skillsMock.map((skill, index) => (
+    <Accordion.Item
+      value={skill.field}
+      key={index}
+      onMouseEnter={() => setOpenedItem(skill.field)}
+      onMouseLeave={() => setOpenedItem(skillsMock[0]?.field)}
+    >
+      <Accordion.Control>
+        <Group gap={"xs"}>
+          <Text
+            fw={"bold"}
+            fz={"lg"}
+            c={"defaultColor"}
+            inline
             style={{
-              height,
-              overflow: "hidden",
-              transition: "0.5s ease",
-            }}
-          >
-            <Group gap={"xs"}>
-              <Text
-                fw={"bold"}
-                fz={"lg"}
-                c={"defaultColor"}
-                inline
-                style={{
-                  textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-                }}
-              >
-                {skill.title}
-              </Text>
-              <Text fw={"bold"} c={"dimmed"} inline>
-                {skill.field}
-              </Text>
+              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+            }}>
+            {skill.title}
+          </Text>
+          <Text fw={"bold"} c={"dimmed"} inline>
+            {skill.field}
+          </Text>
+        </Group>
+      </Accordion.Control>
+      <Accordion.Panel>
+        <Stack
+          px={"xs"}
+          style={{
+            overflow: "hidden",
+            transition: "0.5s ease",
+          }}
+        >
+          <Stack pl={"xl"}>
+            <Text inline>{skill.description}</Text>
+            <Text c={"dimmed"} inline>
+              Habilidades
+            </Text>
+            <Group gap={isMobile ? "6" : "xs"}>
+              {skill.skills.slice(0, 5).map((skill, index) => (
+                <Badge variant="outline" key={index}>
+                  {skill}
+                </Badge>
+              ))}
+              {skill.skills.length > 5 && (
+                <HoverCard width={200} position="bottom" withArrow shadow="md">
+                  <HoverCard.Target>
+                    <Badge variant="light" style={{ cursor: "pointer" }}>
+                      + {skill.skills.length - 5} competências
+                    </Badge>
+                  </HoverCard.Target>
+                  <HoverCard.Dropdown>
+                    <Stack gap="xs">
+                      {skill.skills.slice(5).map((skill, index) => (
+                        <Text key={index} fz={"sm"} c={"defaultColor"} inline>
+                          {skill}
+                        </Text>
+                      ))}
+                    </Stack>
+                  </HoverCard.Dropdown>
+                </HoverCard>
+              )}
             </Group>
-            <Stack pl={"xl"}>
-              <Text inline>{skill.description}</Text>
-              <Text c={"dimmed"} inline>
-                Habilidades
-              </Text>
-              <Group gap={isMobile ? "6" : "xs"}>
-                {skill.skills.slice(0, 5).map((skill, index) => (
-                  <Badge variant="outline" key={index}>
-                    {skill}
-                  </Badge>
-                ))}
-                {skill.skills.length > 5 && (
-                  <HoverCard width={200} position="bottom" withArrow shadow="md">
-                    <HoverCard.Target>
-                      <Badge variant="light" style={{ cursor: "pointer" }}>
-                        + {skill.skills.length - 5} competências
-                      </Badge>
-                    </HoverCard.Target>
-                    <HoverCard.Dropdown>
-                      <Stack gap="xs">
-                        {skill.skills.slice(5).map((skill, index) => (
-                          <Text key={index} fz={"sm"} c={"defaultColor"} inline>
-                            {skill}
-                          </Text>
-                        ))}
-                      </Stack>
-                    </HoverCard.Dropdown>
-                  </HoverCard>
-                )}
-              </Group>
-            </Stack>
           </Stack>
-        </Table.Td>
-        <Table.Td pos={"relative"}>
-          <IconArrowDownLeft
-            size={"22"}
-            style={{
-              rotate,
-              position: "absolute",
-              top: "10px",
-              right: "10px",
-              transitionDuration: ".5s",
-            }}
-          />
-        </Table.Td>
-      </Table.Tr>
-    );
-  });
-
+        </Stack>
+      </Accordion.Panel>
+    </Accordion.Item>
+  ));
 
   return (
     <>
@@ -133,11 +107,15 @@ export default function Skills() {
               backdropFilter: "blur(100px)",
               background: "#23232350"
             }}>
-              <Table highlightOnHover>
-                <Table.Tbody>
-                  {rows}
-                </Table.Tbody>
-              </Table>
+              <Accordion
+                value={openedItem}
+                variant={"contained"}
+                transitionDuration={400}
+                chevron={<IconArrowDownLeft color="gray" size={"28"} />}
+                chevronSize={"28px"}
+              >
+                {skills}
+              </Accordion>
             </Card>
           </Stack>
         </Stack>
