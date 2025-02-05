@@ -3,15 +3,15 @@ import Background from "@/components/_ui/background/background";
 import { Flex, Stack } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Loading from "@/components/_ui/loading/loading";
-import Hero from "@/components/pages/hero/hero";
 import useGet from "@/hooks/useGet";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
-import { User } from "@/types/hero";
 import PageSkills from "@/components/pages/skills/pageSkills";
 import PageCareers from "@/components/pages/about/pageCareers";
+import PageHero from "@/components/pages/hero/pageHero";
+import { User } from "@/types/user";
 
 export default function Home() {
   const { isMobile } = themeDevices();
@@ -35,7 +35,7 @@ export default function Home() {
       }}>
         {renderCompleted && (
           <>
-            <Hero user={response?.data} />
+            <PageHero user={response?.data} />
             <PageCareers />
             <PageSkills />
             <Flex className="panel" id="projetos" h={"100vh"} justify={"center"} align={"center"} style={{
