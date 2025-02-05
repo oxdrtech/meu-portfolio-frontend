@@ -1,6 +1,6 @@
-import { Skills } from "@/types/skills";
+import { Skill } from "@/types/skill";
 
-export const skillsMock: Skills[] = [
+export const skillsMock: Skill[] = [
   {
     title: "Desenv. de Interfaces",
     field: "Front-end",

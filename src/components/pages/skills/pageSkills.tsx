@@ -4,7 +4,7 @@ import { Accordion, Badge, Card, Flex, Group, Highlight, HoverCard, Stack, Text 
 import { IconArrowDownLeft } from "@tabler/icons-react";
 import { useState } from "react";
 
-export default function Skills() {
+export default function PageSkills() {
   const { isMobile } = themeDevices();
   const [openedItem, setOpenedItem] = useState<string | null>(skillsMock[0]?.field || null);
 

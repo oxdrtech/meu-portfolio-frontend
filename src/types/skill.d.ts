@@ -1,4 +1,4 @@
-export interface Skills {
+export interface Skill {
   title: string;
   field: string;
   description: string;
