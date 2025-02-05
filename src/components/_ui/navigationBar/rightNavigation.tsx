@@ -9,7 +9,6 @@ const pages = [
   { target: "inicio", label: "Início" },
   { target: "sobre-mim", label: "Sobre mim" },
   { target: "habilidades", label: "Habilidades" },
-  { target: "projetos", label: "Projetos" },
   { target: "contato", label: "Contato" },
 ];
 

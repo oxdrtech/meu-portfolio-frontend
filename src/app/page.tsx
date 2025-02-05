@@ -29,7 +29,7 @@ export default function Home() {
       <Background />
       <LeftNavigation triggerGSAP={renderCompleted} />
       <RightNavigation triggerGSAP={renderCompleted} />
-      <Stack display={"block"} className="main" h={renderCompleted ? "500vh" : "100vh"} style={{
+      <Stack display={"block"} className="main" h={renderCompleted ? "max-content" : "100vh"} style={{
         backdropFilter: isMobile ? "blur(64px)" : "blur(86px)",
         backgroundImage: 'url(./noise.png)',
       }}>
@@ -38,11 +38,6 @@ export default function Home() {
             <PageHero user={response?.data} />
             <PageCareers />
             <PageSkills />
-            <Flex className="panel" id="projetos" h={"100vh"} justify={"center"} align={"center"} style={{
-              scrollSnapAlign: "start",
-            }}>
-              projetos
-            </Flex>
             <Flex className="panel" id="contato" h={"100vh"} justify={"center"} align={"center"} style={{
               scrollSnapAlign: "start",
             }}>
