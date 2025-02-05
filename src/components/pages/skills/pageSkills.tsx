@@ -6,17 +6,17 @@ import { useState } from "react";
 
 export default function PageSkills() {
   const { isMobile } = themeDevices();
-  const [openedItem, setOpenedItem] = useState<string | null>(skillsMock[0]?.field || null);
+  const [openedItem, setOpenedItem] = useState<string | null>(skillsMock[0]?.id || null);
 
   const skills = skillsMock.map((skill, index) => (
     <Accordion.Item
-      value={skill.field}
+      value={skill.id}
       key={index}
-      onMouseEnter={() => setOpenedItem(skill.field)}
-      onMouseLeave={() => setOpenedItem(skillsMock[0]?.field)}
+      onMouseEnter={() => setOpenedItem(skill.id)}
+      onMouseLeave={() => setOpenedItem(skillsMock[0]?.id)}
     >
       <Accordion.Control px={"sm"} pos={"relative"}>
-        <Stack gap={"xs"} pt={openedItem === skill.field ? "lg" : ""} style={{
+        <Stack gap={"xs"} pt={openedItem === skill.id ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>
           <Group>
@@ -64,13 +64,13 @@ export default function PageSkills() {
         </Stack>
         <Stack pos={"absolute"} right={"10px"} top={"10px"}>
           <IconArrowDownLeft size={"28"} color="grey" style={{
-            rotate: openedItem === skill.field ? "180deg" : "0deg",
+            rotate: openedItem === skill.id ? "180deg" : "0deg",
             transition: "0.4s ease",
           }} />
         </Stack>
       </Accordion.Control>
       <Accordion.Panel>
-        <Stack px={"sm"} pb={openedItem === skill.field ? "lg" : ""} style={{
+        <Stack px={"sm"} pb={openedItem === skill.id ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>
           <Text fz={isMobile ? "sm" : ""} inline>
