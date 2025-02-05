@@ -1,5 +1,6 @@
 import { careersMock } from "@/mocks/careers.mock";
 import themeDevices from "@/styles/themeDevices";
+import { formatDate } from "@/utils/formatDate";
 import { Accordion, Avatar, Card, Flex, Group, Highlight, Stack, Text } from "@mantine/core";
 import { IconArrowDownLeft, IconBriefcaseFilled } from "@tabler/icons-react";
 import { useState } from "react";
@@ -19,7 +20,7 @@ export default function PageCareers() {
         <Stack gap={"xs"} pt={openedItem === career.id ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>
-          <Group>
+          <Flex gap={"md"} align={"center"}>
             <Avatar
               src={career.company_logo && career.company_logo}
               size={"50"} radius={"sm"}>
@@ -37,15 +38,15 @@ export default function PageCareers() {
                 && (
                   <Stack gap={"4"}>
                     <Group gap={"6"}>
-                      <Text fz={"xs"} c={"dimmed"} inline>{career.start_date}</Text>
+                      <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.start_date)}</Text>
                       <Text fz={"xs"} c={"dimmed"} inline>-</Text>
-                      <Text fz={"xs"} c={"dimmed"} inline>{career.end_date ? career.end_date : "o momento"}</Text>
+                      <Text fz={"xs"} c={"dimmed"} inline>{career.end_date ? formatDate(career.end_date) : "o momento"}</Text>
                     </Group>
                   </Stack>
                 )
               }
             </Stack>
-          </Group>
+          </Flex>
         </Stack>
         <Stack pos={"absolute"} right={"10px"} top={"10px"}>
           <IconArrowDownLeft size={"28"} color="grey" style={{
@@ -58,7 +59,7 @@ export default function PageCareers() {
         <Stack px={"sm"} pb={openedItem === career.id ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>
-          <Text fz={isMobile ? "sm" : ""} inline>
+          <Text fz={isMobile ? "sm" : ""} lh={"xs"}>
             {career.description}
           </Text>
         </Stack>
