@@ -1,18 +1,18 @@
-import { careerMock } from "@/mocks/career.mock";
+import { careersMock } from "@/mocks/careers.mock";
 import themeDevices from "@/styles/themeDevices";
 import { Avatar, Badge, Card, Flex, Group, Highlight, HoverCard, Stack, Table, Text } from "@mantine/core";
 import { IconBriefcaseFilled } from "@tabler/icons-react";
 
-export default function About() {
+export default function PageCareers() {
   const { isMobile } = themeDevices();
 
-  const rows = careerMock.map((job, index) => (
+  const careers = careersMock.map((career, index) => (
     <Table.Tr key={index}>
       <Table.Td pl={"lg"}>
         <Avatar
-          src={job.company_logo && job.company_logo}
+          src={career.company_logo && career.company_logo}
           size={"50"} radius={"sm"}>
-          {!job.company_logo && <IconBriefcaseFilled color="#DAFF01" />}
+          {!career.company_logo && <IconBriefcaseFilled color="#DAFF01" />}
         </Avatar>
       </Table.Td>
       <Table.Td py={"md"} pr={"lg"}>
@@ -20,38 +20,38 @@ export default function About() {
           <Stack gap={"4"}>
             <Text fw={"bold"} fz={"lg"} c={"defaultColor"} inline style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-            }}>{job.position}</Text>
+            }}>{career.position}</Text>
             {
-              job.start_date
+              career.start_date
               && (
                 <Stack gap={"4"}>
                   <Text fw={"bold"} inline style={{
                     textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-                  }}>{job.company}</Text>
+                  }}>{career.company}</Text>
                   <Group gap={"6"}>
-                    <Text fz={"xs"} c={"dimmed"} inline>{job.start_date}</Text>
+                    <Text fz={"xs"} c={"dimmed"} inline>{career.start_date}</Text>
                     <Text fz={"xs"} c={"dimmed"} inline>-</Text>
-                    <Text fz={"xs"} c={"dimmed"} inline>{job.end_date ? job.end_date : "o momento"}</Text>
+                    <Text fz={"xs"} c={"dimmed"} inline>{career.end_date ? career.end_date : "o momento"}</Text>
                   </Group>
                 </Stack>
               )
             }
           </Stack>
-          <Text fz={isMobile ? "sm" : ""} inline>{job.description}</Text>
+          <Text fz={isMobile ? "sm" : ""} inline>{career.description}</Text>
           <Group gap={isMobile ? "6" : "xs"}>
-            {job.skills.slice(0, 5).map((skill, index) => (
+            {career.skills.slice(0, 5).map((skill, index) => (
               <Badge variant="outline" key={index}>{skill}</Badge>
             ))}
-            {job.skills.length > 5 && (
+            {career.skills.length > 5 && (
               <HoverCard width={200} position="bottom" withArrow shadow="md">
                 <HoverCard.Target>
                   <Badge variant="light" style={{ cursor: "pointer" }}>
-                    + {job.skills.length - 5} competências
+                    + {career.skills.length - 5} competências
                   </Badge>
                 </HoverCard.Target>
                 <HoverCard.Dropdown>
                   <Stack gap="xs">
-                    {job.skills.slice(5).map((skill, index) => (
+                    {career.skills.slice(5).map((skill, index) => (
                       <Text key={index} fz={"sm"} c={"defaultColor"} inline>{skill}</Text>
                     ))}
                   </Stack>
@@ -98,7 +98,7 @@ export default function About() {
             }}>
               <Table highlightOnHover>
                 <Table.Tbody>
-                  {rows}
+                  {careers}
                 </Table.Tbody>
               </Table>
             </Card>

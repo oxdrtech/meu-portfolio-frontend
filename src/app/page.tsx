@@ -9,9 +9,9 @@ import { API_GIT_URL } from "@/utils/apiGitUrl";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
-import About from "@/components/pages/about/about";
 import { User } from "@/types/hero";
 import PageSkills from "@/components/pages/skills/pageSkills";
+import PageCareers from "@/components/pages/about/pageCareers";
 
 export default function Home() {
   const { isMobile } = themeDevices();
@@ -36,7 +36,7 @@ export default function Home() {
         {renderCompleted && (
           <>
             <Hero user={response?.data} />
-            <About />
+            <PageCareers />
             <PageSkills />
             <Flex className="panel" id="projetos" h={"100vh"} justify={"center"} align={"center"} style={{
               scrollSnapAlign: "start",
