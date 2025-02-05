@@ -94,6 +94,7 @@ export default function PageCareers() {
             Há 2 anos desenvolvendo sites e aplicações web sob medida para empresas e negócios independentes, transformando ideias em soluções reais que unem qualidade, alta performance, design elegante e uma experiência do usuário marcante
           </Highlight>
           <Stack justify={"center"} w={"60rem"} maw={"90vw"}>
+            {/* TODO - adicioar Tabs com as areas: carreira e formação */}
             <Card p={"0"} radius={"md"} style={{
               backdropFilter: "blur(100px)",
               background: "#23232350",
