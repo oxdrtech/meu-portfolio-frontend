@@ -15,7 +15,7 @@ export default function Skills() {
       onMouseEnter={() => setOpenedItem(skill.field)}
       onMouseLeave={() => setOpenedItem(skillsMock[0]?.field)}
     >
-      <Accordion.Control px={"sm"}>
+      <Accordion.Control px={"sm"} pos={"relative"}>
         <Stack gap={"xs"} pt={openedItem === skill.field ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>
@@ -25,13 +25,15 @@ export default function Skills() {
             }}>
               {skill.title}
             </Text>
-            <Text fw={"bold"} inline>
+            <Text fw={"bold"} inline style={{
+              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+            }}>
               {skill.field}
             </Text>
           </Group>
           <Stack gap={"xs"} px={"sm"}>
             <Text fz={"xs"} c={"dimmed"} inline>
-              Habilidades
+              Ferramentas
             </Text>
             <Group gap={isMobile ? "6" : "xs"}>
               {skill.skills.slice(0, 5).map((skill, index) => (
@@ -43,7 +45,7 @@ export default function Skills() {
                 <HoverCard width={200} position="bottom" withArrow shadow="md">
                   <HoverCard.Target>
                     <Badge variant="light" style={{ cursor: "pointer" }}>
-                      + {skill.skills.length - 5} competências
+                      + {skill.skills.length - 5} ferramentas
                     </Badge>
                   </HoverCard.Target>
                   <HoverCard.Dropdown>
@@ -60,12 +62,18 @@ export default function Skills() {
             </Group>
           </Stack>
         </Stack>
+        <Stack pos={"absolute"} right={"10px"} top={"10px"}>
+          <IconArrowDownLeft size={"28"} color="grey" style={{
+            rotate: openedItem === skill.field ? "180deg" : "0deg",
+            transition: "0.4s ease",
+          }} />
+        </Stack>
       </Accordion.Control>
       <Accordion.Panel>
         <Stack px={"sm"} pb={openedItem === skill.field ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>
-          <Text inline>
+          <Text fz={isMobile ? "sm" : ""} inline>
             {skill.description}
           </Text>
         </Stack>
@@ -102,14 +110,13 @@ export default function Skills() {
           <Stack justify={"center"} w={"60rem"} maw={"90vw"}>
             <Card p={"0"} radius={"md"} style={{
               backdropFilter: "blur(100px)",
-              background: "#23232350"
+              background: "#23232350",
             }}>
               <Accordion
                 value={openedItem}
                 variant={"contained"}
                 transitionDuration={400}
-                chevron={<IconArrowDownLeft color="gray" size={"28"} />}
-                chevronSize={"28px"}
+                chevron={false}
               >
                 {skills}
               </Accordion>
