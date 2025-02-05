@@ -1,17 +1,18 @@
 "use client";
 import Background from "@/components/_ui/background/background";
-import { Flex, Stack } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Loading from "@/components/_ui/loading/loading";
 import useGet from "@/hooks/useGet";
 import { API_GIT_URL } from "@/utils/apiGitUrl";
+import { User } from "@/types/user";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
 import PageSkills from "@/components/pages/skills/pageSkills";
 import PageCareers from "@/components/pages/careers/pageCareers";
 import PageHero from "@/components/pages/hero/pageHero";
-import { User } from "@/types/user";
+import PageContact from "@/components/pages/contact/pageContact";
 
 export default function Home() {
   const { isMobile } = themeDevices();
@@ -38,11 +39,7 @@ export default function Home() {
             <PageHero user={response?.data} />
             <PageCareers />
             <PageSkills />
-            <Flex className="panel" id="contato" h={"100vh"} justify={"center"} align={"center"} style={{
-              scrollSnapAlign: "start",
-            }}>
-              contato
-            </Flex>
+            <PageContact />
           </>
         )}
       </Stack>
