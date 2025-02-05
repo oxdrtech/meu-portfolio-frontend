@@ -37,7 +37,7 @@ export default function Loading({ onComplete }: Props) {
           display: "none",
         });
     }
-  }, [onComplete]);
+  }, []);
 
   const loaderAnimation = (
     <Flex direction="column" align="center" justify="center" w={"100vw"} h={"100vh"}>
