@@ -70,9 +70,19 @@ export default function RightNavigation({ triggerGSAP }: Props) {
   }, [triggerGSAP]);
 
   return (
-    <Flex ref={gsapRef} pos={"fixed"} w={"max-content"} direction={"column"} right={"1rem"} pt={isMobile ? "3rem" : "5rem"} pr={".3rem"} gap={"8"} align={"end"} style={{
-      zIndex: 300,
-    }}>
+    <Flex
+      ref={gsapRef}
+      pos={"fixed"}
+      w={"max-content"}
+      direction={"column"}
+      right={"1rem"}
+      pt={isMobile ? "1.2rem" : "1.2rem"}
+      pr={".3rem"}
+      gap={"8"}
+      align={"end"}
+      style={{
+        zIndex: 300,
+      }}>
       {pages.map((page, index) => (
         <Group key={index} component={"span"} style={{ overflow: "hidden" }}>
           <Text className={`target-${index + 1} pages-animated`} component="span" onClick={() => scrollToSection(page.target)} display={"none"} inline style={{

@@ -59,7 +59,7 @@ export default function PageCareers() {
         <Stack px={"sm"} pb={openedItem === career.id ? (isMobile ? "" : "lg") : ""} style={{
           transition: "0.4s ease",
         }}>
-          <Text fz={isMobile ? "sm" : ""} inline={isMobile} lh={isMobile ? "" : "xs"}>
+          <Text fz={"sm"} inline>
             {career.description}
           </Text>
         </Stack>
@@ -87,7 +87,7 @@ export default function PageCareers() {
               }}
               ta={"center"}
               fw={"bold"}
-              fz={isMobile ? "4vh" : "3rem"}
+              fz={isMobile ? "3vh" : "5vh"}
               inline
               style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",

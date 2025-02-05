@@ -60,7 +60,7 @@ export default function LeftNavigation({ triggerGSAP }: Props) {
         h={"100vh"}
         direction={"column"}
         left={"1rem"}
-        pt={isMobile ? "3rem" : "5rem"}
+        pt={isMobile ? "1.2rem" : "1.2rem"}
         pb={"5rem"}
         justify={isMobile ? "" : "space-between"}
         style={{

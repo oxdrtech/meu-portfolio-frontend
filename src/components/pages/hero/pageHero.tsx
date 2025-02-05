@@ -66,26 +66,26 @@ export default function PageHero({ user }: Props) {
         <Stack h={"80vh"} justify={"space-between"}>
           <Stack gap={0} flex={1} justify={"center"} mt={"50"}>
             <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} my={"lg"} radius={"50%"} p={2} shadow="xl">
-              <Avatar className="avatar-animated" size={isMobile ? "150" : "250"} src={user?.avatar_url} />
+              <Avatar className="avatar-animated" size={isMobile ? "20vh" : "30vh"} src={user?.avatar_url} />
             </Paper>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-              <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "md" : "xl"} style={{
+              <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "2vh" : "md"} style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 🙋‍♂️ Olá, meu nome é
               </Text>
             </Group>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-              <Text className="objectup-animated" opacity={"0"} component={"h1"} fw={"bold"} fz={isMobile ? "36" : "64"} inline style={{
+              <Text className="objectup-animated" opacity={"0"} component={"h1"} fw={"bold"} fz={isMobile ? "5vh" : "42"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
               }}>
                 André Campos
               </Text>
             </Group>
-            <Group>
+            <Group gap={"xs"}>
               <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
               <Group component={"span"} style={{ overflow: "hidden" }}>
-                <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "md" : "xl"} inline style={{
+                <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "2vh" : "md"} inline style={{
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                 }}>
                   FULLSTACK | React & Node
