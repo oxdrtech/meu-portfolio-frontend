@@ -86,11 +86,8 @@ export default function PageSkills() {
       <Flex className="panel" id="habilidades" h={"100vh"} justify={"center"} align={"center"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Stack h={"90vh"} w={"70rem"} maw={"90vw"} align={"center"} gap={"xl"}>
-          <Stack
-            flex={"1"}
-            justify={"end"}
-          >
+        <Stack h={"90vh"} w={"70rem"} maw={"90vw"} align={"center"}>
+          <Stack>
             <Highlight
               highlight={[
                 "modernas",
@@ -103,7 +100,7 @@ export default function PageSkills() {
               }}
               ta={"center"}
               fw={"bold"}
-              fz={isMobile ? "1.5rem" : "3rem"}
+              fz={isMobile ? "4vh" : "3rem"}
               inline
               style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
@@ -111,7 +108,7 @@ export default function PageSkills() {
               Com as ferramentas mais modernas e boas práticas de desenvolvimento, cada projeto ganha uma base sólida, preparada para uma evolução contínua
             </Highlight>
           </Stack>
-          <Stack justify={"center"} w={"60rem"} maw={"90vw"}>
+          <Stack flex={"1"} justify={"center"} w={"60rem"} maw={"90vw"}>
             <Card p={"0"} radius={"md"} style={{
               backdropFilter: "blur(100px)",
               background: "#23232350",
