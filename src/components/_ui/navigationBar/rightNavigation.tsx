@@ -1,23 +1,15 @@
-import themeDevices from "@/styles/themeDevices";
+import { pagesMock } from "@/mocks/pages.mock";
 import { useGSAP } from "@gsap/react";
 import { Flex, Group, Text } from "@mantine/core";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useRef } from "react";
 
-const pages = [
-  { target: "inicio", label: "Início" },
-  { target: "sobre-mim", label: "Sobre mim" },
-  { target: "habilidades", label: "Habilidades" },
-  { target: "contato", label: "Contato" },
-];
-
 interface Props {
   triggerGSAP: boolean;
 }
 
 export default function RightNavigation({ triggerGSAP }: Props) {
-  const { isMobile } = themeDevices();
   const gsapRef = useRef(null);
 
   gsap.registerPlugin(ScrollToPlugin);
@@ -69,6 +61,17 @@ export default function RightNavigation({ triggerGSAP }: Props) {
     }
   }, [triggerGSAP]);
 
+  const pages = pagesMock.map((page, index) => (
+    <Group key={index} component={"span"} style={{ overflow: "hidden" }}>
+      <Text className={`target-${index + 1} pages-animated`} component="span" onClick={() => scrollToSection(page.target)} display={"none"} inline style={{
+        cursor: "pointer",
+        textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+      }}>
+        {page.label}
+      </Text>
+    </Group>
+  ))
+
   return (
     <Flex
       ref={gsapRef}
@@ -76,23 +79,15 @@ export default function RightNavigation({ triggerGSAP }: Props) {
       w={"max-content"}
       direction={"column"}
       right={"1rem"}
-      pt={isMobile ? "1.2rem" : "1.2rem"}
+      pt={"1.2rem"}
       pr={".3rem"}
       gap={"8"}
       align={"end"}
       style={{
         zIndex: 300,
-      }}>
-      {pages.map((page, index) => (
-        <Group key={index} component={"span"} style={{ overflow: "hidden" }}>
-          <Text className={`target-${index + 1} pages-animated`} component="span" onClick={() => scrollToSection(page.target)} display={"none"} inline style={{
-            cursor: "pointer",
-            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-          }}>
-            {page.label}
-          </Text>
-        </Group>
-      ))}
+      }}
+    >
+      {pages}
     </Flex>
   );
 }
