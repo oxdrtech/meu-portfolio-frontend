@@ -3,9 +3,9 @@ import { Skill } from "@/types/skill";
 export const skillsMock: Skill[] = [
   {
     id: "1",
-    title: "Desenv. de Interfaces",
+    title: "Desenvolvimento de Interfaces",
     field: "Front-end",
-    description: "Com o uso de tecnologias e bibliotecas avançadas de ferramentas, transformo layouts em realidade, programando linha a linha aplico características únicas e originais para cada projeto. Programando de paginas simples até interfaces mais complexas e integradas à servidores e banco de dados",
+    description: "Com o auxílio de bibliotecas e ferramentas avançadas de desenvolvimento, converto o design em código, implementando cada detalhe de forma precisa. Desenvolvo desde páginas simples até interfaces sofisticadas, com integração completa a servidores e bancos de dados",
     skills: [
       "Next.js",
       "Vite.js",
@@ -19,9 +19,9 @@ export const skillsMock: Skill[] = [
   },
   {
     id: "2",
-    title: "Desenv. de Servidores",
+    title: "Desenvolvimento de Servidores",
     field: "Back-end",
-    description: "Com o uso de tecnologias e bibliotecas avançadas de ferramentas, transformo layouts em realidade, programando linha a linha aplico características únicas e originais para cada projeto. Programando de paginas simples até interfaces mais complexas e integradas à servidores e banco de dados",
+    description: "Com foco na criação de soluções robustas e escaláveis, desenvolvo sistemas eficientes e seguros, implementando API's RESTful e WebSocket. Buscando sempre as melhores práticas de arquitetura e otimização, garantindo a performance e a confiabilidade de cada aplicação",
     skills: [
       "Node.js",
       "Git",

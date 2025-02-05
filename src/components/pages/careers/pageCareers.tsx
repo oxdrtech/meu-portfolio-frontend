@@ -17,7 +17,7 @@ export default function PageCareers() {
       onMouseLeave={() => setOpenedItem(careersMock[0]?.id)}
     >
       <Accordion.Control pos={"relative"}>
-        <Stack gap={"xs"} pt={openedItem === career.id ? "lg" : ""} style={{
+        <Stack gap={"xs"} pt={openedItem === career.id ? (isMobile ? "" : "lg") : ""} style={{
           transition: "0.4s ease",
         }}>
           <Flex gap={"md"} align={"center"}>
@@ -56,10 +56,10 @@ export default function PageCareers() {
         </Stack>
       </Accordion.Control>
       <Accordion.Panel>
-        <Stack px={"sm"} pb={openedItem === career.id ? "lg" : ""} style={{
+        <Stack px={"sm"} pb={openedItem === career.id ? (isMobile ? "" : "lg") : ""} style={{
           transition: "0.4s ease",
         }}>
-          <Text fz={isMobile ? "sm" : ""} lh={"xs"}>
+          <Text fz={isMobile ? "sm" : ""} inline={isMobile} lh={isMobile ? "" : "xs"}>
             {career.description}
           </Text>
         </Stack>
@@ -69,33 +69,36 @@ export default function PageCareers() {
 
   return (
     <>
-      <Flex className="panel" id="sobre-mim" h={"100vh"} justify={"center"} style={{
+      <Flex className="panel" id="sobre-mim" h={"100vh"} justify={"center"} align={"center"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Stack h={"90vh"} w={"70rem"} maw={"90vw"} justify="space-around" align={"center"} gap={"xl"}>
-          <Highlight
-            highlight={[
-              "qualidade",
-              "performance",
-              "design",
-              "experiência",
-            ]}
-            highlightStyles={{
-              color: "#DAFF01",
-              WebkitBackgroundClip: 'text',
-            }}
-            ta={"center"}
-            fw={"bold"}
-            fz={isMobile ? "h4" : "h1"}
-            mt={isMobile ? "40" : "80"}
-            inline
-            style={{
-              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-            }}>
-            Há 2 anos desenvolvendo sites e aplicações web sob medida para empresas e negócios independentes, transformando ideias em soluções reais que unem qualidade, alta performance, design elegante e uma experiência do usuário marcante
-          </Highlight>
+        <Stack h={"90vh"} w={"70rem"} maw={"90vw"} align={"center"} gap={"xl"}>
+          <Stack
+            flex={"1"}
+            justify={"end"}
+          >
+            <Highlight
+              highlight={[
+                "qualidade",
+                "performance",
+                "design",
+                "experiência",
+              ]}
+              highlightStyles={{
+                color: "#DAFF01",
+                WebkitBackgroundClip: 'text',
+              }}
+              ta={"center"}
+              fw={"bold"}
+              fz={isMobile ? "1.5rem" : "3rem"}
+              inline
+              style={{
+                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+              }}>
+              Há 2 anos desenvolvendo aplicações web sob medida para empresas e negócios independentes, criando soluções reais que unem qualidade, alta performance, design elegante e uma experiência do usuário marcante
+            </Highlight>
+          </Stack>
           <Stack justify={"center"} w={"60rem"} maw={"90vw"}>
-            {/* TODO - adicioar Tabs com as areas: carreira e formação */}
             <Card p={"0"} radius={"md"} style={{
               backdropFilter: "blur(100px)",
               background: "#23232350",

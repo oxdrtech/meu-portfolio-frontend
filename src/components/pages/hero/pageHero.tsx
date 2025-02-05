@@ -93,13 +93,6 @@ export default function PageHero({ user }: Props) {
               </Group>
             </Group>
           </Stack>
-          <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-            <Text className="objectup-animated" opacity={"0"} component="h1" fw={"lighter"} fz={isMobile ? "md" : "lg"} c={"defaultColor"} mb={"lg"} inline style={{
-              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-            }}>
-              Seja bem vindo ao meu portfólio
-            </Text>
-          </Group>
         </Stack>
       </Flex>
     </>

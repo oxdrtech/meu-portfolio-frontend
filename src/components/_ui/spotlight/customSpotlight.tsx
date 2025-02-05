@@ -82,7 +82,7 @@ export default function CustomSpotlight() {
     },
     {
       id: "codigo",
-      label: "Codigo",
+      label: "Código",
       description: "Ver código deste site",
       onClick: openTo("https://github.com/DDR23/meu-portfolio"),
       leftSection: <IconCode size={22} />,
