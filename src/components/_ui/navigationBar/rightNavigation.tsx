@@ -73,21 +73,23 @@ export default function RightNavigation({ triggerGSAP }: Props) {
   ))
 
   return (
-    <Flex
-      ref={gsapRef}
-      pos={"fixed"}
-      w={"max-content"}
-      direction={"column"}
-      right={"1rem"}
-      pt={"1.2rem"}
-      pr={".3rem"}
-      gap={"8"}
-      align={"end"}
-      style={{
-        zIndex: 300,
-      }}
-    >
-      {pages}
-    </Flex>
+    <>
+      <Flex
+        ref={gsapRef}
+        pos={"fixed"}
+        w={"max-content"}
+        direction={"column"}
+        right={"1rem"}
+        pt={"1.2rem"}
+        pr={".3rem"}
+        gap={"8"}
+        align={"end"}
+        style={{
+          zIndex: 300,
+        }}
+      >
+        {pages}
+      </Flex>
+    </>
   );
 }

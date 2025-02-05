@@ -90,15 +90,17 @@ export default function CustomSpotlight() {
   ];
 
   return (
-    <Spotlight
-      actions={actions}
-      nothingFound="Não encontrado..."
-      highlightQuery
-      shortcut={"ctrl+enter"}
-      searchProps={{
-        leftSection: <IconSearch size={22} />,
-        placeholder: "Pesquisar...",
-      }}
-    />
+    <>
+      <Spotlight
+        actions={actions}
+        nothingFound="Não encontrado..."
+        highlightQuery
+        shortcut={"ctrl+enter"}
+        searchProps={{
+          leftSection: <IconSearch size={22} />,
+          placeholder: "Pesquisar...",
+        }}
+      />
+    </>
   );
 }
