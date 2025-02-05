@@ -9,7 +9,7 @@ import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
 import PageSkills from "@/components/pages/skills/pageSkills";
-import PageCareers from "@/components/pages/about/pageCareers";
+import PageCareers from "@/components/pages/careers/pageCareers";
 import PageHero from "@/components/pages/hero/pageHero";
 import { User } from "@/types/user";
 
