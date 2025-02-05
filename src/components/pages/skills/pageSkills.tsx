@@ -15,7 +15,7 @@ export default function PageSkills() {
       onMouseEnter={() => setOpenedItem(skill.id)}
       onMouseLeave={() => setOpenedItem(skillsMock[0]?.id)}
     >
-      <Accordion.Control px={"sm"} pos={"relative"}>
+      <Accordion.Control pos={"relative"}>
         <Stack gap={"xs"} pt={openedItem === skill.id ? "lg" : ""} style={{
           transition: "0.4s ease",
         }}>

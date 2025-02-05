@@ -1,4 +1,5 @@
 export interface Career {
+  id: string;
   company: string;
   company_logo: string;
   position: string;
@@ -6,5 +7,4 @@ export interface Career {
   end_date: string;
   type: string;
   description: string;
-  skills: string[];
 }
