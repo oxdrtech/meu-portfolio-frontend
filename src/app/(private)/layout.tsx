@@ -4,7 +4,7 @@ import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import classes from './layout.module.css';
 import { signOut, useSession } from 'next-auth/react';
-import { IconBuildingStore, IconLogout, IconPackage, IconSettings } from '@tabler/icons-react';
+import { IconBriefcase, IconBuildingStore, IconLogout, IconSettings, IconStar, IconUsers } from '@tabler/icons-react';
 import { redirect } from 'next/navigation';
 import Loading from '../loading';
 
@@ -78,44 +78,42 @@ export default function PagesLayout({
           </AppShell.Header>
           <AppShell.Navbar p="md">
             <Stack gap={5}>
-              <Link href="/produtos" passHref style={{ textDecoration: 'none' }}>
+              <Link href="/careers" passHref style={{ textDecoration: 'none' }}>
                 <Button
                   onClick={toggleMobile}
                   className={classes.navbutton}
                   variant="default"
                   justify="flex-start"
                   fullWidth
-                  leftSection={<IconPackage size={20} />}
+                  leftSection={<IconBriefcase size={20} />}
                 >
-                  Produtos
+                  Carreira
                 </Button>
               </Link>
-              <Link href="/revendedores" passHref style={{ textDecoration: 'none' }}>
+              <Link href="/works" passHref style={{ textDecoration: 'none' }}>
                 <Button
                   onClick={toggleMobile}
                   className={classes.navbutton}
                   variant="default"
                   justify="flex-start"
                   fullWidth
-                  leftSection={<IconBuildingStore size={20} />}
+                  leftSection={<IconStar size={20} />}
                 >
-                  Revendedores
+                  trabalhos
                 </Button>
               </Link>
-              {session?.user.USER_ROLE === 'ADMIN' && (
-                <Link href="/configuracoes" passHref style={{ textDecoration: 'none' }}>
-                  <Button
-                    onClick={toggleMobile}
-                    className={classes.navbutton}
-                    variant="default"
-                    justify="flex-start"
-                    fullWidth
-                    leftSection={<IconSettings size={20} />}
-                  >
-                    Configurações
-                  </Button>
-                </Link>
-              )}
+              <Link href="/contacts" passHref style={{ textDecoration: 'none' }}>
+                <Button
+                  onClick={toggleMobile}
+                  className={classes.navbutton}
+                  variant="default"
+                  justify="flex-start"
+                  fullWidth
+                  leftSection={<IconUsers size={20} />}
+                >
+                  Contatos
+                </Button>
+              </Link>
             </Stack>
             <Group mt="auto">
               <Button
