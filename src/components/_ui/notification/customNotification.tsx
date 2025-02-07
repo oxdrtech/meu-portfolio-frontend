@@ -2,7 +2,7 @@ import { notifications } from "@mantine/notifications";
 import { IconCheck, IconX } from "@tabler/icons-react";
 
 interface Props {
-  title: "Sucesso" | "Falha";
+  title: string | undefined;
   message: string;
   reload?: boolean;
 }

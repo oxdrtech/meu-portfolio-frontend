@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { theme } from "../styles/theme";
 import "../styles/globals.css";
 import { Notifications } from '@mantine/notifications';
+import AuthProvider from '@/providers/authProvider';
 
 export const metadata: Metadata = {
   title: "DDR23 | Portfólio",
@@ -25,7 +26,9 @@ export default function RootLayout({
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
           <Notifications />
-          {children}
+          <AuthProvider>
+            {children}
+          </AuthProvider>
         </MantineProvider>
       </body>
     </html>
