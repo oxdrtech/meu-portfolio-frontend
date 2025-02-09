@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export default function Page() {
   const { data: session, status } = useSession();
 
-  if (status === 'authenticated' && session?.user.USER_ROLE !== 'ADMIN') redirect('/produtos');
+  if (status === 'authenticated' && session?.user.USER_ROLE !== 'ADMIN') redirect('/');
 
   return (
     <>

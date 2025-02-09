@@ -4,7 +4,7 @@ import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import classes from './layout.module.css';
 import { signOut, useSession } from 'next-auth/react';
-import { IconBriefcase, IconBuildingStore, IconLogout, IconSettings, IconStar, IconUsers } from '@tabler/icons-react';
+import { IconBriefcase, IconLogout, IconStar, IconUsers } from '@tabler/icons-react';
 import { redirect } from 'next/navigation';
 import Loading from '../loading';
 
