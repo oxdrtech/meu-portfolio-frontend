@@ -99,8 +99,8 @@ export default function ModalPatchDetails({ career, inputLabel, inputValue, inpu
           <Button
             type="submit"
             loading={isUpdating}
-            color='green'
             fullWidth
+            variant={"light"}
           >
             Salvar
           </Button>

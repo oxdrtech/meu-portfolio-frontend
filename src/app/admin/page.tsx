@@ -23,20 +23,14 @@ export default function AuthPage() {
             Pagina inicial
           </Button>
         </Stack>
-        <Stack ta={"center"} align={"center"} gap={"0"}>
-          <Title order={1} c={"defaultColor"} style={{
-            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-          }}>meu portfolio</Title>
-          <Text c={"dimmed"} inline>Gerenciador</Text>
-          <Group mt={"xl"}>
-            <Button onClick={() => handleOpen("login")} variant={"light"}>
-              Entrar
-            </Button>
-            <Button onClick={() => handleOpen("signup")} variant={"outline"} >
-              Criar conta
-            </Button>
-          </Group>
-        </Stack>
+        <Group mt={"xl"}>
+          <Button onClick={() => handleOpen("login")} variant={"light"}>
+            Entrar
+          </Button>
+          <Button onClick={() => handleOpen("signup")} variant={"outline"} >
+            Criar conta
+          </Button>
+        </Group>
       </Stack>
       <Modal
         title={modalContent === "login" ? "Fazer login" : "Fazer cadastro"}

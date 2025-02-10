@@ -1,10 +1,10 @@
 'use client';
-import { AppShell, Avatar, Burger, Button, Group, Image, Menu, Stack, Text } from '@mantine/core';
+import { AppShell, Avatar, Burger, Button, Group, Menu, Stack, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import classes from './layout.module.css';
 import { signOut, useSession } from 'next-auth/react';
-import { IconBriefcase, IconBuildingStore, IconLogout, IconSettings, IconStar, IconUsers } from '@tabler/icons-react';
+import { IconBriefcase, IconLogout, IconStar, IconUsers } from '@tabler/icons-react';
 import { redirect } from 'next/navigation';
 import Loading from '../loading';
 
@@ -30,7 +30,6 @@ export default function PagesLayout({
     <>
       {!session?.user.USER_AUTHORIZED ? (
         <>
-          {/* TODO - trabalhar no acesso negado */}
           acesso negado
         </>
       ) : (
@@ -48,7 +47,7 @@ export default function PagesLayout({
               <Group>
                 <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
                 <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
-                <Image src="/logo_0.webp" w={40} />
+                <Text c={"defaultColor"} fw={"bold"} inline >Meu Portfolio</Text>
               </Group>
               <Group>
                 <Menu>

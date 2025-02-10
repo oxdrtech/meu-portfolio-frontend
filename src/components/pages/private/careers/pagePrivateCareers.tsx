@@ -41,7 +41,7 @@ export default function PagePrivateCareers({ careers }: Props) {
           <Flex gap='xs' direction='column'>
             <Text fz="sm" inline pl='3px'>
               {
-                row.CAREER_NAME
+                row.CAREER_COMPANY
                   .split(" ")
                   .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
                   .join(" ")
@@ -59,7 +59,7 @@ export default function PagePrivateCareers({ careers }: Props) {
           </Flex>
         </Flex>
       </Table.Td>
-      <Table.Td visibleFrom="md">{row.CAREER_COMPANY}</Table.Td>
+      <Table.Td visibleFrom="md">{row.CAREER_NAME}</Table.Td>
       <Table.Td visibleFrom="md">
         <Group fz="sm">
           {
@@ -103,8 +103,11 @@ export default function PagePrivateCareers({ careers }: Props) {
               onChange={handleSearchChange}
             />
             <Flex gap={15}>
-              <Button onClick={() => window.location.reload()}>
-                <IconRefresh size={20} />
+              <Button
+                onClick={() => window.location.reload()}
+                leftSection={<IconRefresh size={20} />}
+                variant={"light"}
+              >
                 <Center visibleFrom="md">Recarregar</Center>
               </Button>
             </Flex>
@@ -120,8 +123,8 @@ export default function PagePrivateCareers({ careers }: Props) {
                   <Table verticalSpacing="sm" striped highlightOnHover withRowBorders={false}>
                     <Table.Thead pos='sticky' style={{ backdropFilter: `blur(100px)` }} >
                       <Table.Tr>
-                        <Table.Th>Nome</Table.Th>
-                        <Table.Th visibleFrom="md">Empresa</Table.Th>
+                        <Table.Th>Empresa</Table.Th>
+                        <Table.Th visibleFrom="md">Cargo</Table.Th>
                         <Table.Th visibleFrom="md">Status</Table.Th>
                         <Table.Th ta='end' />
                       </Table.Tr>

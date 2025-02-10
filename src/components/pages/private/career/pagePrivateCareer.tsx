@@ -42,12 +42,12 @@ export default function PagePrivateCareer({ career }: Props) {
               }
               <Group gap={5}>
                 <Tooltip color="gray" label='Alterar status' position="bottom">
-                  <ActionIcon disabled={session?.user.USER_ROLE === "USER"} onClick={() => handleOpenModal('status')} variant="filled" aria-label="Status">
+                  <ActionIcon disabled={session?.user.USER_ROLE === "USER"} onClick={() => handleOpenModal('status')} variant={"light"} aria-label="Status">
                     <IconSettings size={20} />
                   </ActionIcon>
                 </Tooltip>
                 <Tooltip color="gray" label='Deletar produto' position="bottom">
-                  <ActionIcon onClick={() => handleOpenModal('delete')} variant="filled" aria-label="Delete">
+                  <ActionIcon onClick={() => handleOpenModal('delete')} variant={"light"} aria-label="Delete">
                     <IconTrash size={20} />
                   </ActionIcon>
                 </Tooltip>

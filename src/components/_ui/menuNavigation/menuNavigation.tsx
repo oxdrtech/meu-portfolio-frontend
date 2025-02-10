@@ -10,12 +10,12 @@ export default function MenuNavigation() {
   return (
     <Group w='100%' gap={5} justify="flex-start">
       <Tooltip color="gray" label='Voltar' position="bottom">
-        <ActionIcon onClick={backspace} variant="filled" aria-label="Voltar">
+        <ActionIcon onClick={backspace} variant={"light"} aria-label="Voltar">
           <IconArrowLeft size={20} />
         </ActionIcon>
       </Tooltip>
       <Tooltip color="gray" label='Recarregar' position="bottom">
-        <ActionIcon onClick={refresh} variant="filled" aria-label="Recarregar">
+        <ActionIcon onClick={refresh} variant={"light"} aria-label="Recarregar">
           <IconRefresh size={20} />
         </ActionIcon>
       </Tooltip>
