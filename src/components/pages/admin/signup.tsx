@@ -44,7 +44,7 @@ export default function SignUp() {
         USER_PASSWORD: watchData.USER_PASSWORD,
         redirect: false,
       })
-        .then((res) => res?.ok && redirect('/dashboard'));
+        .then((res) => res?.ok && redirect('/careers'));
     }
   }, [response, error, watchData]);
 

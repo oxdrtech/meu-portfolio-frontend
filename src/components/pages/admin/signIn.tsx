@@ -39,7 +39,7 @@ export default function SignIn() {
             title: 'Sucesso',
             message: 'Usuário logado com sucesso!',
           });
-          redirect('/dashboard');
+          redirect('/careers');
         }
       });
   };
