@@ -1,12 +1,12 @@
 "use client"
-import { Title, Text, Anchor, Group, Button, Modal, Stack } from "@mantine/core";
+import { Text, Anchor, Group, Button, Modal, Stack } from "@mantine/core";
 import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
-import SignIn from "@/components/pages/admin/signIn";
-import SignUp from "@/components/pages/admin/signup";
 import { IconHome } from "@tabler/icons-react";
+import ModalSignIn from "./modals/modalSignIn";
+import ModalSignUp from "./modals/modalSignup";
 
-export default function AuthPage() {
+export default function PageAuth() {
   const [opened, { open, close }] = useDisclosure(false);
   const [modalContent, setModalContent] = useState<"login" | "signup" | "">("");
 
@@ -41,7 +41,7 @@ export default function AuthPage() {
       >
         {modalContent === "login" && (
           <>
-            <SignIn />
+            <ModalSignIn />
             <Text c={"dimmed"} size={"sm"} ta={"center"} mt={"20"}>
               Ainda nao tem uma conta?{" "}
               <Anchor size={"sm"} component={"button"} onClick={() => handleOpen("signup")}>
@@ -52,7 +52,7 @@ export default function AuthPage() {
         )}
         {modalContent === "signup" && (
           <>
-            <SignUp />
+            <ModalSignUp />
             <Text c={"dimmed"} size={"sm"} ta={"center"} mt={20}>
               Já tem uma conta?{" "}
               <Anchor size={"sm"} component={"button"} onClick={() => handleOpen("login")}>

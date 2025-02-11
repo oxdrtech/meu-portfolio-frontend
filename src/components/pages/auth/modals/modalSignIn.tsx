@@ -1,5 +1,6 @@
 import CustomNotification from "@/components/_ui/notification/customNotification";
 import { schemaAuth } from "@/schemas/auth/schemaAuth";
+import { UserPost } from "@/types/user";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { signIn } from "next-auth/react";
@@ -7,19 +8,14 @@ import { redirect } from "next/navigation";
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
-interface UsePostReq {
-  USER_NAME: string;
-  USER_PASSWORD: string;
-}
-
-export default function SignIn() {
+export default function ModalSignIn() {
   const [isLoading, setIsLoading] = useState(false);
   const { control, handleSubmit } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schemaAuth),
   });
 
-  const submitForm: SubmitHandler<UsePostReq> = async (formData) => {
+  const submitForm: SubmitHandler<UserPost> = async (formData) => {
     setIsLoading(true);
     signIn('credentials', {
       USER_NAME: formData.USER_NAME,
@@ -39,7 +35,7 @@ export default function SignIn() {
             title: 'Sucesso',
             message: 'Usuário logado com sucesso!',
           });
-          redirect('/careers');
+          redirect('/dashboard');
         }
       });
   };

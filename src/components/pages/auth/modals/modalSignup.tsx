@@ -1,6 +1,7 @@
 import CustomNotification from "@/components/_ui/notification/customNotification";
 import usePost from "@/hooks/usePost";
 import { schemaAuth } from "@/schemas/auth/schemaAuth";
+import { UserPost } from "@/types/user";
 import { API_BASE_URL } from "@/utils/apiBaseUrl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
@@ -9,23 +10,14 @@ import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-interface UsePostReq {
-  USER_NAME: string;
-  USER_PASSWORD: string;
-}
-
-interface UsePostRes {
-  access_token: string;
-}
-
-export default function SignUp() {
+export default function ModalSignUp() {
   const { control, handleSubmit, watch } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schemaAuth),
   });
 
   const watchData = watch();
-  const { isPosting, response, error, sendRequest } = usePost<UsePostReq, UsePostRes>(`${API_BASE_URL}/auth/register`, watchData);
+  const { isPosting, response, error, sendRequest } = usePost<UserPost, { access_token: string }>(`${API_BASE_URL}/auth/register`, watchData);
 
   useEffect(() => {
     if (error) {
@@ -44,7 +36,7 @@ export default function SignUp() {
         USER_PASSWORD: watchData.USER_PASSWORD,
         redirect: false,
       })
-        .then((res) => res?.ok && redirect('/careers'));
+        .then((res) => res?.ok && redirect('/dashboard'));
     }
   }, [response, error, watchData]);
 
