@@ -1,7 +1,7 @@
 export interface Skill {
   id: string;
-  title: string;
-  field: string;
-  description: string;
-  skills: string[];
+  SKILL_NAME: string;
+  SKILL_ALIAS: string;
+  SKILL_DESCRIPTION: string;
+  SKILL_TAGS: string[];
 }

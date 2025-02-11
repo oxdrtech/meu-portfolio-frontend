@@ -23,12 +23,12 @@ export default function PageSkills() {
             <Text fw={"bold"} fz={"lg"} c={"defaultColor"} inline style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
-              {skill.field}
+              {skill.SKILL_ALIAS}
             </Text>
             <Text fw={"bold"} inline style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
-              {skill.title}
+              {skill.SKILL_NAME}
             </Text>
           </Stack>
           <Stack gap={"xs"} px={"sm"}>
@@ -36,21 +36,21 @@ export default function PageSkills() {
               Ferramentas
             </Text>
             <Group gap={isMobile ? "6" : "xs"}>
-              {skill.skills.slice(0, 5).map((skill, index) => (
+              {skill.SKILL_TAGS.slice(0, 5).map((skill, index) => (
                 <Badge variant="outline" key={index}>
                   {skill}
                 </Badge>
               ))}
-              {skill.skills.length > 5 && (
+              {skill.SKILL_TAGS.length > 5 && (
                 <HoverCard width={200} position="bottom" withArrow shadow="md">
                   <HoverCard.Target>
                     <Badge variant="light" style={{ cursor: "pointer" }}>
-                      + {skill.skills.length - 5} ferramentas
+                      + {skill.SKILL_TAGS.length - 5} ferramentas
                     </Badge>
                   </HoverCard.Target>
                   <HoverCard.Dropdown>
                     <Stack gap="xs">
-                      {skill.skills.slice(5).map((skill, index) => (
+                      {skill.SKILL_TAGS.slice(5).map((skill, index) => (
                         <Text key={index} fz={"sm"} c={"defaultColor"} inline>
                           {skill}
                         </Text>
@@ -74,7 +74,7 @@ export default function PageSkills() {
           transition: "0.4s ease",
         }}>
           <Text fz={"sm"} inline>
-            {skill.description}
+            {skill.SKILL_DESCRIPTION}
           </Text>
         </Stack>
       </Accordion.Panel>

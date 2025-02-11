@@ -22,25 +22,25 @@ export default function PageCareers() {
         }}>
           <Flex gap={"md"} align={"center"}>
             <Avatar
-              src={career.company_logo && career.company_logo}
+              src={career.CAREER_COMPANY_LOGO && career.CAREER_COMPANY_LOGO}
               size={"50"} radius={"sm"}>
-              {!career.company_logo && <IconBriefcaseFilled color="#DAFF01" />}
+              {!career.CAREER_COMPANY_LOGO && <IconBriefcaseFilled color="#DAFF01" />}
             </Avatar>
             <Stack gap={"4"}>
               <Text fw={"bold"} fz={"lg"} c={"defaultColor"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-              }}>{career.position}</Text>
+              }}>{career.CAREER_NAME}</Text>
               <Text fw={"bold"} inline style={{
                 textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-              }}>{career.company}</Text>
+              }}>{career.CAREER_COMPANY}</Text>
               {
-                career.start_date
+                career.CAREER_START_DATE
                 && (
                   <Stack gap={"4"}>
                     <Group gap={"6"}>
-                      <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.start_date)}</Text>
+                      <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.CAREER_START_DATE)}</Text>
                       <Text fz={"xs"} c={"dimmed"} inline>-</Text>
-                      <Text fz={"xs"} c={"dimmed"} inline>{career.end_date ? formatDate(career.end_date) : "o momento"}</Text>
+                      <Text fz={"xs"} c={"dimmed"} inline>{career.CAREER_END_DATE ? formatDate(career.CAREER_END_DATE) : "o momento"}</Text>
                     </Group>
                   </Stack>
                 )
@@ -60,7 +60,7 @@ export default function PageCareers() {
           transition: "0.4s ease",
         }}>
           <Text fz={"sm"} inline>
-            {career.description}
+            {career.CAREER_DESCRIPTION}
           </Text>
         </Stack>
       </Accordion.Panel>
