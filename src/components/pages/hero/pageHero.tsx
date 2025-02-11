@@ -1,17 +1,13 @@
 import themeDevices from "@/styles/themeDevices";
-import { User } from "@/types/user";
 import { useGSAP } from "@gsap/react";
 import { Avatar, Flex, Group, Paper, Stack, Text } from "@mantine/core";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
-interface Props {
-  user?: User;
-}
-
-export default function PageHero({ user }: Props) {
+export default function PageHero() {
   const { isMobile } = themeDevices();
+
   const gsapRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +62,7 @@ export default function PageHero({ user }: Props) {
         <Stack h={"80vh"} justify={"space-between"}>
           <Stack gap={0} flex={1} justify={"center"} mt={"50"}>
             <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} my={"lg"} radius={"50%"} p={2} shadow="xl">
-              <Avatar className="avatar-animated" size={isMobile ? "20vh" : "30vh"} src={user?.avatar_url} />
+              <Avatar className="avatar-animated" size={isMobile ? "20vh" : "30vh"} src={"https://avatars.githubusercontent.com/u/83263335?v=4"} />
             </Paper>
             <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
               <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "2vh" : "md"} style={{

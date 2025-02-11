@@ -1,11 +1,8 @@
 "use client";
 import Background from "@/components/_ui/background/background";
 import { Stack } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Loading from "@/components/_ui/loading/loading";
-import useGet from "@/hooks/useGet";
-import { API_GIT_URL } from "@/utils/apiGitUrl";
-import { User } from "@/types/user";
 import LeftNavigation from "@/components/_ui/navigationBar/leftNavigation";
 import RightNavigation from "@/components/_ui/navigationBar/rightNavigation";
 import themeDevices from "@/styles/themeDevices";
@@ -18,12 +15,6 @@ import CustomAffix from "@/components/_ui/affix/customAffix";
 export default function Home() {
   const { isMobile } = themeDevices();
   const [renderCompleted, setRenderCompleted] = useState(false);
-
-  const { response, sendRequest } = useGet<User>(`${API_GIT_URL}/users/DDR23`);
-
-  useEffect(() => {
-    sendRequest();
-  }, []);
 
   return (
     <>
@@ -38,7 +29,7 @@ export default function Home() {
         }}>
           {renderCompleted && (
             <>
-              <PageHero user={response?.data} />
+              <PageHero />
               <PageCareers />
               <PageSkills />
               <PageContact />
