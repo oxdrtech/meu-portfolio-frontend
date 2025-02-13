@@ -1,6 +1,5 @@
 "use client"
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Flex, Group, Paper } from "@mantine/core";
+import { Flex, Group, Image, Paper } from "@mantine/core";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
@@ -41,8 +40,10 @@ export default function Background() {
       <Flex ref={gsapRef} pos={"absolute"} left={"0"} right={"0"} h={"100vh"} style={{
         overflow: "hidden",
       }}>
-        <Group className="background-animated" m={"auto"} h={"90vh"}>
-          <DotLottieReact src="./background.lottie" speed={.5} loop autoplay />
+        <Group className="" m={"auto"}>
+          <Image src={"./backgroundHero.gif"} miw={"100vw"} h={"100vh"} style={{
+            objectFit: "cover"
+          }} />
         </Group>
         <Group>
           <Paper className="light-animated" radius="50%" w={"7000px"} h={"7000px"} bg={"defaultColor.7"} pos={"absolute"} style={{

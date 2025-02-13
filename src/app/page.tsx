@@ -24,8 +24,8 @@ export default function Home() {
         <LeftNavigation triggerGSAP={renderCompleted} />
         <RightNavigation triggerGSAP={renderCompleted} />
         <Stack display={"block"} className="main" h={renderCompleted ? "max-content" : "100vh"} style={{
-          backdropFilter: isMobile ? "blur(64px)" : "blur(86px)",
-          backgroundImage: 'url(./noise.png)',
+          backdropFilter: isMobile ? "blur(10px)" : "blur(16px)",
+          backgroundImage: 'url(./app.png)',
         }}>
           {renderCompleted && (
             <>
