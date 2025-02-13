@@ -1,6 +1,6 @@
 import CustomNotification from "@/components/_ui/notification/customNotification";
 import { schemaAuth } from "@/schemas/auth/schemaAuth";
-import { UserPost } from "@/types/user";
+import { Auth } from "@/types/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { signIn } from "next-auth/react";
@@ -15,7 +15,7 @@ export default function ModalSignIn() {
     resolver: yupResolver(schemaAuth),
   });
 
-  const submitForm: SubmitHandler<UserPost> = async (formData) => {
+  const submitForm: SubmitHandler<Auth> = async (formData) => {
     setIsLoading(true);
     signIn('credentials', {
       USER_NAME: formData.USER_NAME,

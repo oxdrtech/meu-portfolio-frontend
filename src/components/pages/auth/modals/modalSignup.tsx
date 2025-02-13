@@ -1,7 +1,8 @@
 import CustomNotification from "@/components/_ui/notification/customNotification";
 import usePost from "@/hooks/usePost";
 import { schemaAuth } from "@/schemas/auth/schemaAuth";
-import { UserPost } from "@/types/user";
+import { Auth } from "@/types/auth";
+import { AuthResponse } from "@/types/authResponse";
 import { API_BASE_URL } from "@/utils/apiBaseUrl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
@@ -17,7 +18,7 @@ export default function ModalSignUp() {
   });
 
   const watchData = watch();
-  const { isPosting, response, error, sendRequest } = usePost<UserPost, { access_token: string }>(`${API_BASE_URL}/auth/register`, watchData);
+  const { isPosting, response, error, sendRequest } = usePost<Auth, AuthResponse>(`${API_BASE_URL}/auth/register`, watchData);
 
   useEffect(() => {
     if (error) {
