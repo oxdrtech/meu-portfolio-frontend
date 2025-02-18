@@ -6,6 +6,7 @@ import PageSkills from "@/components/pages/skills/pageSkills";
 import PageCareers from "@/components/pages/careers/pageCareers";
 import PageHero from "@/components/pages/hero/pageHero";
 import PageContact from "@/components/pages/contact/pageContact";
+import TopNavigation from "@/components/_ui/navigationBar/topNavigation";
 
 export default function Home() {
   const [renderCompleted, setRenderCompleted] = useState(false);
@@ -14,7 +15,8 @@ export default function Home() {
     <>
       <Stack>
         <Loading onComplete={() => setRenderCompleted(true)} />
-        <Stack display={"block"} className="main" h={"100vh"} w={"100vw"} style={{
+        <TopNavigation triggerGSAP={renderCompleted} />
+        <Stack display={"block"} h={"100vh"} w={"100vw"} style={{
           overflowY: "scroll",
           scrollSnapType: "y mandatory",
         }}>

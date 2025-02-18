@@ -95,7 +95,7 @@ export default function CustomSpotlight() {
         actions={actions}
         nothingFound="Não encontrado..."
         highlightQuery
-        shortcut={"ctrl+enter"}
+        shortcut={"ctrl+k"}
         searchProps={{
           leftSection: <IconSearch size={22} />,
           placeholder: "Pesquisar...",
