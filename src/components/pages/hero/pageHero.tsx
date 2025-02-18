@@ -1,65 +1,66 @@
+import TopNavigation from "@/components/_ui/navigationBar/topNavigation";
+import RightNavigation from "@/components/_ui/navigationBar/topNavigation";
 import themeDevices from "@/styles/themeDevices";
-import { useGSAP } from "@gsap/react";
 import { Avatar, Flex, Group, Paper, Stack, Text } from "@mantine/core";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
 
 export default function PageHero() {
   const { isMobile } = themeDevices();
 
-  const gsapRef = useRef(null);
-  gsap.registerPlugin(ScrollTrigger);
+  // const gsapRef = useRef(null);
+  // gsap.registerPlugin(ScrollTrigger);
 
-  useGSAP(() => {
-    if (gsapRef.current) {
-      gsap.set(".paper-animated", {
-        scale: 10,
-        opacity: 0,
-      });
-      gsap.set(".avatar-animated", {
-        scale: 0,
-      });
-      gsap.set(".objectup-animated", {
-        yPercent: 100,
-        opacity: 0,
-      });
-      gsap.set(".line-animated", {
-        scaleX: 0,
-        opacity: 0,
-      });
+  // useGSAP(() => {
+  //   if (gsapRef.current) {
+  //     gsap.set(".paper-animated", {
+  //       scale: 10,
+  //       opacity: 0,
+  //     });
+  //     gsap.set(".avatar-animated", {
+  //       scale: 0,
+  //     });
+  //     gsap.set(".objectup-animated", {
+  //       yPercent: 100,
+  //       opacity: 0,
+  //     });
+  //     gsap.set(".line-animated", {
+  //       scaleX: 0,
+  //       opacity: 0,
+  //     });
 
-      gsap
-        .timeline()
-        .to(".paper-animated", {
-          opacity: 1,
-          scale: 1,
-          duration: .6,
-        })
-        .to(".avatar-animated", {
-          scale: 1,
-          duration: .4,
-        }, "-=0.2")
-        .to(".objectup-animated", {
-          opacity: 1,
-          yPercent: 0,
-          duration: .5,
-        }, "-=0.2")
-        .to(".line-animated", {
-          scaleX: 1,
-          opacity: 1,
-          duration: .2,
-          transformOrigin: "left center",
-        }, "-=0.2")
-    };
-  }, { scope: gsapRef })
+  //     gsap
+  //       .timeline()
+  //       .to(".paper-animated", {
+  //         opacity: 1,
+  //         scale: 1,
+  //         duration: .6,
+  //       })
+  //       .to(".avatar-animated", {
+  //         scale: 1,
+  //         duration: .4,
+  //       }, "-=0.2")
+  //       .to(".objectup-animated", {
+  //         opacity: 1,
+  //         yPercent: 0,
+  //         duration: .5,
+  //       }, "-=0.2")
+  //       .to(".line-animated", {
+  //         scaleX: 1,
+  //         opacity: 1,
+  //         duration: .2,
+  //         transformOrigin: "left center",
+  //       }, "-=0.2")
+  //   };
+  // }, { scope: gsapRef })
 
   return (
     <>
-      <Flex ref={gsapRef} className="panel" id="inicio" h={"100vh"} justify={"center"} align={"center"} direction={"column"} style={{
+      <Flex className="panel" id="inicio" h={"100vh"} justify={"center"} align={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Stack h={"80vh"} justify={"space-between"}>
+        <Paper flex={"1"} bg={"blue"}>
+          teste
+        </Paper>
+        {/* <Stack h={"80vh"} justify={"space-between"}>
           <Stack gap={0} flex={1} justify={"center"} mt={"50"}>
             <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} my={"lg"} radius={"50%"} p={2} shadow="xl">
               <Avatar className="avatar-animated" size={isMobile ? "20vh" : "30vh"} src={"https://avatars.githubusercontent.com/u/83263335?v=4"} />
@@ -89,7 +90,7 @@ export default function PageHero() {
               </Group>
             </Group>
           </Stack>
-        </Stack>
+        </Stack> */}
       </Flex>
     </>
   );
