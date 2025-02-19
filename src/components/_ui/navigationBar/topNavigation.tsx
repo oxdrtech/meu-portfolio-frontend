@@ -5,12 +5,14 @@ import gsap from "gsap";
 import { useRef } from "react";
 import CustomSpotlight from "../spotlight/customSpotlight";
 import { spotlight } from "@mantine/spotlight";
+import themeDevices from "@/styles/themeDevices";
 
 interface Props {
   triggerGSAP: boolean;
 }
 
 export default function TopNavigation({ triggerGSAP }: Props) {
+  const { isMobile } = themeDevices();
   const gsapRef = useRef(null);
 
   useGSAP(() => {
@@ -35,7 +37,9 @@ export default function TopNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} p={"xs"} left={"0"} right={"0"} justify={"center"}>
+      <Flex ref={gsapRef} pos={"fixed"} p={"xs"} left={"0"} right={"0"} justify={"center"} style={{
+        zIndex: "1000",
+      }}>
         <Group component={"span"} style={{ overflow: "hidden" }}>
           <Input
             className="object-animated"
@@ -44,12 +48,15 @@ export default function TopNavigation({ triggerGSAP }: Props) {
             component="button"
             pointer
             w={"15rem"}
-            leftSection={<IconSearch size={18} />}
+            leftSection={<IconSearch size={"18"} />}
             rightSectionWidth={"max-content"}
             rightSection={
-              <Paper mr={"xs"} px={"6"} py={"4"}>
-                <Text fz={"xs"} inline>Crtl + K</Text>
-              </Paper>
+              !isMobile
+              && (
+                <Paper mr={"xs"} px={"6"} py={"4"}>
+                  <Text fz={"xs"} inline>Crtl + K</Text>
+                </Paper>
+              )
             }
           >
             <Input.Placeholder>Pesquisar</Input.Placeholder>
