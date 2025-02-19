@@ -1,129 +1,90 @@
-import { skillsMock } from "@/mocks/skills.mock";
 import themeDevices from "@/styles/themeDevices";
-import { Accordion, Badge, Card, Flex, Group, Highlight, HoverCard, Stack, Text } from "@mantine/core";
-import { IconArrowDownLeft } from "@tabler/icons-react";
-import { useState } from "react";
+import { Button, Flex, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
+import './index.css'
+
+const iconTechs = [
+  { src: "./icons/icon-docker.webp" },
+  { src: "./icons/icon-expressjs.webp" },
+  { src: "./icons/icon-figma.webp" },
+  { src: "./icons/icon-git.webp" },
+  { src: "./icons/icon-gsap.webp" },
+  { src: "./icons/icon-javascript.webp" },
+  { src: "./icons/icon-jest.webp" },
+  { src: "./icons/icon-mantine.webp" },
+  { src: "./icons/icon-mongodb.webp" },
+  { src: "./icons/icon-mysql.webp" },
+  { src: "./icons/icon-nestjs.webp" },
+  { src: "./icons/icon-nextjs.webp" },
+  { src: "./icons/icon-postgres.webp" },
+  { src: "./icons/icon-postman.webp" },
+  { src: "./icons/icon-prisma.webp" },
+  { src: "./icons/icon-redis.webp" },
+  { src: "./icons/icon-typescript.webp" },
+  { src: "./icons/icon-vercel.webp" },
+  { src: "./icons/icon-vite.webp" },
+]
 
 export default function PageSkills() {
-  const { isMobile } = themeDevices();
-  const [openedItem, setOpenedItem] = useState<string | null>(skillsMock[0]?.id || null);
+  const { isMobile, isDesktop } = themeDevices();
 
-  const skills = skillsMock.map((skill, index) => (
-    <Accordion.Item
-      value={skill.id}
-      key={index}
-      onMouseEnter={() => setOpenedItem(skill.id)}
-      onMouseLeave={() => setOpenedItem(skillsMock[0]?.id)}
-    >
-      <Accordion.Control pos={"relative"}>
-        <Stack gap={"xs"} pt={openedItem === skill.id ? (isMobile ? "" : "lg") : ""} style={{
-          transition: "0.4s ease",
-        }}>
-          <Stack gap={"4"}>
-            <Text fw={"bold"} fz={"lg"} c={"defaultColor"} inline style={{
-              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-            }}>
-              {skill.SKILL_ALIAS}
-            </Text>
-            <Text fw={"bold"} inline style={{
-              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-            }}>
-              {skill.SKILL_NAME}
-            </Text>
-          </Stack>
-          <Stack gap={"xs"} px={"sm"}>
-            <Text fz={"xs"} c={"dimmed"} inline>
-              Ferramentas
-            </Text>
-            <Group gap={isMobile ? "6" : "xs"}>
-              {skill.SKILL_TAGS.slice(0, 5).map((skill, index) => (
-                <Badge variant="outline" key={index}>
-                  {skill}
-                </Badge>
-              ))}
-              {skill.SKILL_TAGS.length > 5 && (
-                <HoverCard width={200} position="bottom" withArrow shadow="md">
-                  <HoverCard.Target>
-                    <Badge variant="light" style={{ cursor: "pointer" }}>
-                      + {skill.SKILL_TAGS.length - 5} ferramentas
-                    </Badge>
-                  </HoverCard.Target>
-                  <HoverCard.Dropdown>
-                    <Stack gap="xs">
-                      {skill.SKILL_TAGS.slice(5).map((skill, index) => (
-                        <Text key={index} fz={"sm"} c={"defaultColor"} inline>
-                          {skill}
-                        </Text>
-                      ))}
-                    </Stack>
-                  </HoverCard.Dropdown>
-                </HoverCard>
-              )}
-            </Group>
-          </Stack>
-        </Stack>
-        <Stack pos={"absolute"} right={"10px"} top={"10px"}>
-          <IconArrowDownLeft size={"28"} color="grey" style={{
-            rotate: openedItem === skill.id ? "180deg" : "0deg",
-            transition: "0.4s ease",
-          }} />
-        </Stack>
-      </Accordion.Control>
-      <Accordion.Panel>
-        <Stack px={"sm"} pb={openedItem === skill.id ? (isMobile ? "" : "lg") : ""} style={{
-          transition: "0.4s ease",
-        }}>
-          <Text fz={"sm"} inline>
-            {skill.SKILL_DESCRIPTION}
-          </Text>
-        </Stack>
-      </Accordion.Panel>
-    </Accordion.Item>
-  ));
+  const animationTechs = iconTechs.map((icon, index) => (
+    <li key={index}>
+      <Image src={icon.src} alt="techs" />
+    </li>
+  ))
 
   return (
     <>
-      <Flex className="panel" id="habilidades" h={"100vh"} justify={"center"} align={"center"} style={{
+      <Flex className="panel" id="habilidades" w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Stack h={"90vh"} w={"70rem"} maw={"90vw"} align={"center"}>
-          <Stack>
-            <Highlight
-              highlight={[
-                "modernas",
-                "sólida",
-                "evolução",
-              ]}
-              highlightStyles={{
-                color: "#DAFF01",
-                WebkitBackgroundClip: 'text',
-              }}
-              ta={"center"}
-              fw={"bold"}
-              fz={isMobile ? "3vh" : "5vh"}
-              inline
-              style={{
-                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-              }}>
-              Com as ferramentas mais modernas e boas práticas de desenvolvimento, cada projeto ganha uma base sólida, preparada para uma evolução contínua
-            </Highlight>
-          </Stack>
-          <Stack flex={"1"} justify={"center"} w={"60rem"} maw={"90vw"}>
-            <Card p={"0"} radius={"md"} style={{
-              backdropFilter: "blur(100px)",
-              background: "#23232350",
-            }}>
-              <Accordion
-                value={openedItem}
-                variant={"contained"}
-                transitionDuration={400}
-                chevron={false}
+        <Flex m={"56 10 10 10"} pos={"relative"} flex={"1"} justify={"center"} bg={"#11111150"} style={{
+          borderRadius: "16px",
+          overflow: "hidden",
+        }}>
+          <ul className="techs">
+            {animationTechs}
+          </ul>
+          <Stack h={"100%"} p={"lg"} align={"center"} justify={"center"} gap={"xl"} style={{
+            backdropFilter: "blur(1px)",
+          }}>
+            <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"}>
+              <Highlight
+                highlight={[
+                  "modernas",
+                  "sólida",
+                  "evolução",
+                ]}
+                highlightStyles={{
+                  color: "#DAFF01",
+                  WebkitBackgroundClip: 'text',
+                }}
+                fz={isMobile ? "h3" : !isDesktop ? "h2" : "h1"}
+                fw={"lighter"}
+                inline
               >
-                {skills}
-              </Accordion>
-            </Card>
+                Com as ferramentas mais modernas e boas práticas de desenvolvimento, cada projeto ganha uma base sólida, preparada para uma evolução contínua
+              </Highlight>
+            </Stack>
+            <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
+            <Stack w={isMobile ? "90vw" : "80vw"} align={"flex-start"}>
+              <Button variant="light" component="a" href="#contato" px={"xl"}>
+                Vamos trabalhar juntos
+              </Button>
+            </Stack>
+            <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"} ta={"end"}>
+              <Title order={2} fz={isMobile ? "h3" : ""}>
+                Soluções reais
+              </Title>
+              <Title order={2} fz={isMobile ? "h3" : ""}>
+                que impactam
+              </Title>
+              <Title order={2} fz={isMobile ? "h3" : ""}>
+                os negócios
+              </Title>
+            </Stack>
           </Stack>
-        </Stack>
+        </Flex>
       </Flex>
     </>
   );
