@@ -37,10 +37,12 @@ export default function TopNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} p={"xs"} left={"0"} right={"0"} justify={"center"} style={{
+      <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} justify={"center"} style={{
         zIndex: "1000",
       }}>
-        <Group component={"span"} style={{ overflow: "hidden" }}>
+        <Group component={"span"} style={{
+          overflow: "hidden",
+        }}>
           <Input
             className="object-animated"
             display={"none"}
