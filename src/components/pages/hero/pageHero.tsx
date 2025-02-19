@@ -6,52 +6,6 @@ import { useHover } from "@mantine/hooks";
 export default function PageHero() {
   const { isMobile } = themeDevices();
 
-  // const gsapRef = useRef(null);
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // useGSAP(() => {
-  //   if (gsapRef.current) {
-  //     gsap.set(".paper-animated", {
-  //       scale: 10,
-  //       opacity: 0,
-  //     });
-  //     gsap.set(".avatar-animated", {
-  //       scale: 0,
-  //     });
-  //     gsap.set(".objectup-animated", {
-  //       yPercent: 100,
-  //       opacity: 0,
-  //     });
-  //     gsap.set(".line-animated", {
-  //       scaleX: 0,
-  //       opacity: 0,
-  //     });
-
-  //     gsap
-  //       .timeline()
-  //       .to(".paper-animated", {
-  //         opacity: 1,
-  //         scale: 1,
-  //         duration: .6,
-  //       })
-  //       .to(".avatar-animated", {
-  //         scale: 1,
-  //         duration: .4,
-  //       }, "-=0.2")
-  //       .to(".objectup-animated", {
-  //         opacity: 1,
-  //         yPercent: 0,
-  //         duration: .5,
-  //       }, "-=0.2")
-  //       .to(".line-animated", {
-  //         scaleX: 1,
-  //         opacity: 1,
-  //         duration: .2,
-  //         transformOrigin: "left center",
-  //       }, "-=0.2")
-  //   };
-  // }, { scope: gsapRef })
-
   const socialButtons = socialButtonsMock.map((btn, index) => {
     const { hovered, ref } = useHover();
 
@@ -95,7 +49,7 @@ export default function PageHero() {
                   Criação de interfaces
                 </Title>
               </Stack>
-              <Paper className="line-animated" w={"80vw"} h={2} bg={"#C9C9C9"} />
+              <Paper w={"80vw"} h={2} bg={"#C9C9C9"} />
               <Stack w={"80vw"} gap={"0"} ta={"end"}>
                 <Title order={2} fz={isMobile ? "h3" : ""} style={{
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
@@ -113,10 +67,10 @@ export default function PageHero() {
                   complexos
                 </Title>
               </Stack>
-              <Paper className="line-animated" w={"80vw"} h={2} bg={"#C9C9C9"} />
+              <Paper w={"80vw"} h={2} bg={"#C9C9C9"} />
               <Group w={"80vw"} >
-                <Avatar className="avatar-animated" size={"60"} src={"https://avatars.githubusercontent.com/u/83263335?v=4"} />
-                <Stack gap={"0"}>
+                <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
+                <Group flex={"1"} justify="space-between">
                   <Text fz={"h4"} pl={"4"} style={{
                     textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                   }}>
@@ -125,7 +79,7 @@ export default function PageHero() {
                   <Group gap={"xs"}>
                     {socialButtons}
                   </Group>
-                </Stack>
+                </Group>
               </Group>
             </Stack>
           </BackgroundImage>
@@ -134,35 +88,3 @@ export default function PageHero() {
     </>
   );
 }
-
-{/* <Stack h={"80vh"} justify={"space-between"}>
-  <Stack gap={0} flex={1} justify={"center"} mt={"50"}>
-    <Paper className="paper-animated" bg={"defaultColor"} mx={"auto"} my={"lg"} radius={"50%"} p={2} shadow="xl">
-      <Avatar className="avatar-animated" size={isMobile ? "20vh" : "30vh"} src={"https://avatars.githubusercontent.com/u/83263335?v=4"} />
-    </Paper>
-    <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-      <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "2vh" : "md"} style={{
-        textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-      }}>
-        🙋‍♂️ Olá, meu nome é
-      </Text>
-    </Group>
-    <Group component={"span"} style={{ overflow: "hidden" }} justify={"center"}>
-      <Text className="objectup-animated" opacity={"0"} component={"h1"} fw={"bold"} fz={isMobile ? "5vh" : "42"} inline style={{
-        textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-      }}>
-        André Campos
-      </Text>
-    </Group>
-    <Group gap={"xs"}>
-      <Paper className="line-animated" flex={1} h={2} bg={"defaultColor"} />
-      <Group component={"span"} style={{ overflow: "hidden" }}>
-        <Text className="objectup-animated" opacity={"0"} component="h1" fw={"normal"} fz={isMobile ? "2vh" : "md"} inline style={{
-          textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-        }}>
-          FULLSTACK | React & Node
-        </Text>
-      </Group>
-    </Group>
-  </Stack>
-</Stack> */}
