@@ -19,12 +19,12 @@ export default function PageCareers() {
       <Accordion.Control pos={"relative"}>
         <Flex gap={"md"} align={"center"}>
           <Avatar
-            src={career.career_company_logo && career.career_company_logo}
+            src={career.company_logo && career.company_logo}
             size={"50"}
             radius={"sm"}
           >
             {
-              !career.career_company_logo
+              !career.company_logo
               && (
                 <IconBriefcaseFilled color="#DAFF01" />
               )
@@ -32,19 +32,19 @@ export default function PageCareers() {
           </Avatar>
           <Stack gap={"4"}>
             <Text fw={"bold"} c={"defaultColor"} inline>
-              {career.career_name}
+              {career.name}
             </Text>
             <Text fw={"bold"} inline>
-              {career.career_company}
+              {career.company}
             </Text>
             {
-              career.career_start_date
+              career.start_date
               && (
                 <Stack gap={"4"}>
                   <Group gap={"6"}>
-                    <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.career_start_date)}</Text>
+                    <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.start_date)}</Text>
                     <Text fz={"xs"} c={"dimmed"} inline>-</Text>
-                    <Text fz={"xs"} c={"dimmed"} inline>{career.career_end_date ? formatDate(career.career_end_date) : "o momento"}</Text>
+                    <Text fz={"xs"} c={"dimmed"} inline>{career.end_date ? formatDate(career.end_date) : "o momento"}</Text>
                   </Group>
                 </Stack>
               )
@@ -60,7 +60,7 @@ export default function PageCareers() {
       </Accordion.Control>
       <Accordion.Panel>
         <Text fz={"sm"} px={isMobile ? "" : "sm"} inline>
-          {career.career_description}
+          {career.description}
         </Text>
       </Accordion.Panel>
     </Accordion.Item>
