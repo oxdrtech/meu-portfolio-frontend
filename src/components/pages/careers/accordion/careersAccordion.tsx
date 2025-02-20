@@ -5,6 +5,8 @@ import { Accordion, Avatar, Flex, Group, Stack, Text } from "@mantine/core";
 import { IconArrowDownLeft, IconBriefcaseFilled } from "@tabler/icons-react";
 import { useState } from "react";
 
+// TODO - adicionar badges de competencias?
+
 export default function CareersAccordion() {
   const { isMobile } = themeDevices();
   const [openedItem, setOpenedItem] = useState<string | null>(careersMock[0]?.id || null);
