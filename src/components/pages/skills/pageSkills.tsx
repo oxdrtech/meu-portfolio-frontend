@@ -1,5 +1,5 @@
 import themeDevices from "@/styles/themeDevices";
-import { Flex, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
+import { Badge, Flex, Group, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
 import { iconTechs } from "@/mocks/iconTechs.mock";
 import './index.css'
 
@@ -27,7 +27,11 @@ export default function PageSkills() {
           <Stack h={"100%"} p={"lg"} align={"center"} justify={"center"} gap={"xl"} style={{
             backdropFilter: "blur(1px)",
           }}>
-            <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"}>
+            <Stack w={isMobile ? "90vw" : "80vw"} gap={"lg"}>
+              <Group gap={"xs"}>
+                <Badge variant={"outline"} size={"lg"} >Front-end</Badge>
+                <Badge variant={"outline"} size={"lg"} >Back-end</Badge>
+              </Group>
               <Highlight
                 highlight={[
                   "modernas",
@@ -38,7 +42,7 @@ export default function PageSkills() {
                   color: "#DAFF01",
                   WebkitBackgroundClip: 'text',
                 }}
-                fz={isMobile ? "h3" : !isDesktop ? "h2" : "h1"}
+                fz={isMobile ? "h2" : !isDesktop ? "h2" : "h1"}
                 fw={"lighter"}
                 inline
               >
@@ -47,13 +51,13 @@ export default function PageSkills() {
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"} ta={"end"}>
-              <Title order={2}>
-                Soluções reais
+              <Title order={3}>
+                Criando soluções reais
               </Title>
-              <Title order={2}>
+              <Title order={3}>
                 que impactam
               </Title>
-              <Title order={2}>
+              <Title order={3}>
                 os negócios
               </Title>
             </Stack>
