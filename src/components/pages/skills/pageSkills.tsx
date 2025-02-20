@@ -24,7 +24,7 @@ export default function PageSkills() {
           <ul className="techs">
             {animationTechs}
           </ul>
-          <Stack h={"100%"} p={"lg"} align={"center"} justify={"center"} gap={"xl"} style={{
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={"xl"} style={{
             backdropFilter: "blur(1px)",
           }}>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"lg"}>
@@ -51,13 +51,13 @@ export default function PageSkills() {
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"} ta={"end"}>
-              <Title order={3}>
+              <Title order={2} fz={isMobile ? "h3" : ""}>
                 Criando soluções reais
               </Title>
-              <Title order={3}>
+              <Title order={2} fz={isMobile ? "h3" : ""}>
                 que impactam
               </Title>
-              <Title order={3}>
+              <Title order={2} fz={isMobile ? "h3" : ""}>
                 os negócios
               </Title>
             </Stack>

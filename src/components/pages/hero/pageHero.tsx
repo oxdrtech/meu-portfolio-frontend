@@ -5,7 +5,7 @@ import { ActionIcon, Avatar, BackgroundImage, Badge, Flex, Group, Paper, Stack, 
 import { useHover } from "@mantine/hooks";
 import { IconMouse } from "@tabler/icons-react";
 
-const works = ["interfaces", "REST API's", "databases", "automações"];
+const works = ["interfaces", "API's REST", "databases", "automações"];
 const randomChars = "!@#$%&*?";
 
 export default function PageHero() {

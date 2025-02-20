@@ -71,11 +71,11 @@ export default function PageCareers() {
       <Flex className="panel" id="sobre-mim" w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Flex m={"56 10 10 10"} flex={"1"} justify={"center"} bg={"dark"} style={{
+        <Flex m={"56 10 10 10"} flex={"1"} justify={"center"} style={{
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Stack h={"100%"} p={"lg"} align={"center"} justify={"center"} gap={"xl"}>
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={"xl"}>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"}>
               <Highlight
                 highlight={[
@@ -104,6 +104,7 @@ export default function PageCareers() {
                 chevron={false}
               >
                 {careers}
+                {/* TODO - em telas mobile highlight será h1 e careers será um carousel para otimizar espaço*/}
               </Accordion>
             </Stack>
           </Stack>
