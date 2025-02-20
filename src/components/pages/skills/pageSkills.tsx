@@ -1,28 +1,7 @@
 import themeDevices from "@/styles/themeDevices";
-import { Button, Flex, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
+import { Flex, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
+import { iconTechs } from "@/mocks/iconTechs.mock";
 import './index.css'
-
-const iconTechs = [
-  { src: "./icons/icon-docker.webp" },
-  { src: "./icons/icon-expressjs.webp" },
-  { src: "./icons/icon-figma.webp" },
-  { src: "./icons/icon-git.webp" },
-  { src: "./icons/icon-gsap.webp" },
-  { src: "./icons/icon-javascript.webp" },
-  { src: "./icons/icon-jest.webp" },
-  { src: "./icons/icon-mantine.webp" },
-  { src: "./icons/icon-mongodb.webp" },
-  { src: "./icons/icon-mysql.webp" },
-  { src: "./icons/icon-nestjs.webp" },
-  { src: "./icons/icon-nextjs.webp" },
-  { src: "./icons/icon-postgres.webp" },
-  { src: "./icons/icon-postman.webp" },
-  { src: "./icons/icon-prisma.webp" },
-  { src: "./icons/icon-redis.webp" },
-  { src: "./icons/icon-typescript.webp" },
-  { src: "./icons/icon-vercel.webp" },
-  { src: "./icons/icon-vite.webp" },
-]
 
 export default function PageSkills() {
   const { isMobile, isDesktop } = themeDevices();
@@ -67,19 +46,14 @@ export default function PageSkills() {
               </Highlight>
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
-            <Stack w={isMobile ? "90vw" : "80vw"} align={"flex-start"}>
-              <Button variant="light" component="a" href="#contato" px={"xl"}>
-                Vamos trabalhar juntos
-              </Button>
-            </Stack>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"} ta={"end"}>
-              <Title order={2} fz={isMobile ? "h3" : ""}>
+              <Title order={2}>
                 Soluções reais
               </Title>
-              <Title order={2} fz={isMobile ? "h3" : ""}>
+              <Title order={2}>
                 que impactam
               </Title>
-              <Title order={2} fz={isMobile ? "h3" : ""}>
+              <Title order={2}>
                 os negócios
               </Title>
             </Stack>
