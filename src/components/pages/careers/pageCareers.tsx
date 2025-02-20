@@ -19,12 +19,12 @@ export default function PageCareers() {
       <Accordion.Control pos={"relative"}>
         <Flex gap={"md"} align={"center"}>
           <Avatar
-            src={career.CAREER_COMPANY_LOGO && career.CAREER_COMPANY_LOGO}
+            src={career.career_company_logo && career.career_company_logo}
             size={"50"}
             radius={"sm"}
           >
             {
-              !career.CAREER_COMPANY_LOGO
+              !career.career_company_logo
               && (
                 <IconBriefcaseFilled color="#DAFF01" />
               )
@@ -32,19 +32,19 @@ export default function PageCareers() {
           </Avatar>
           <Stack gap={"4"}>
             <Text fw={"bold"} c={"defaultColor"} inline>
-              {career.CAREER_NAME}
+              {career.career_name}
             </Text>
             <Text fw={"bold"} inline>
-              {career.CAREER_COMPANY}
+              {career.career_company}
             </Text>
             {
-              career.CAREER_START_DATE
+              career.career_start_date
               && (
                 <Stack gap={"4"}>
                   <Group gap={"6"}>
-                    <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.CAREER_START_DATE)}</Text>
+                    <Text fz={"xs"} c={"dimmed"} inline>{formatDate(career.career_start_date)}</Text>
                     <Text fz={"xs"} c={"dimmed"} inline>-</Text>
-                    <Text fz={"xs"} c={"dimmed"} inline>{career.CAREER_END_DATE ? formatDate(career.CAREER_END_DATE) : "o momento"}</Text>
+                    <Text fz={"xs"} c={"dimmed"} inline>{career.career_end_date ? formatDate(career.career_end_date) : "o momento"}</Text>
                   </Group>
                 </Stack>
               )
@@ -60,7 +60,7 @@ export default function PageCareers() {
       </Accordion.Control>
       <Accordion.Panel>
         <Text fz={"sm"} px={isMobile ? "" : "sm"} inline>
-          {career.CAREER_DESCRIPTION}
+          {career.career_description}
         </Text>
       </Accordion.Panel>
     </Accordion.Item>
