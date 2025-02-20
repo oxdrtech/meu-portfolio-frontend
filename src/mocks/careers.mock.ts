@@ -5,7 +5,7 @@ export const careersMock: Career[] = [
     id: "1",
     company: "Ômega Screen Indústria",
     company_logo: "https://media.licdn.com/dms/image/v2/C4D0BAQGOFOwukbCi5g/company-logo_200_200/company-logo_200_200/0/1669890865489/mega_indstria_e_comrcio_de_tintas_ltda_logo?e=1746662400&v=beta&t=riQ6QdLEHo5OfSNvkWktxfjDLrELbBTnP131ayLhBvI",
-    name: "Analista de desenvolvimento de software",
+    name: "Analista de des. de software",
     start_date: "01/08/2023",
     end_date: "",
     type: "Presencial",

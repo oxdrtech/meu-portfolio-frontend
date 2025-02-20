@@ -1,7 +1,7 @@
 import themeDevices from "@/styles/themeDevices";
 import { Badge, Flex, Group, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
 import { iconTechs } from "@/mocks/iconTechs.mock";
-import './index.css'
+import "./index.css";
 
 export default function PageSkills() {
   const { isMobile, isDesktop } = themeDevices();
@@ -42,7 +42,7 @@ export default function PageSkills() {
                   color: "#DAFF01",
                   WebkitBackgroundClip: 'text',
                 }}
-                fz={isMobile ? "h2" : !isDesktop ? "h2" : "h1"}
+                fz={isMobile ? "h2" : "h1"}
                 fw={"lighter"}
                 inline
               >

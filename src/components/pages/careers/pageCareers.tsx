@@ -1,6 +1,7 @@
 import themeDevices from "@/styles/themeDevices";
 import { Flex, Highlight, Paper, Stack } from "@mantine/core";
-import CareersAccordion from "./content/careersAccordion";
+import CareersAccordion from "./accordion/careersAccordion";
+import CareerCarousel from "./carousel/careersCarousel";
 
 export default function PageCareers() {
   const { isMobile, isDesktop } = themeDevices();
@@ -27,16 +28,20 @@ export default function PageCareers() {
                   color: "#DAFF01",
                   WebkitBackgroundClip: 'text',
                 }}
-                fz={isMobile ? "h3" : !isDesktop ? "h2" : "h1"}
+                fz={isMobile ? "h2" : "h1"}
                 fw={"lighter"}
                 inline
               >
-                Há 2 anos desenvolvendo aplicações web para empresas e negócios independentes, unindo qualidade, alta performance, design elegante e uma experiência do usuário marcante
+                Há 2 anos desenvolvendo aplicações web para empresas e negócios independentes, unindo qualidade, alta performance, design elegante
               </Highlight>
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
             <Stack w={isMobile ? "90vw" : "80vw"}>
-              <CareersAccordion />
+              {
+                isMobile
+                  ? <CareerCarousel />
+                  : <CareersAccordion />
+              }
             </Stack>
           </Stack>
         </Flex>

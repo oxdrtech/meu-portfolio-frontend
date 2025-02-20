@@ -59,7 +59,7 @@ export default function CareersAccordion() {
         </Stack>
       </Accordion.Control>
       <Accordion.Panel>
-        <Text fz={"sm"} px={isMobile ? "" : "sm"} inline>
+        <Text fz={"sm"} px={isMobile ? "" : "sm"}>
           {career.description}
         </Text>
       </Accordion.Panel>
