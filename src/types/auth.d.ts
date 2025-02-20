@@ -1,4 +1,4 @@
 export interface Auth {
-  USER_NAME: string;
-  USER_PASSWORD: string;
+  user_name: string;
+  user_password: string;
 }

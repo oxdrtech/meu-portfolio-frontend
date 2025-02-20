@@ -1,7 +1,7 @@
 export interface User {
   id: string;
-  USER_NAME: string;
-  USER_AUTHORIZED: boolean;
-  USER_ROLE: "ADMIN" | "USER";
+  user_name: string;
+  user_authorized: boolean;
+  user_role: "ADMIN" | "USER";
   createdAt: string;
 }

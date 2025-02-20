@@ -33,8 +33,8 @@ export default function ModalSignUp() {
         message: 'Usuário registrado com sucesso!',
       });
       signIn('credentials', {
-        USER_NAME: watchData.USER_NAME,
-        USER_PASSWORD: watchData.USER_PASSWORD,
+        user_name: watchData.user_name,
+        user_password: watchData.user_password,
         redirect: false,
       })
         .then((res) => res?.ok && redirect('/dashboard'));
@@ -44,7 +44,7 @@ export default function ModalSignUp() {
   return (
     <form onSubmit={handleSubmit(sendRequest)}>
       <Controller
-        name='USER_NAME'
+        name='user_name'
         control={control}
         render={({ field }) => (
           <TextInput
@@ -56,7 +56,7 @@ export default function ModalSignUp() {
         )}
       />
       <Controller
-        name='USER_PASSWORD'
+        name='user_password'
         control={control}
         render={({ field }) => (
           <PasswordInput
