@@ -1,5 +1,5 @@
 import { NavigationButton } from "@/types/navigationButton";
-import { IconBrandGithub, IconBrandLinkedin, IconSearch } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
 export const socialButtonsMock: NavigationButton[] = [
   {
@@ -9,11 +9,5 @@ export const socialButtonsMock: NavigationButton[] = [
   {
     icon: IconBrandGithub,
     url: "https://github.com/DDR23",
-  },
-];
-
-export const searchButtonsMock: NavigationButton[] = [
-  {
-    icon: IconSearch,
   },
 ];
