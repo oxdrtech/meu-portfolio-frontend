@@ -1,20 +1,15 @@
-import { careersMock } from "@/mocks/careers.mock";
+import { Career } from "@/types/career";
 import { formatDate } from "@/utils/formatDate";
-import { Accordion, Avatar, Badge, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
-import { IconArrowDownLeft, IconBriefcaseFilled } from "@tabler/icons-react";
-import { useState } from "react";
+import { Avatar, Badge, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
+import { IconBriefcaseFilled } from "@tabler/icons-react";
 
-export default function CareersAccordion() {
-  const [openedItem, setOpenedItem] = useState<string | null>(careersMock[0]?.id || null);
-
-  const careers = careersMock.map((career, index) => (
-    <Accordion.Item
-      value={career.id}
-      key={index}
-      onMouseEnter={() => setOpenedItem(career.id)}
-      onMouseLeave={() => setOpenedItem(careersMock[0]?.id)}
-    >
-      <Accordion.Control pos={"relative"}>
+interface Props {
+  career: Career;
+}
+export default function CareersModal({ career }: Props) {
+  return (
+    <>
+      <Stack>
         <Flex gap={"md"} align={"center"}>
           <Avatar
             src={career.company_logo && career.company_logo}
@@ -49,15 +44,7 @@ export default function CareersAccordion() {
             }
           </Stack>
         </Flex>
-        <Stack pos={"absolute"} right={"10px"} top={"10px"}>
-          <IconArrowDownLeft size={"28"} color="grey" style={{
-            rotate: openedItem === career.id ? "180deg" : "0deg",
-            transition: "0.4s ease",
-          }} />
-        </Stack>
-      </Accordion.Control>
-      <Accordion.Panel>
-        <Stack px={"sm"} gap={"xs"}>
+        <Stack>
           <Text fz={"sm"}>
             {career.description}
           </Text>
@@ -83,20 +70,7 @@ export default function CareersAccordion() {
             )}
           </Group>
         </Stack>
-      </Accordion.Panel>
-    </Accordion.Item>
-  ));
-
-  return (
-    <>
-      <Accordion
-        value={openedItem}
-        variant={"contained"}
-        transitionDuration={400}
-        chevron={false}
-      >
-        {careers}
-      </Accordion>
+      </Stack>
     </>
   );
 }

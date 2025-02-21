@@ -38,7 +38,7 @@ export default function TopNavigation({ triggerGSAP }: Props) {
   return (
     <>
       <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} justify={"center"} style={{
-        zIndex: "1000",
+        zIndex: "100",
       }}>
         <Group component={"span"} style={{
           overflow: "hidden",

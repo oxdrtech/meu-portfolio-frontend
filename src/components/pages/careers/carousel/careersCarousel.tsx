@@ -1,20 +1,28 @@
 import { careersMock } from '@/mocks/careers.mock';
 import { formatDate } from '@/utils/formatDate';
 import { Carousel } from '@mantine/carousel';
-import { Avatar, Flex, Group, Stack, Text } from '@mantine/core';
+import { Avatar, Flex, Group, Modal, Stack, Text } from '@mantine/core';
 import { IconBriefcaseFilled } from '@tabler/icons-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import classes from "./careersCarousel.module.css"
-
-// TODO - adicionar modais com careers.descriptions e badges de competencias?
+import { useDisclosure } from '@mantine/hooks';
+import { Career } from '@/types/career';
+import CareersModal from './modal/careersModal';
 
 export default function CareerCarousel() {
   const autoplay = useRef(Autoplay({ delay: 3000 }));
+  const [opened, { open, close }] = useDisclosure(false);
+  const [modalContent, setModalContent] = useState<Career | null>(null);
+
+  const handleOpen = (content: Career) => {
+    setModalContent(content);
+    open();
+  };
 
   const careers = careersMock.map((career, index) => (
     <Carousel.Slide key={index}>
-      <Flex p={'sm'} gap={"md"} align={"center"} bg={'dark.6'} style={{
+      <Flex onClick={() => handleOpen(career)} p={'sm'} gap={"md"} align={"center"} bg={'dark.6'} style={{
         borderRadius: "4px"
       }}>
         <Avatar
@@ -67,6 +75,22 @@ export default function CareerCarousel() {
       >
         {careers}
       </Carousel>
+      <Modal
+        opened={opened}
+        onClose={close}
+        withCloseButton={false}
+        centered
+        overlayProps={{ backgroundOpacity: 0.55, blur: 3 }}
+        style={{
+          zIndex: 1000,
+        }}
+      >
+        {
+          modalContent && (
+            <CareersModal career={modalContent} />
+          )
+        }
+      </Modal>
     </>
   );
 }
