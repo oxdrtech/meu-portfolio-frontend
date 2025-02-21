@@ -1,12 +1,10 @@
 import { careersMock } from "@/mocks/careers.mock";
-import themeDevices from "@/styles/themeDevices";
 import { formatDate } from "@/utils/formatDate";
-import { Accordion, Avatar, Flex, Group, Stack, Text } from "@mantine/core";
+import { Accordion, Avatar, Badge, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
 import { IconArrowDownLeft, IconBriefcaseFilled } from "@tabler/icons-react";
 import { useState } from "react";
 
 export default function CareersAccordion() {
-  const { isMobile } = themeDevices();
   const [openedItem, setOpenedItem] = useState<string | null>(careersMock[0]?.id || null);
 
   const careers = careersMock.map((career, index) => (
@@ -59,9 +57,32 @@ export default function CareersAccordion() {
         </Stack>
       </Accordion.Control>
       <Accordion.Panel>
-        <Text fz={"sm"} px={isMobile ? "" : "sm"}>
-          {career.description}
-        </Text>
+        <Stack px={"sm"} gap={"xs"}>
+          <Text fz={"sm"}>
+            {career.description}
+          </Text>
+          <Group gap={"xs"}>
+            {career.competencias.slice(0, 5).map((comp, index) => (
+              <Badge variant="outline" key={index}>{comp}</Badge>
+            ))}
+            {career.competencias.length > 5 && (
+              <HoverCard width={200} position="bottom" withArrow shadow="md">
+                <HoverCard.Target>
+                  <Badge variant="light" style={{ cursor: "pointer" }}>
+                    + {career.competencias.length - 5} competências
+                  </Badge>
+                </HoverCard.Target>
+                <HoverCard.Dropdown>
+                  <Stack gap="xs">
+                    {career.competencias.slice(5).map((comp, index) => (
+                      <Text key={index} fz={"sm"} c={"defaultColor"} inline>{comp}</Text>
+                    ))}
+                  </Stack>
+                </HoverCard.Dropdown>
+              </HoverCard>
+            )}
+          </Group>
+        </Stack>
       </Accordion.Panel>
     </Accordion.Item>
   ));

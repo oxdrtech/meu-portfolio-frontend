@@ -10,6 +10,18 @@ export const careersMock: Career[] = [
     end_date: "",
     type: "Presencial",
     description: "Responsável pelo desenvolvimento de aplicações web, criação de protótipos, hospedagem, manutenção e análise de desempenho dos sites. Utilizando ferramentas de desenvolvimento modernas como Next.js, NestJS, além de conceitos como SOLID e TDD, para criar aplicações seguras, robustos e escaláveis.",
+    competencias: [
+      "Node.js",
+      "Next.js",
+      "Git",
+      "SQL",
+      "MongoBD",
+      "TypeScript",
+      "Nest.js",
+      "Jest",
+      "Figma",
+      "Mantine-UI",
+    ]
   },
   {
     id: "2",
@@ -20,5 +32,22 @@ export const careersMock: Career[] = [
     end_date: "",
     type: "Remota",
     description: "Responsável pelo desenvolvimento completo, desde a protótipagem até a hospedagem e manutenção. Já desenvolvi CMS's personalizados, APIs RESTful e WebSocket, painéis de usuário interativos, sistemas de cotação industrial, automações inteligentes, ferramentas de raspagem de dados e Landing Pages otimizadas.",
+    competencias: [
+      "Node.js",
+      "Next.js",
+      "Git",
+      "SQL",
+      "MongoBD",
+      "TypeScript",
+      "Nest.js",
+      "Docker",
+      "Jest",
+      "Figma",
+      "Mantine-UI",
+      "GSAP",
+      "Web Socket",
+      "Web Scraping",
+      "Playwright",
+    ]
   },
 ];
