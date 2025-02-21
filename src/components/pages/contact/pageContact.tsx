@@ -1,8 +1,8 @@
 import themeDevices from "@/styles/themeDevices";
 import { Avatar, BackgroundImage, Button, Flex, Group, Modal, Paper, Stack, Text, Title } from "@mantine/core";
-import ContactForm from "./contactForm";
 import { IconBrandGithub, IconBrandGmail, IconBrandLinkedin, IconQrcode } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
+import ContactForm from "./form/contactForm";
 
 export default function PageContact() {
   const { isMobile } = themeDevices();
