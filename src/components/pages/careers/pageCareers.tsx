@@ -8,7 +8,7 @@ export default function PageCareers() {
 
   return (
     <>
-      <Flex className="panel" id="sobre-mim" w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
+      <Flex w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
         <Flex m={"56 10 10 10"} flex={"1"} justify={"center"} style={{

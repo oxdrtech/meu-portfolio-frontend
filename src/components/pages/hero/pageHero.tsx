@@ -55,7 +55,7 @@ export default function PageHero() {
 
   return (
     <>
-      <Flex className="panel" id="inicio" w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
+      <Flex id="inicio" w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
         <Flex m={"56 10 10 10"} flex={"1"} style={{
