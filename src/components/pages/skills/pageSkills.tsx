@@ -29,8 +29,8 @@ export default function PageSkills() {
           }}>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"lg"}>
               <Group gap={"xs"}>
-                <Badge variant={"outline"} size={"lg"} >Front-end</Badge>
-                <Badge variant={"outline"} size={"lg"} >Back-end</Badge>
+                <Badge variant={"outline"}>Front-end</Badge>
+                <Badge variant={"outline"}>Back-end</Badge>
               </Group>
               <Highlight
                 highlight={[

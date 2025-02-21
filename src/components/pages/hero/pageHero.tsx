@@ -70,8 +70,8 @@ export default function PageHero() {
             }}>
               <Stack w={"80vw"} gap={"0"}>
                 <Group mb={"lg"} gap={"xs"}>
-                  <Badge variant={"outline"} color={"#C9c9c9"} size={"lg"} >Sistemas</Badge>
-                  <Badge variant={"outline"} color={"#C9c9c9"} size={"lg"} >Soluções</Badge>
+                  <Badge variant={"outline"} color={"#C9c9c9"}>Sistemas</Badge>
+                  <Badge variant={"outline"} color={"#C9c9c9"}>Soluções</Badge>
                 </Group>
                 <Flex direction={isDesktop ? "row" : "column"} gap={isDesktop ? "xl" : ""}>
                   <Title order={1} fz={isMobile ? "h2" : ""} style={{
