@@ -4,6 +4,8 @@ import { Accordion, Avatar, Badge, Flex, Group, HoverCard, Stack, Text } from "@
 import { IconArrowDownLeft, IconBriefcaseFilled } from "@tabler/icons-react";
 import { useState } from "react";
 
+// TODO - adicionar badges de competencias?
+
 export default function CareersAccordion() {
   const [openedItem, setOpenedItem] = useState<string | null>(careersMock[0]?.id || null);
 

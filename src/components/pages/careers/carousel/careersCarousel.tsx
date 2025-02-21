@@ -7,12 +7,16 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
 import classes from "./careersCarousel.module.css"
 
+// TODO - adicionar modais com careers.descriptions e badges de competencias?
+
 export default function CareerCarousel() {
   const autoplay = useRef(Autoplay({ delay: 3000 }));
 
   const careers = careersMock.map((career, index) => (
     <Carousel.Slide key={index}>
-      <Flex px={'sm'} gap={"md"} align={"center"}>
+      <Flex p={'sm'} gap={"md"} align={"center"} bg={'dark.6'} style={{
+        borderRadius: "4px"
+      }}>
         <Avatar
           src={career.company_logo && career.company_logo}
           size={"50"}
@@ -56,9 +60,10 @@ export default function CareerCarousel() {
         withControls={false}
         loop
         height={"max-content"}
+        slideGap={"xs"}
         plugins={[autoplay.current]}
-        onMouseEnter={autoplay.current.stop}
-        onMouseLeave={autoplay.current.reset}
+        onPointerDown={() => autoplay.current.stop()}
+        onPointerUp={() => autoplay.current.play()}
       >
         {careers}
       </Carousel>
