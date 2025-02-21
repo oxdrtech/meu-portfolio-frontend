@@ -1,7 +1,7 @@
 import themeDevices from "@/styles/themeDevices";
-import { Badge, Flex, Group, Highlight, Image, Paper, Stack, Title } from "@mantine/core";
+import { Badge, Flex, Group, Highlight, Image, List, Paper, Stack, Title } from "@mantine/core";
 import { iconTechs } from "@/mocks/iconTechs.mock";
-import "./index.css";
+import classes from "./pageSkill.module.css";
 
 export default function PageSkills() {
   const { isMobile, isDesktop } = themeDevices();
@@ -21,9 +21,9 @@ export default function PageSkills() {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <ul className="techs">
+          <List classNames={classes}>
             {animationTechs}
-          </ul>
+          </List>
           <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={"xl"} style={{
             backdropFilter: "blur(1px)",
           }}>

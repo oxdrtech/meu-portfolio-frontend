@@ -22,7 +22,6 @@ export default function PageCareers() {
                   "qualidade",
                   "performance",
                   "design",
-                  "experiência",
                 ]}
                 highlightStyles={{
                   color: "#DAFF01",
