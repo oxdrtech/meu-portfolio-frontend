@@ -1,8 +1,10 @@
 import themeDevices from "@/styles/themeDevices";
-import { Avatar, BackgroundImage, Button, Flex, Group, Modal, Paper, Stack, Text, Title } from "@mantine/core";
-import { IconBrandGithub, IconBrandGmail, IconBrandLinkedin, IconQrcode } from "@tabler/icons-react";
+import { Avatar, BackgroundImage, Button, Flex, Modal, Paper, Stack, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import ContactForm from "./form/contactForm";
+import SocialButtons from "@/components/_ui/socialButtons/socialButtons";
+
+// TODO - e, todos os direitos reservados, o ano deve ser dinamico
 
 export default function PageContact() {
   const { isMobile } = themeDevices();
@@ -27,7 +29,7 @@ export default function PageContact() {
                 </Title>
               </Stack>
               <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"#C9C9C9"} />
-              <Stack w={isMobile ? "90vw" : "80vw"} gap={isMobile ? "" : "0"} mb={"xl"}>
+              <Stack w={isMobile ? "90vw" : "80vw"} gap={isMobile ? "" : "0"}>
                 {
                   isMobile
                     ? (
@@ -45,12 +47,7 @@ export default function PageContact() {
               </Stack>
               <Stack w={"80vw"} align={"center"} ta={"center"} gap={"sm"}>
                 <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
-                <Group>
-                  <IconBrandGithub size={20} />
-                  <IconBrandLinkedin size={20} />
-                  <IconBrandGmail size={20} />
-                  <IconQrcode size={20} />
-                </Group>
+                <SocialButtons />
                 <Stack gap={"0"}>
                   <Text ff={"monospace"} fz={"xs"}>
                     Desenvolvido por {" "}

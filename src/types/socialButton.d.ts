@@ -1,6 +1,6 @@
 import { Icon } from "@tabler/icons-react";
 
-export interface NavigationButton {
+export interface SocialButton {
   icon: Icon;
   url?: string;
 }

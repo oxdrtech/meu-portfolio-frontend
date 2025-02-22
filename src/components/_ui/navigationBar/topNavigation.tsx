@@ -11,6 +11,8 @@ interface Props {
   triggerGSAP: boolean;
 }
 
+// TODO - spotlight so deverá aparecer em !isMobile
+
 export default function TopNavigation({ triggerGSAP }: Props) {
   const { isMobile } = themeDevices();
   const gsapRef = useRef(null);

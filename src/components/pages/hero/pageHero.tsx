@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { socialButtonsMock } from "@/mocks/navigationButtons.mock";
 import themeDevices from "@/styles/themeDevices";
-import { ActionIcon, Avatar, BackgroundImage, Badge, Flex, Group, Paper, Stack, Text, Title } from "@mantine/core";
-import { useHover } from "@mantine/hooks";
+import { Avatar, BackgroundImage, Badge, Flex, Group, Paper, Stack, Text, Title } from "@mantine/core";
 import { IconMouse } from "@tabler/icons-react";
+import SocialButtons from "@/components/_ui/socialButtons/socialButtons";
 
 const works = ["interfaces", "API's REST", "databases", "automações"];
 const randomChars = "!@#$%&*?";
@@ -40,18 +39,6 @@ export default function PageHero() {
 
     return () => clearInterval(interval);
   }, [loopIndex]);
-
-  const socialButtons = socialButtonsMock.map((btn, index) => {
-    const { hovered, ref } = useHover();
-
-    return (
-      <Group key={index} component={"span"} style={{ overflow: "hidden" }}>
-        <ActionIcon ref={ref} component="a" href={btn.url} target="_blank" variant="transparent" fz={"sm"} c={hovered ? "defaultColor" : "#C9C9C9"}>
-          <btn.icon size={22} />
-        </ActionIcon>
-      </Group>
-    );
-  });
 
   return (
     <>
@@ -117,19 +104,38 @@ export default function PageHero() {
                 </Title>
               </Stack>
               <Paper w={"80vw"} h={1} bg={"#C9C9C9"} />
-              <Group w={"80vw"} gap={"sm"}>
-                <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
-                <Group flex={"1"} justify="space-between">
-                  <Text fz={isDesktop ? "h3" : "h4"} pl={"4"} fw={"bold"} style={{
-                    textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-                  }}>
-                    André Campos
-                  </Text>
-                  <Group gap={"xs"}>
-                    {socialButtons}
-                  </Group>
-                </Group>
-              </Group>
+              {
+                isMobile
+                  ? (
+                    <>
+                      <Stack w={"80vw"} align={"center"} ta={"center"} gap={"xs"}>
+                        <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
+                        <Stack gap={"0"}>
+                          <Text fz={"h5"} pl={"4"} fw={"bold"} style={{
+                            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+                          }}>
+                            André Campos
+                          </Text>
+                          <SocialButtons />
+                        </Stack>
+                      </Stack>
+                    </>
+                  ) : (
+                    <>
+                      <Group w={"80vw"} gap={"sm"}>
+                        <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
+                        <Group flex={"1"} justify="space-between" gap={"0"}>
+                          <Text fz={"h3"} pl={"4"} fw={"bold"} style={{
+                            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+                          }}>
+                            André Campos
+                          </Text>
+                          <SocialButtons />
+                        </Group>
+                      </Group>
+                    </>
+                  )
+              }
               <IconMouse />
             </Stack>
           </BackgroundImage>
