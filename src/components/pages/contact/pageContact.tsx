@@ -45,10 +45,10 @@ export default function PageContact() {
                     : <ContactForm />
                 }
               </Stack>
-              <Stack w={"80vw"} align={"center"} ta={"center"} gap={"sm"}>
+              <Stack w={"80vw"} align={"center"} ta={"center"} gap={"xs"}>
                 <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
-                <SocialButtons />
-                <Stack gap={"0"}>
+                <Stack align={"center"} gap={"0"}>
+                  <SocialButtons />
                   <Text ff={"monospace"} fz={"xs"}>
                     Desenvolvido por {" "}
                     <Text fz={"xs"} component={"a"} href={"https://github.com/DDR23"} c={"defaultColor"}>DDR23</Text>
