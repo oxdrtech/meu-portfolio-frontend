@@ -45,19 +45,28 @@ export default function PageSkills() {
                 fz={isMobile ? "h2" : "h1"}
                 fw={"lighter"}
                 inline
+                style={{
+                  textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+                }}
               >
                 Com as ferramentas mais modernas e boas práticas de desenvolvimento, cada projeto ganha uma base sólida, preparada para uma evolução contínua
               </Highlight>
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"} ta={"end"}>
-              <Title order={2} fz={isMobile ? "h3" : ""}>
+              <Title order={2} fz={isMobile ? "h3" : ""} style={{
+                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+              }}>
                 Criando soluções reais
               </Title>
-              <Title order={2} fz={isMobile ? "h3" : ""}>
+              <Title order={2} fz={isMobile ? "h3" : ""} style={{
+                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+              }}>
                 que impactam
               </Title>
-              <Title order={2} fz={isMobile ? "h3" : ""}>
+              <Title order={2} fz={isMobile ? "h3" : ""} style={{
+                textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+              }}>
                 os negócios
               </Title>
             </Stack>

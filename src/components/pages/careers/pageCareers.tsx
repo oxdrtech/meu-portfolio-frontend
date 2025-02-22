@@ -30,6 +30,9 @@ export default function PageCareers() {
                 fz={isMobile ? "h2" : "h1"}
                 fw={"lighter"}
                 inline
+                style={{
+                  textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+                }}
               >
                 Há 2 anos desenvolvendo aplicações web para empresas e negócios independentes, unindo qualidade, alta performance, design elegante
               </Highlight>
