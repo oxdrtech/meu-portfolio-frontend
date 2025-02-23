@@ -4,8 +4,6 @@ import { useDisclosure } from "@mantine/hooks";
 import ContactForm from "./form/contactForm";
 import SocialButtons from "@/components/_ui/socialButtons/socialButtons";
 
-// TODO - e, todos os direitos reservados, o ano deve ser dinamico
-
 export default function PageContact() {
   const { isMobile } = themeDevices();
   const [opened, { open, close }] = useDisclosure(false);
@@ -53,7 +51,7 @@ export default function PageContact() {
                     Desenvolvido por {" "}
                     <Text fz={"xs"} component={"a"} href={"https://github.com/DDR23"} c={"defaultColor"}>DDR23</Text>
                   </Text>
-                  <Text ff={"monospace"} fz={"10"} c={"dimmed"}>© 2025. Todos os direitos reservados.</Text>
+                  <Text ff={"monospace"} fz={"10"} c={"dimmed"}>© {new Date().getFullYear()}. Todos os direitos reservados.</Text>
                 </Stack>
               </Stack>
             </Stack>
