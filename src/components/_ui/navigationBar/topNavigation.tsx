@@ -1,21 +1,22 @@
 import { useGSAP } from "@gsap/react";
-import { Flex, Group, Input, Paper, Text } from "@mantine/core";
+import { Burger, Drawer, Flex, Group, Input, Paper, Text } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import gsap from "gsap";
 import { useRef } from "react";
 import CustomSpotlight from "../spotlight/customSpotlight";
 import { spotlight } from "@mantine/spotlight";
 import themeDevices from "@/styles/themeDevices";
+import { useDisclosure } from "@mantine/hooks";
+import TopNavigationDrawer from "./drawer/topNavigationDrawer";
 
 interface Props {
   triggerGSAP: boolean;
 }
 
-// TODO - spotlight so deverá aparecer em !isMobile
-
 export default function TopNavigation({ triggerGSAP }: Props) {
   const { isMobile } = themeDevices();
   const gsapRef = useRef(null);
+  const [opened, { open, close }] = useDisclosure(false);
 
   useGSAP(() => {
     if (triggerGSAP) {
@@ -39,35 +40,62 @@ export default function TopNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} justify={"center"} style={{
+      <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} align={"center"} h={"56"} justify={"space-between"} px={"xl"} style={{
         zIndex: "100",
       }}>
+        <Group component={"span"} ta={"center"} gap={"sm"} style={{
+          overflow: "hidden",
+        }}>
+          <Text className="object-animated" display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} c={"defaultColor"} inline>DDR23 |</Text>
+          <Text className="object-animated" display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} c={"defaultColor"} inline>Portfólio</Text>
+        </Group>
         <Group component={"span"} style={{
           overflow: "hidden",
         }}>
-          <Input
-            className="object-animated"
-            display={"none"}
-            onClick={spotlight.open}
-            component="button"
-            pointer
-            w={"15rem"}
-            leftSection={<IconSearch size={"18"} />}
-            rightSectionWidth={"max-content"}
-            rightSection={
-              !isMobile
-              && (
-                <Paper mr={"xs"} px={"6"} py={"4"}>
-                  <Text fz={"xs"} inline>Crtl + K</Text>
-                </Paper>
+          {
+            isMobile
+              ? (
+                <Group
+                  className="object-animated"
+                  display={"none"}
+                >
+                  <Burger
+                    opened={opened}
+                    onClick={open}
+                    color={"defaultColor"}
+                    aria-label="Toggle drawer"
+                    size={"sm"}
+                  />
+                </Group>
+              ) : (
+                <Input
+                  className="object-animated"
+                  display={"none"}
+                  onClick={spotlight.open}
+                  component="button"
+                  pointer
+                  w={"15rem"}
+                  leftSection={<IconSearch size={"18"} />}
+                  rightSectionWidth={"max-content"}
+                  rightSection={
+                    !isMobile
+                    && (
+                      <Paper mr={"xs"} px={"6"} py={"4"}>
+                        <Text fz={"xs"} inline>Crtl + K</Text>
+                      </Paper>
+                    )
+                  }
+                >
+                  <Input.Placeholder>Pesquisar</Input.Placeholder>
+                </Input>
               )
-            }
-          >
-            <Input.Placeholder>Pesquisar</Input.Placeholder>
-          </Input>
+          }
         </Group>
       </Flex>
       <CustomSpotlight />
+      <Drawer position="bottom" offset={10} radius="md" opened={opened} onClose={close} title={"Menu"} >
+        <TopNavigationDrawer />
+      </Drawer>
     </>
   );
 }
