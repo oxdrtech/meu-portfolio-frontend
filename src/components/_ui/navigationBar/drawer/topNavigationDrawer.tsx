@@ -6,9 +6,15 @@ export default function TopNavigationDrawer() {
 
   return (
     <Stack>
-      {actions.map(({ id, label, onClick }) => (
-        <Button key={id} onClick={onClick}>
-          {label}
+      {actions.map((action) => (
+        <Button
+          key={action.id}
+          onClick={action.onClick}
+          variant={"light"}
+          rightSection={action.leftSection}
+          justify="space-between"
+        >
+          {action.label}
         </Button>
       ))}
     </Stack>

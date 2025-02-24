@@ -40,14 +40,14 @@ export default function TopNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} align={"center"} h={"56"} justify={"space-between"} px={"xl"} style={{
+      <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} align={"center"} h={"56"} justify={"space-between"} px={"lg"} style={{
         zIndex: "100",
       }}>
-        <Group component={"span"} ta={"center"} gap={"sm"} style={{
+        <Group component={"span"} ta={"center"} gap={"sm"} pl={"5"} style={{
           overflow: "hidden",
         }}>
-          <Text className="object-animated" display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} c={"defaultColor"} inline>DDR23 |</Text>
-          <Text className="object-animated" display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} c={"defaultColor"} inline>Portfólio</Text>
+          <Text className="object-animated" display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>DDR23 |</Text>
+          <Text className="object-animated" display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} inline>Portfólio</Text>
         </Group>
         <Group component={"span"} style={{
           overflow: "hidden",
@@ -62,7 +62,6 @@ export default function TopNavigation({ triggerGSAP }: Props) {
                   <Burger
                     opened={opened}
                     onClick={open}
-                    color={"defaultColor"}
                     aria-label="Toggle drawer"
                     size={"sm"}
                   />
@@ -93,7 +92,7 @@ export default function TopNavigation({ triggerGSAP }: Props) {
         </Group>
       </Flex>
       <CustomSpotlight />
-      <Drawer position="bottom" offset={10} radius="md" opened={opened} onClose={close} title={"Menu"} >
+      <Drawer position="bottom" offset={10} radius="md" opened={opened} size={"sm"} onClose={close} title={"Menu"} >
         <TopNavigationDrawer />
       </Drawer>
     </>
