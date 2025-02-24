@@ -40,9 +40,20 @@ export default function TopNavigation({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex ref={gsapRef} pos={"fixed"} bg={"dark.7"} p={"xs"} left={"0"} right={"0"} align={"center"} h={"56"} justify={"space-between"} px={"lg"} style={{
-        zIndex: "100",
-      }}>
+      <Flex
+        ref={gsapRef}
+        pos={"fixed"}
+        bg={"dark.7"}
+        p={"xs"}
+        left={"0"}
+        right={"0"}
+        align={"center"}
+        h={"56"}
+        justify={"space-between"}
+        px={"lg"}
+        style={{
+          zIndex: "100",
+        }} >
         <Group component={"span"} ta={"center"} gap={"sm"} pl={"5"} style={{
           overflow: "hidden",
         }}>
@@ -92,7 +103,15 @@ export default function TopNavigation({ triggerGSAP }: Props) {
         </Group>
       </Flex>
       <CustomSpotlight />
-      <Drawer position="bottom" offset={10} radius="md" opened={opened} size={"sm"} onClose={close} title={"Menu"} >
+      <Drawer
+        title={"Menu"}
+        onClose={close}
+        opened={opened}
+        position={"bottom"}
+        size={"sm"}
+        offset={10}
+        radius={"md"}
+      >
         <TopNavigationDrawer />
       </Drawer>
     </>
