@@ -1,11 +1,8 @@
 .action[data-selected="true"] {
-  background-color: #272e1a;
-}
-
-.action[data-selected="true"] {
+  background-color: #d9ff0130;
   transition: background-color 0.3s ease;
 }
 
 .action[data-selected="true"]:hover {
-  background-color: #2e361f;
+  background-color: #d9ff0140;
 }
