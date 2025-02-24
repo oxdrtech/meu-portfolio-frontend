@@ -64,7 +64,7 @@ export default function ContactForm() {
         <Title order={3} fz={isMobile ? "h4" : ""} c={"defaultColor"} style={{
           textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
         }}>
-          Preenche o formulário abaixo com o nome e um número de WhatsApp que eu entro em contato.
+          Preencha o formulário abaixo com nome e um número de WhatsApp que eu entrarei em contato.
         </Title>
       </Stack>
       <form onSubmit={handleSubmit(sendRequest)}>
