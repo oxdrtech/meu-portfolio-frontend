@@ -18,8 +18,8 @@ export default function ModalSignIn() {
   const submitForm: SubmitHandler<Auth> = async (formData) => {
     setIsLoading(true);
     signIn('credentials', {
-      user_name: formData.user_name,
-      user_password: formData.user_password,
+      name: formData.name,
+      password: formData.password,
       redirect: false,
     })
       .then((res) => {
@@ -43,7 +43,7 @@ export default function ModalSignIn() {
   return (
     <form onSubmit={handleSubmit(submitForm)}>
       <Controller
-        name='user_name'
+        name='name'
         control={control}
         render={({ field }) => (
           <TextInput
@@ -55,7 +55,7 @@ export default function ModalSignIn() {
         )}
       />
       <Controller
-        name='user_password'
+        name='password'
         control={control}
         render={({ field }) => (
           <PasswordInput

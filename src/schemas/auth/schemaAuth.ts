@@ -1,10 +1,10 @@
 import * as yup from 'yup'
 
 export const schemaAuth = yup.object().shape({
-  user_name: yup
+  name: yup
     .string()
     .required('Obrigatório'),
-  user_password: yup
+  password: yup
     .string()
     .required('Obrigatório')
 });

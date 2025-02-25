@@ -1,12 +1,12 @@
 import * as yup from 'yup'
 
 export const schemaContact = yup.object().shape({
-  contact_name: yup
+  name: yup
     .string()
     .required('Obrigatório'),
-  contact_phoneNumber: yup
+  phoneNumber: yup
     .string()
     .required('Obrigatório'),
-  contact_projectDescription: yup
+  projectDescription: yup
     .string()
 });

@@ -12,8 +12,8 @@ const authenticateUser = async (credentials: Auth) => {
     const { data: { access_token } } = await axios.post<AuthResponse>(
       `${API_BASE_URL}/auth/login`,
       {
-        user_name: credentials.user_name,
-        user_password: credentials.user_password,
+        name: credentials.name,
+        password: credentials.password,
       }
     );
 
@@ -42,8 +42,8 @@ const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'credentials',
       credentials: {
-        user_name: { label: 'Username', type: 'text' },
-        user_password: { label: 'Senha', type: 'password' },
+        name: { label: 'Nome', type: 'text' },
+        password: { label: 'Senha', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials) throw new Error('Credencias não fornecidas.');
