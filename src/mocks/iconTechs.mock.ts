@@ -1,6 +1,4 @@
-import { IconTechs } from "@/types/iconTechs";
-
-export const iconTechs: IconTechs[] = [
+export const iconTechs = [
   { src: "./icons/icon-docker.webp" },
   { src: "./icons/icon-expressjs.webp" },
   { src: "./icons/icon-figma.webp" },

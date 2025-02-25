@@ -6,6 +6,7 @@ import { IconBriefcaseFilled } from "@tabler/icons-react";
 interface Props {
   career: Career;
 }
+
 export default function CareersModal({ career }: Props) {
   return (
     <>

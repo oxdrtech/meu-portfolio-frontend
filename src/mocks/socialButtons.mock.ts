@@ -1,7 +1,6 @@
-import { SocialButton } from "@/types/socialButton";
 import { IconBrandGithub, IconBrandGmail, IconBrandLinkedin, IconQrcode } from "@tabler/icons-react";
 
-export const socialButtonsMock: SocialButton[] = [
+export const socialButtonsMock = [
   {
     icon: IconBrandGithub,
     url: "https://github.com/DDR23",
