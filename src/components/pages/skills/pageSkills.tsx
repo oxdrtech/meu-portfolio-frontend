@@ -24,7 +24,7 @@ export default function PageSkills() {
           <List classNames={classes}>
             {animationTechs}
           </List>
-          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={"xl"} style={{
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={isMobile ? "lg" : "xl"} style={{
             backdropFilter: "blur(1px)",
           }}>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"lg"}>
@@ -49,7 +49,7 @@ export default function PageSkills() {
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                 }}
               >
-                Com as ferramentas mais modernas e boas práticas de desenvolvimento, cada projeto ganha uma base sólida, preparada para uma evolução contínua
+                Com ferramentas modernas, cada projeto ganha uma base sólida, preparada para uma evolução contínua
               </Highlight>
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />

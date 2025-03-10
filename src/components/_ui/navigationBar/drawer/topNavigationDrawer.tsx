@@ -10,11 +10,12 @@ export default function TopNavigationDrawer() {
         <Button
           key={action.id}
           onClick={action.onClick}
-          variant={"light"}
+          variant={"default"}
+          c={"defaultColor"}
           rightSection={action.leftSection}
           justify="space-between"
         >
-          {action.label}
+          {action.description}
         </Button>
       ))}
     </Stack>

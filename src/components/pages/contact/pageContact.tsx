@@ -18,7 +18,7 @@ export default function PageContact() {
           overflow: "hidden",
         }}>
           <BackgroundImage src={"./backgroundGrain.jpg"}>
-            <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={"xl"} pb={"56"}>
+            <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={isMobile ? "lg" : "xl"} pb={"56"}>
               <Stack w={isMobile ? "90vw" : "80vw"}>
                 <Title order={1} fz={isMobile ? "h2" : ""} style={{
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
@@ -35,15 +35,20 @@ export default function PageContact() {
                         <Title order={3} fz={"h4"} c={"defaultColor"} style={{
                           textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                         }}>
-                          Tem um projeto empolgante para o qual precisa de ajuda?
+                          Tem um projeto empolgante e precisa de ajuda?
                         </Title>
-                        <Button variant="light" onClick={open}>Entrar em contato</Button>
+                        <Button variant="light" onClick={open}>
+                          {isMobile
+                            ? "Preencer formulário"
+                            : "Entrar em contato"
+                          }
+                        </Button>
                       </>
                     )
                     : <ContactForm />
                 }
               </Stack>
-              <Stack w={"80vw"} align={"center"} ta={"center"} gap={"xs"}>
+              <Stack w={"80vw"} align={"center"} ta={"center"} mt={"md"} gap={"xs"}>
                 <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
                 <Stack align={"center"} gap={"0"}>
                   <SocialButtons />
@@ -62,8 +67,15 @@ export default function PageContact() {
         opened={opened}
         onClose={close}
         closeOnClickOutside={false}
-        centered
-        overlayProps={{ backgroundOpacity: 0.55, blur: 3 }}
+        transitionProps={{
+          transition: "scale",
+          duration: 200,
+          timingFunction: "easy",
+        }}
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3
+        }}
         style={{
           zIndex: 1000,
         }}>

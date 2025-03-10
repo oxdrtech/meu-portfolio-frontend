@@ -36,6 +36,12 @@ export default function SocialButtons() {
         opened={opened}
         onClose={close}
         withCloseButton={false}
+        centered
+        transitionProps={{
+          transition: "scale",
+          duration: 200,
+          timingFunction: "easy",
+        }}
       >
         <Stack gap={"sm"}>
           <Text fz={"lg"} fw={"bold"} c={"defaultColor"} ta={"center"}>Compartilhe esta página</Text>

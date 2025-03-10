@@ -80,7 +80,15 @@ export default function CareerCarousel() {
         onClose={close}
         withCloseButton={false}
         centered
-        overlayProps={{ backgroundOpacity: 0.55, blur: 3 }}
+        transitionProps={{
+          transition: "scale",
+          duration: 200,
+          timingFunction: "easy",
+        }}
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
         style={{
           zIndex: 1000,
         }}

@@ -6,6 +6,10 @@ import CareerCarousel from "./carousel/careersCarousel";
 export default function PageCareers() {
   const { isMobile, isDesktop } = themeDevices();
 
+  const currentYear = new Date().getFullYear();
+  const startYear = 2023;
+  const yearsOfExperience = currentYear - startYear;
+
   return (
     <>
       <Flex w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
@@ -15,7 +19,7 @@ export default function PageCareers() {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={"xl"}>
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={isMobile ? "lg" : "xl"}>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"}>
               <Highlight
                 highlight={[
@@ -34,7 +38,7 @@ export default function PageCareers() {
                   textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                 }}
               >
-                Há 2 anos desenvolvendo aplicações web para empresas e negócios independentes, unindo qualidade, alta performance, design elegante
+                {`Há ${yearsOfExperience} anos desenvolvendo aplicações web para empresas e negócios independentes, unindo qualidade, alta performance, design elegante`}
               </Highlight>
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />

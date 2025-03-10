@@ -50,21 +50,21 @@ export default function ContactForm() {
 
   return (
     <>
-      <Stack gap={"0"} mb={"md"}>
+      <Stack gap={"xs"} mb={"md"}>
         {
           !isMobile
           && (
             <Title order={2} c={"defaultColor"} style={{
               textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
             }}>
-              Tem um projeto empolgante para o qual precisa de ajuda?
+              Tem um projeto empolgante e precisa de ajuda?
             </Title>
           )
         }
         <Title order={3} fz={isMobile ? "h4" : ""} c={"defaultColor"} style={{
           textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
         }}>
-          Preencha o formulário abaixo com nome e um número de WhatsApp que eu entrarei em contato.
+          Preenche o formulário abaixo com nome e whatsapp que eu entro em contato.
         </Title>
       </Stack>
       <form onSubmit={handleSubmit(sendRequest)}>
@@ -104,7 +104,7 @@ export default function ContactForm() {
               render={({ field }) => (
                 <Textarea
                   {...field}
-                  placeholder="Escreva uma descrição resumida do projeto"
+                  placeholder="Me fala um pouco do teu projeto"
                   minRows={2}
                   autosize
                   value={field.value || ""}

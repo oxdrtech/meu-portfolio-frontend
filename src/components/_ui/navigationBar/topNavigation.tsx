@@ -104,13 +104,17 @@ export default function TopNavigation({ triggerGSAP }: Props) {
       </Flex>
       <CustomSpotlight />
       <Drawer
-        title={"Menu"}
         onClose={close}
         opened={opened}
         position={"bottom"}
-        size={"sm"}
+        withCloseButton={false}
+        size={"20.5rem"}
         offset={10}
         radius={"md"}
+        transitionProps={{
+          duration: 200,
+          timingFunction: "easy",
+        }}
       >
         <TopNavigationDrawer />
       </Drawer>

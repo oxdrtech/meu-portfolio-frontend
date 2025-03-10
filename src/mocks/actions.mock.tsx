@@ -45,7 +45,7 @@ export const useActions = () => {
       {
         id: "link",
         label: "Link",
-        description: "Copiar endereço desta pagina",
+        description: "Copiar endereço da pagina",
         onClick: handlers.copyLink,
         leftSection: <IconCopy size={22} />,
       },

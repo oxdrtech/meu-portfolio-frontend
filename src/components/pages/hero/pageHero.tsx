@@ -50,7 +50,7 @@ export default function PageHero() {
           overflow: "hidden",
         }}>
           <BackgroundImage src={"./backgroundHero.gif"}>
-            <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={"xl"} style={{
+            <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={isMobile ? "lg" : "xl"} style={{
               backdropFilter: isMobile ? "blur(6px)" : "blur(6px)",
               backgroundImage: 'url(./noise.png)',
               backgroundColor: "#11111160",
@@ -111,7 +111,7 @@ export default function PageHero() {
                       <Stack w={"80vw"} align={"center"} ta={"center"} gap={"xs"}>
                         <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
                         <Stack gap={"0"}>
-                          <Text fz={"h5"} pl={"4"} fw={"bold"} style={{
+                          <Text fz={"h5"} pl={"4"} fw={"lighter"} style={{
                             textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                           }}>
                             André Campos
@@ -125,7 +125,7 @@ export default function PageHero() {
                       <Group w={"80vw"} gap={"sm"}>
                         <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} />
                         <Group flex={"1"} justify="space-between" gap={"0"}>
-                          <Text fz={"h3"} pl={"4"} fw={"bold"} style={{
+                          <Text fz={"h3"} pl={"4"} fw={"lighter"} style={{
                             textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                           }}>
                             André Campos
@@ -136,7 +136,7 @@ export default function PageHero() {
                     </>
                   )
               }
-              <IconMouse />
+              <IconMouse size={20} />
             </Stack>
           </BackgroundImage>
         </Flex>
