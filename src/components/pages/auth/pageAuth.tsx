@@ -37,6 +37,10 @@ export default function PageAuth() {
         opened={opened}
         onClose={close}
         closeOnClickOutside={false}
+        transitionProps={{
+          duration: 200,
+          timingFunction: "easy",
+        }}
         overlayProps={{ backgroundOpacity: 0.55, blur: 3 }}
       >
         {modalContent === "login" && (

@@ -53,7 +53,7 @@ export default function PageHero() {
             <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={isMobile ? "lg" : "xl"} style={{
               backdropFilter: isMobile ? "blur(6px)" : "blur(6px)",
               backgroundImage: 'url(./noise.png)',
-              backgroundColor: "#11111160",
+              backgroundColor: "#11111130",
             }}>
               <Stack w={"80vw"} gap={"0"}>
                 <Group mb={"lg"} gap={"xs"}>

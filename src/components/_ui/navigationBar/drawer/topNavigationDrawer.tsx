@@ -11,7 +11,6 @@ export default function TopNavigationDrawer() {
           key={action.id}
           onClick={action.onClick}
           variant={"default"}
-          c={"defaultColor"}
           rightSection={action.leftSection}
           justify="space-between"
         >
