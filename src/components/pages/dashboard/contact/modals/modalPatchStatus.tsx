@@ -17,10 +17,10 @@ interface Props {
 export default function ModalPatchStatus({ contact }: Props) {
   const { data: session } = useSession();
   const { handleSubmit, control, watch } = useForm({
-    mode: 'onChange',
+    mode: "onChange",
     resolver: yupResolver(schemaContact),
     defaultValues: {
-      status: contact?.status === "responded" ? 'rejected' : 'responded',
+      status: contact?.status === "responded" ? "rejected" : "responded",
     },
   });
 
@@ -34,14 +34,14 @@ export default function ModalPatchStatus({ contact }: Props) {
   useEffect(() => {
     if (error) {
       CustomNotification({
-        title: 'Erro',
-        message: 'Não foi possível alterar o status desse contato, tente novamente mais tarde.',
+        title: "Erro",
+        message: "Não foi possível alterar o status desse contato, tente novamente mais tarde.",
       });
     }
     if (response) {
       CustomNotification({
-        title: 'Sucesso',
-        message: 'Status atualizado com sucesso!',
+        title: "Sucesso",
+        message: "Status atualizado com sucesso!",
         reload: true,
       });
     }
@@ -51,8 +51,8 @@ export default function ModalPatchStatus({ contact }: Props) {
     return (
       <Stack align="center" gap={0}>
         <IconCircleCheckFilled color="#DAFF01" size={100} />
-        <Text ta='center'>Status atualizado</Text>
-        <Text ta='center' c='dimmed'>O status do contato foi atualizada com sucesso.</Text>
+        <Text ta="center">Status atualizado</Text>
+        <Text ta="center" c="dimmed">O status do contato foi atualizada com sucesso.</Text>
       </Stack>
     );
   }
@@ -65,17 +65,19 @@ export default function ModalPatchStatus({ contact }: Props) {
           control={control}
           render={({ field }) => <Select
             {...field}
-            label='Status'
+            label="Status"
             allowDeselect={false}
             data={[
-              { value: 'responded', label: 'respondido', disabled: contact?.status === 'responded' },
-              { value: 'rejected', label: 'rejeitado', disabled: contact?.status === 'rejected' },
+              { value: "responded", label: "respondido", disabled: contact?.status === "responded" },
+              { value: "rejected", label: "rejeitado", disabled: contact?.status === "rejected" },
+              { value: "pending", label: "pending", disabled: contact?.status === "pending" },
             ]}
           />}
         />
         <Button
-          type='submit'
+          type={"submit"}
           fullWidth
+          variant={"light"}
           mt="md"
           loading={isUpdating}
         >

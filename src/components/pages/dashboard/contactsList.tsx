@@ -82,7 +82,7 @@ export default function ContactsList({ contacts }: Props) {
               <Group hiddenFrom="md" fz="xs">
                 {
                   row.status === "pending"
-                    ? <Badge variant="default" c="yellow">Pendente</Badge>
+                    ? <Badge variant="default" c="#fc8a08">Pendente</Badge>
                     : row.status === "responded"
                       ? <Badge variant="default" c="#DAFF01">Respondido</Badge>
                       : <Badge variant="default" c="red">Rejeitado</Badge>
@@ -98,7 +98,7 @@ export default function ContactsList({ contacts }: Props) {
           <Group fz="sm">
             {
               row.status === "pending"
-                ? <Badge variant="default" c="yellow">Pendente</Badge>
+                ? <Badge variant="default" c="#fc8a08">Pendente</Badge>
                 : row.status === "responded"
                   ? <Badge variant="default" c="#DAFF01">Respondido</Badge>
                   : <Badge variant="default" c="dimmed">Rejeitado</Badge>
@@ -191,6 +191,11 @@ export default function ContactsList({ contacts }: Props) {
         opened={opened}
         onClose={close}
         withCloseButton={false}
+        centered
+        transitionProps={{
+          duration: 200,
+          timingFunction: "easy",
+        }}
         overlayProps={{
           backgroundOpacity: 0.55,
           blur: 3

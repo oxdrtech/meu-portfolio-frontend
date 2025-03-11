@@ -16,7 +16,7 @@ export default function CustomNotification({ title, message, reload }: Props) {
     message: message,
     position: 'top-center',
     autoClose: 3000,
-    color: notificationColor,
+    c: notificationColor,
     icon: notificationIcon,
     onClose() {
       if (reload) window.location.reload();

@@ -40,7 +40,7 @@ export default function PageContact({ contact }: Props) {
                 </Text>
                 {
                   contact.status === "pending"
-                    ? <Badge variant="default" c="yellow">Pendente</Badge>
+                    ? <Badge variant="default" c="#fc8a08">Pendente</Badge>
                     : contact.status === "responded"
                       ? <Badge variant="default" c="#DAFF01">Respondido</Badge>
                       : <Badge variant="default" c="dimmed">desativ.</Badge>
@@ -62,6 +62,7 @@ export default function PageContact({ contact }: Props) {
         opened={opened}
         onClose={close}
         withCloseButton={false}
+        centered
         transitionProps={{
           duration: 200,
           timingFunction: "easy",
