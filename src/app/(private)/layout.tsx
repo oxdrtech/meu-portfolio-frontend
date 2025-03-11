@@ -23,7 +23,7 @@ export default function PagesLayout({
 
   return (
     <>
-      {!session?.user.user_authorized ? (
+      {!session?.user.authorized ? (
         <>
           acesso negado
         </>
@@ -44,7 +44,7 @@ export default function PagesLayout({
                       cursor: "pointer",
                     }}>
                       <Text c="dimmed" size="sm" inline>
-                        Olá, {session?.user.user_name}
+                        Olá, {session?.user.name}
                       </Text>
                       <Avatar size='2.3rem' color={'defaultColor'} />
                     </Group>

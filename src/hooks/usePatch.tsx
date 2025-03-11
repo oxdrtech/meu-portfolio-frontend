@@ -11,6 +11,7 @@ export default function usePatch<T, R>(url: string, data: T, options: AxiosReque
     setError(null);
     setIsUpdating(true);
 
+    console.log('data', data)
     try {
       const res = await axios.patch<R>(url, data, options);
       setResponse(res);

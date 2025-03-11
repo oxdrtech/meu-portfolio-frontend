@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function CustomNotification({ title, message, reload }: Props) {
-  const notificationColor = title === 'Sucesso' ? 'green' : 'red';
+  const notificationColor = title === 'Sucesso' ? '#DAFF01' : 'red';
   const notificationIcon = title === 'Sucesso' ? <IconCheck /> : <IconX />;
 
   notifications.show({

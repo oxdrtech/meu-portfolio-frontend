@@ -3,7 +3,7 @@ import CustomNotification from "@/components/_ui/notification/customNotification
 import usePost from "@/hooks/usePost";
 import { schemaContact } from "@/schemas/contact/schemaContact";
 import themeDevices from "@/styles/themeDevices";
-import { Contact } from "@/types/contact";
+import { Contact, ContactPost } from "@/types/contact";
 import { API_BASE_URL } from "@/utils/apiBaseUrl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Group, Modal, SimpleGrid, Stack, Text, Textarea, TextInput, Title } from "@mantine/core";
@@ -27,7 +27,7 @@ export default function ContactForm() {
   });
 
   const watchData = watch();
-  const { isPosting, response, error, sendRequest } = usePost<Contact, { contact: Contact, discordStatus: number }>(
+  const { isPosting, response, error, sendRequest } = usePost<ContactPost, { contact: Contact, discordStatus: number }>(
     `${API_BASE_URL}/contacts/create`,
     watchData
   );
@@ -35,7 +35,7 @@ export default function ContactForm() {
   useEffect(() => {
     if (error) {
       CustomNotification({
-        title: `Erro ao enviar formulário: ${error.name}`,
+        title: `Erro ao enviar formulário`,
         message: "Tente novamente mais tarde.",
       });
     }
@@ -125,11 +125,10 @@ export default function ContactForm() {
                     render={({ field }) => (
                       <TextInput
                         {...field}
-                        placeholder="Nome*"
+                        placeholder="Nome"
                         required
                         value={field.value || ""}
                         onChange={(value) => field.onChange(value || "")}
-                        error={errors.name?.message}
                       />
                     )}
                   />
@@ -139,11 +138,10 @@ export default function ContactForm() {
                     render={({ field }) => (
                       <TextInput
                         {...field}
-                        placeholder="WhatsApp*"
+                        placeholder="WhatsApp"
                         required
                         value={field.value || ""}
                         onChange={(value) => field.onChange(value || "")}
-                        error={errors.phoneNumber?.message}
                       />
                     )}
                   />
@@ -159,7 +157,7 @@ export default function ContactForm() {
                       autosize
                       value={field.value || ""}
                       onChange={(value) => field.onChange(value || "")}
-                      error={errors.projectDescription?.message}
+                      required
                     />
                   )}
                 />

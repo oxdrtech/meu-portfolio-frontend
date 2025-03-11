@@ -19,7 +19,7 @@ export default function PageAuth() {
     <>
       <Stack pos={"relative"} w={"100vw"} h={"100vh"} align={"center"} justify={"center"} gap={"xl"}>
         <Stack pos={"absolute"} top={"0"} left={"0"}>
-          <Button component={"a"} href={"/"} variant={"light"} m={"lg"} leftSection={<IconHome size={"20"} />}>
+          <Button component={"a"} href={"/"} variant={"default"} c={"defaultColor"} m={"lg"} leftSection={<IconHome size={"20"} />}>
             Pagina inicial
           </Button>
         </Stack>
@@ -27,7 +27,7 @@ export default function PageAuth() {
           <Button onClick={() => handleOpen("login")} variant={"light"}>
             Entrar
           </Button>
-          <Button onClick={() => handleOpen("signup")} variant={"outline"} >
+          <Button onClick={() => handleOpen("signup")} variant={"default"} c={"defaultColor"} >
             Criar conta
           </Button>
         </Group>
