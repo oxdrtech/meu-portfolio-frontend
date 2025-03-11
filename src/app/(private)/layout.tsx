@@ -4,6 +4,7 @@ import { signOut, useSession } from 'next-auth/react';
 import { IconLogout } from '@tabler/icons-react';
 import { redirect } from 'next/navigation';
 import Loading from '../loading';
+import PageDenied from '@/components/pages/denied/pageDenied';
 
 export default function PagesLayout({
   children,
@@ -24,9 +25,7 @@ export default function PagesLayout({
   return (
     <>
       {!session?.user.authorized ? (
-        <>
-          acesso negado
-        </>
+        <PageDenied />
       ) : (
         <AppShell
           header={{ height: 60 }}
