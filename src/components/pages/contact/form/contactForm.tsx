@@ -22,7 +22,7 @@ export default function ContactForm() {
   }, []);
 
   const { control, handleSubmit, watch, formState: { errors } } = useForm({
-    mode: "onBlur",
+    mode: "onChange",
     resolver: yupResolver(schemaContact),
   });
 
@@ -153,7 +153,7 @@ export default function ContactForm() {
                     <Textarea
                       {...field}
                       placeholder="Aqui você pode descrever um pouco do seu projeto ou ideia..."
-                      minRows={5}
+                      minRows={10}
                       autosize
                       value={field.value || ""}
                       onChange={(value) => field.onChange(value || "")}

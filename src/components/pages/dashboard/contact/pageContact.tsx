@@ -6,6 +6,7 @@ import { Contact } from "@/types/contact";
 import themeDevices from "@/styles/themeDevices";
 import MenuNavigation from "@/components/_ui/menuNavigation/menuNavigation";
 import ModalPatchStatus from "./modals/modalPatchStatus";
+import ContactDetail from "./contactDetails";
 
 interface Props {
   contact: Contact;
@@ -19,9 +20,9 @@ export default function PageContact({ contact }: Props) {
 
   return (
     <>
-      <Stack h="100%" align="center" >
+      <Stack h="100%" align="center" m={"auto"}>
         <MenuNavigation />
-        <Card w={"100%"} p="20" radius={10} style={{
+        <Card w={"80vw"} p="20" radius={10} style={{
           backgroundPosition: "right"
         }}>
           <Group justify="space-between">
@@ -54,8 +55,8 @@ export default function PageContact({ contact }: Props) {
             </Tooltip>
           </Group>
         </Card>
-        <Paper w={isDesktop ? "80%" : "100%"} h="100%" >
-          {/* <contactDetail contact={contact} /> */}
+        <Paper w={"80vw"} h="100%" >
+          <ContactDetail contact={contact} />
         </Paper>
       </Stack>
       <Modal
