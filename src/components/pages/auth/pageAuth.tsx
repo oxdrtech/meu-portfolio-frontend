@@ -5,15 +5,11 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconHome } from "@tabler/icons-react";
 import ModalSignIn from "./modals/modalSignIn";
 import ModalSignUp from "./modals/modalSignup";
+import themeDevices from "@/styles/themeDevices";
 
 export default function PageAuth() {
+  const { isMobile } = themeDevices();
   const [opened, { open, close }] = useDisclosure(false);
-  const [modalContent, setModalContent] = useState<"login" | "signup" | "">("");
-
-  const handleOpen = (content: "login" | "signup") => {
-    setModalContent(content);
-    open();
-  };
 
   return (
     <>
@@ -23,48 +19,31 @@ export default function PageAuth() {
             Pagina inicial
           </Button>
         </Stack>
-        <Group mt={"xl"}>
-          <Button onClick={() => handleOpen("login")} variant={"light"}>
-            Entrar
-          </Button>
-          <Button onClick={() => handleOpen("signup")} variant={"default"} c={"defaultColor"} >
-            Criar conta
-          </Button>
-        </Group>
+        <Stack miw={"22vw"}>
+          <ModalSignIn />
+          <Group mt={"xl"} justify={"center"}>
+            <Text c={"dimmed"} size={"sm"} ta={"center"}>
+              Ainda nao tem uma conta?{" "}
+              <Anchor size={"sm"} component={"button"} onClick={open}>
+                Criar conta
+              </Anchor>
+            </Text>
+          </Group>
+        </Stack>
       </Stack>
       <Modal
-        title={modalContent === "login" ? "Fazer login" : "Fazer cadastro"}
         opened={opened}
         onClose={close}
-        closeOnClickOutside={false}
+        closeOnClickOutside={!isMobile}
+        withCloseButton={isMobile}
+        centered={!isMobile}
         transitionProps={{
           duration: 200,
           timingFunction: "easy",
         }}
         overlayProps={{ backgroundOpacity: 0.55, blur: 3 }}
       >
-        {modalContent === "login" && (
-          <>
-            <ModalSignIn />
-            <Text c={"dimmed"} size={"sm"} ta={"center"} mt={"20"}>
-              Ainda nao tem uma conta?{" "}
-              <Anchor size={"sm"} component={"button"} onClick={() => handleOpen("signup")}>
-                Criar conta
-              </Anchor>
-            </Text>
-          </>
-        )}
-        {modalContent === "signup" && (
-          <>
-            <ModalSignUp />
-            <Text c={"dimmed"} size={"sm"} ta={"center"} mt={20}>
-              Já tem uma conta?{" "}
-              <Anchor size={"sm"} component={"button"} onClick={() => handleOpen("login")}>
-                Entrar
-              </Anchor>
-            </Text>
-          </>
-        )}
+        <ModalSignUp />
       </Modal>
     </>
   );

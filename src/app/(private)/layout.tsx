@@ -1,5 +1,5 @@
 'use client';
-import { AppShell, Avatar, Group, Menu, Text } from '@mantine/core';
+import { AppShell, Avatar, Button, Group, Menu, Text } from '@mantine/core';
 import { signOut, useSession } from 'next-auth/react';
 import { IconLogout } from '@tabler/icons-react';
 import { redirect } from 'next/navigation';
@@ -35,7 +35,7 @@ export default function PagesLayout({
           <AppShell.Header>
             <Group h="100%" px="md" justify="space-between">
               <Group>
-                <Text c={"defaultColor"} fw={"bold"} inline >Meu Portfolio</Text>
+                <Text c={"defaultColor"} fw={"bold"} inline component={"a"} href={"/"} >Meu Portfolio</Text>
               </Group>
               <Group>
                 <Menu>
