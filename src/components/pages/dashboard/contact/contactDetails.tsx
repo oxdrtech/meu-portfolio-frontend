@@ -41,7 +41,7 @@ export default function ContactDetail({ contact }: Props) {
 
   return (
     <>
-      <Paper px={isDesktop ? '20' : '0'}>
+      <Paper>
         <SimpleGrid mt={10} mb={isDesktop ? '0' : '80'} cols={{ base: 1 }} spacing={20} verticalSpacing={15}>
           <SimpleGrid cols={{ base: 1, sm: 2 }}>
             {renderTextInput("Nome", contact.name, "name")}
