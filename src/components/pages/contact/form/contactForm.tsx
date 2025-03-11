@@ -21,8 +21,8 @@ export default function ContactForm() {
     setFormAlreadySent(hasSentForm);
   }, []);
 
-  const { control, handleSubmit, watch } = useForm({
-    mode: "onChange",
+  const { control, handleSubmit, watch, formState: { errors } } = useForm({
+    mode: "onBlur",
     resolver: yupResolver(schemaContact),
   });
 
@@ -64,7 +64,7 @@ export default function ContactForm() {
           <IconMailFast size={28} color={"#DAFF01"} />
         </Group>
         <Stack gap={"6"}>
-          <Text w={isMobile ? "" : "25vw"} ta={"center"} c={"dimmed"} fz={"sm"} inline>
+          <Text w={isMobile ? "" : "22rem"} ta={"center"} c={"dimmed"} fz={"sm"} inline>
             Seu formulário foi enviado e em breve será analisado. Tempo estimado do contato é de 24h
           </Text>
         </Stack>
@@ -129,6 +129,7 @@ export default function ContactForm() {
                         required
                         value={field.value || ""}
                         onChange={(value) => field.onChange(value || "")}
+                        error={errors.name?.message}
                       />
                     )}
                   />
@@ -142,6 +143,7 @@ export default function ContactForm() {
                         required
                         value={field.value || ""}
                         onChange={(value) => field.onChange(value || "")}
+                        error={errors.phoneNumber?.message}
                       />
                     )}
                   />
@@ -152,11 +154,12 @@ export default function ContactForm() {
                   render={({ field }) => (
                     <Textarea
                       {...field}
-                      placeholder="Aqui você pode descrever um pouco do seu projeto ou ideia"
+                      placeholder="Aqui você pode descrever um pouco do seu projeto ou ideia..."
                       minRows={5}
                       autosize
                       value={field.value || ""}
                       onChange={(value) => field.onChange(value || "")}
+                      error={errors.projectDescription?.message}
                     />
                   )}
                 />

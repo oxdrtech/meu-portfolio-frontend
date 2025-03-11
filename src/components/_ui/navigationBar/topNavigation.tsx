@@ -57,8 +57,8 @@ export default function TopNavigation({ triggerGSAP }: Props) {
         <Group component={"span"} ta={"center"} gap={"sm"} pl={"5"} style={{
           overflow: "hidden",
         }}>
-          <Text className="object-animated" display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>DDR23 |</Text>
-          <Text className="object-animated" display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} inline>Portfólio</Text>
+          <Text className={"object-animated"} component={"a"} href={"/"} display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>DDR23 |</Text>
+          <Text className={"object-animated"} component={"a"} href={"/"} display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} inline>Portfólio</Text>
         </Group>
         <Group component={"span"} style={{
           overflow: "hidden",

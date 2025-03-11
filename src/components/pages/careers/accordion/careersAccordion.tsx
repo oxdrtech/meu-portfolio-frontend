@@ -14,7 +14,9 @@ export default function CareersAccordion() {
       onMouseEnter={() => setOpenedItem(career.id)}
       onMouseLeave={() => setOpenedItem(careersMock[0]?.id)}
     >
-      <Accordion.Control pos={"relative"}>
+      <Accordion.Control pos={"relative"} style={{
+        cursor: "default",
+      }}>
         <Flex gap={"md"} align={"center"}>
           <Avatar
             src={career.company_logo && career.company_logo}
@@ -68,7 +70,7 @@ export default function CareersAccordion() {
             {career.competencias.length > 5 && (
               <HoverCard width={200} position="bottom" withArrow shadow="md">
                 <HoverCard.Target>
-                  <Badge variant="light" style={{ cursor: "pointer" }}>
+                  <Badge variant="light">
                     + {career.competencias.length - 5} competências
                   </Badge>
                 </HoverCard.Target>
