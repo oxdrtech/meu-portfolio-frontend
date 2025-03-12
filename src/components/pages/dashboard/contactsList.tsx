@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { Contact } from "@/types/contact";
 import { formatPhone } from "@/utils/formatPhone";
 import ModalPatchStatus from "./contact/modals/modalPatchStatus";
+import themeDevices from "@/styles/themeDevices";
 
 interface Props {
   contacts: Contact[]
@@ -13,6 +14,7 @@ interface Props {
 
 export default function ContactsList({ contacts }: Props) {
   const { data: session } = useSession();
+  const { isDesktop } = themeDevices();
   const [opened, { open, close }] = useDisclosure(false);
   const [selectedContact, setselectedContact] = useState<Contact>();
   const [searchId, setSearchId] = useState<string>("");
@@ -126,7 +128,7 @@ export default function ContactsList({ contacts }: Props) {
 
   return (
     <>
-      <Stack w={"80vw"}>
+      <Stack w={!isDesktop ? "90vw" : "80vw"}>
         <Flex gap={15}>
           <TextInput
             w="auto"
@@ -139,10 +141,19 @@ export default function ContactsList({ contacts }: Props) {
           <Flex gap={15}>
             <Menu trigger="click-hover" shadow="md">
               <Menu.Target>
-                <Button variant={"light"}>
-                  <IconFilter size={20} />
-                  <Center visibleFrom="md">Filtro</Center>
-                </Button>
+                {
+                  !isDesktop
+                    ? (
+                      <ActionIcon size={"input-sm"} variant={"light"}>
+                        <IconFilter size={20} />
+                      </ActionIcon>
+                    ) : (
+                      <Button variant={"light"}>
+                        <IconFilter size={20} />
+                        <Center ml={"xs"}>Filtro</Center>
+                      </Button>
+                    )
+                }
               </Menu.Target>
               <Menu.Dropdown style={{ maxHeight: 200, overflowY: "auto" }}>
                 <Menu.Label>Filtrar por:</Menu.Label>
@@ -157,10 +168,19 @@ export default function ContactsList({ contacts }: Props) {
                 ))}
               </Menu.Dropdown>
             </Menu>
-            <Button onClick={() => window.location.reload()} variant={"light"}>
-              <IconRefresh size={20} />
-              <Center visibleFrom="md">Recarregar</Center>
-            </Button>
+            {
+              !isDesktop
+                ? (
+                  <ActionIcon size={"input-sm"} variant={"light"}>
+                    <IconRefresh size={20} />
+                  </ActionIcon>
+                ) : (
+                  <Button onClick={() => window.location.reload()} variant={"light"}>
+                    <IconRefresh size={20} />
+                    <Center ml={"xs"}>Recarregar</Center>
+                  </Button>
+                )
+            }
           </Flex>
         </Flex>
         <Stack align="center" justify="center">
@@ -174,7 +194,7 @@ export default function ContactsList({ contacts }: Props) {
                 <Table verticalSpacing="sm" striped highlightOnHover withRowBorders={false}>
                   <Table.Thead pos="sticky" style={{ backdropFilter: `blur(100px)` }} >
                     <Table.Tr>
-                      <Table.Th>Contato</Table.Th>
+                      <Table.Th miw={"200"}>Contato</Table.Th>
                       <Table.Th visibleFrom="md">Telefone</Table.Th>
                       <Table.Th visibleFrom="md">Status</Table.Th>
                       <Table.Th ta="end" />
@@ -186,7 +206,7 @@ export default function ContactsList({ contacts }: Props) {
             </Paper>
           )}
         </Stack>
-      </Stack>
+      </Stack >
       <Modal
         opened={opened}
         onClose={close}
