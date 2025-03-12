@@ -11,7 +11,7 @@ import { Career } from '@/types/career';
 import CareersModal from './modal/careersModal';
 
 export default function CareerCarousel() {
-  const autoplay = useRef(Autoplay({ delay: 3000 }));
+  const autoplay = useRef(Autoplay({ delay: 2000 }));
   const [opened, { open, close }] = useDisclosure(false);
   const [modalContent, setModalContent] = useState<Career | null>(null);
 
