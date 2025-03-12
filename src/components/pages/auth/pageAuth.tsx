@@ -1,6 +1,5 @@
 "use client"
 import { Text, Anchor, Group, Button, Modal, Stack } from "@mantine/core";
-import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { IconHome } from "@tabler/icons-react";
 import ModalSignIn from "./modals/modalSignIn";
@@ -19,7 +18,7 @@ export default function PageAuth() {
             Pagina inicial
           </Button>
         </Stack>
-        <Stack miw={"22vw"}>
+        <Stack w={"25rem"} maw={"90vw"}>
           <ModalSignIn />
           <Group mt={"xl"} justify={"center"}>
             <Text c={"dimmed"} size={"sm"} ta={"center"}>

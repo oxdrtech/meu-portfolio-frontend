@@ -1,10 +1,8 @@
 import CustomNotification from "@/components/_ui/notification/customNotification";
 import usePatch from "@/hooks/usePatch";
-import { schemaContact } from "@/schemas/contact/schemaContact";
 import { Contact, ContactPost } from "@/types/contact";
 import { API_BASE_URL } from "@/utils/apiBaseUrl";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Group, Select, Stack, Text, Textarea, TextInput } from "@mantine/core";
+import { Button, Group, Stack, Text, Textarea, TextInput } from "@mantine/core";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
@@ -21,7 +19,6 @@ export default function ModalPatchDetails({ contact, inputLabel, inputValue, inp
   const { data: session } = useSession();
   const { control, handleSubmit, watch } = useForm<ContactPost>({
     mode: "onChange",
-    resolver: yupResolver(schemaContact),
     defaultValues: {
       [inputField]: inputValue,
     },

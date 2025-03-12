@@ -7,8 +7,8 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { API_BASE_URL } from "@/utils/apiBaseUrl";
 import { Contact, ContactPost } from "@/types/contact";
-import { schemaContact } from "@/schemas/contact/schemaContact";
 import CustomNotification from "@/components/_ui/notification/customNotification";
+import { schemaContactUpdateStatus } from "@/schemas/contact/schemaContactUpdateStatus";
 
 interface Props {
   contact?: Contact;
@@ -18,7 +18,7 @@ export default function ModalPatchStatus({ contact }: Props) {
   const { data: session } = useSession();
   const { handleSubmit, control, watch } = useForm({
     mode: "onChange",
-    resolver: yupResolver(schemaContact),
+    resolver: yupResolver(schemaContactUpdateStatus),
     defaultValues: {
       status: contact?.status === "responded" ? "rejected" : "responded",
     },

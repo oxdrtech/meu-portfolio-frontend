@@ -3,18 +3,22 @@ import * as yup from 'yup';
 export const schemaContact = yup.object().shape({
   name: yup
     .string()
-    .optional(),
+    .trim()
+    .min(2, 'Nome deve ter pelo menos 2 caracteres')
+    .max(50, 'Nome deve ter no máximo 50 caracteres')
+    .required('Nome é obrigatório'),
 
   phoneNumber: yup
     .string()
-    .optional(),
+    .trim()
+    .min(8, 'Nome deve ter pelo menos 8 caracteres')
+    .matches(/^\+?[1-9]\d{1,14}$/, 'Número de telefone inválido')
+    .required('Número de telefone é obrigatório'),
 
   projectDescription: yup
     .string()
-    .optional(),
-
-  status: yup
-    .string()
-    .oneOf(["pending", "responded", "rejected"])
-    .optional()
+    .trim()
+    .min(10, 'A descrição do projeto deve ter pelo menos 10 caracteres')
+    .max(500, 'A descrição do projeto deve ter no máximo 500 caracteres')
+    .required('A descrição do projeto é obrigatória'),
 });

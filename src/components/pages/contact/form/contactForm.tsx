@@ -22,7 +22,7 @@ export default function ContactForm() {
   }, []);
 
   const { control, handleSubmit, watch, formState: { errors } } = useForm({
-    mode: "onChange",
+    mode: "onBlur",
     resolver: yupResolver(schemaContact),
   });
 
@@ -129,6 +129,7 @@ export default function ContactForm() {
                         required
                         value={field.value || ""}
                         onChange={(value) => field.onChange(value || "")}
+                        error={errors.name?.message || ""}
                       />
                     )}
                   />
@@ -140,8 +141,10 @@ export default function ContactForm() {
                         {...field}
                         placeholder="WhatsApp"
                         required
+                        maxLength={14}
                         value={field.value || ""}
                         onChange={(value) => field.onChange(value || "")}
+                        error={errors.phoneNumber?.message || ""}
                       />
                     )}
                   />
@@ -153,11 +156,13 @@ export default function ContactForm() {
                     <Textarea
                       {...field}
                       placeholder="Aqui você pode descrever um pouco do seu projeto ou ideia..."
+                      required
                       minRows={10}
+                      maxLength={500}
                       autosize
                       value={field.value || ""}
                       onChange={(value) => field.onChange(value || "")}
-                      required
+                      error={errors.projectDescription?.message || ""}
                     />
                   )}
                 />
