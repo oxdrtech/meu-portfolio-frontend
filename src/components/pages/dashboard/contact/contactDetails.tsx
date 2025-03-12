@@ -54,7 +54,13 @@ export default function ContactDetail({ contact }: Props) {
             autosize
             readOnly
             rightSection={
-              <ActionIcon disabled={session?.user.role === "user"} onClick={() => handleOpenModal("Descrição do projeto", contact.projectDescription, "projectDescription")} variant="transparent" c="dimmed" aria-label={"Descrição do projeto"}>
+              <ActionIcon
+                onClick={() => handleOpenModal("Descrição do projeto", contact.projectDescription, "projectDescription")}
+                variant="transparent"
+                c="dimmed"
+                disabled={session?.user.role === "user"}
+                aria-label={"Descrição do projeto"}
+              >
                 <IconEdit size={20} />
               </ActionIcon>
             }

@@ -7,6 +7,7 @@ import PageCareers from "@/components/pages/careers/pageCareers";
 import PageHero from "@/components/pages/hero/pageHero";
 import PageContact from "@/components/pages/contact/pageContact";
 import TopNavigation from "@/components/_ui/navigationBar/topNavigation";
+import PageFaq from "@/components/pages/faq/pageFaq";
 
 export default function Home() {
   const [renderCompleted, setRenderCompleted] = useState(false);
@@ -25,6 +26,7 @@ export default function Home() {
               <PageHero />
               <PageCareers />
               <PageSkills />
+              <PageFaq />
               <PageContact />
             </>
           )}
