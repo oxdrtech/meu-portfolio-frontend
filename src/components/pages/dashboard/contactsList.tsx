@@ -15,7 +15,7 @@ export default function ContactsList({ contacts }: Props) {
   const { data: session } = useSession();
   const [opened, { open, close }] = useDisclosure(false);
   const [selectedContact, setselectedContact] = useState<Contact>();
-  const [searchName, setSearchName] = useState<string>("");
+  const [searchId, setSearchId] = useState<string>("");
   const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const { copy } = useClipboard();
@@ -28,7 +28,7 @@ export default function ContactsList({ contacts }: Props) {
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchName(event.target.value);
+    setSearchId(event.target.value);
   };
 
   const handleStatusToggle = (status?: string) => {
@@ -41,7 +41,7 @@ export default function ContactsList({ contacts }: Props) {
   };
 
   const filteredContacts = contacts?.filter((contact: Contact) => {
-    const matchesSearchTerm = contact.name.toLowerCase().includes(searchName.toLowerCase());
+    const matchesSearchTerm = contact.id.includes(searchId);
     const matchesStatus = selectedStatus.length === 0 || selectedStatus.includes(contact.status);
     return matchesSearchTerm && matchesStatus;
   });
@@ -131,9 +131,9 @@ export default function ContactsList({ contacts }: Props) {
           <TextInput
             w="auto"
             type="search"
-            placeholder="Buscar pelo nome"
+            placeholder="Buscar pelo ID"
             style={{ flexGrow: 1 }}
-            value={searchName}
+            value={searchId}
             onChange={handleSearchChange}
           />
           <Flex gap={15}>
