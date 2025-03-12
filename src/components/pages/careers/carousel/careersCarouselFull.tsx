@@ -1,23 +1,23 @@
-import { careersMock } from "@/mocks/careers.mock";
-import { formatDate } from "@/utils/formatDate";
-import { Accordion, Avatar, Badge, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
-import { IconArrowDownLeft, IconBriefcaseFilled } from "@tabler/icons-react";
-import { useState } from "react";
+import { careersMock } from '@/mocks/careers.mock';
+import { formatDate } from '@/utils/formatDate';
+import { Carousel } from '@mantine/carousel';
+import { Avatar, Badge, Flex, Group, HoverCard, Stack, Text } from '@mantine/core';
+import { IconBriefcaseFilled } from '@tabler/icons-react';
+import Autoplay from 'embla-carousel-autoplay';
+import { useRef, useState } from 'react';
+import classes from "./careersCarousel.module.css"
 
-export default function CareersAccordion() {
-  const [openedItem, setOpenedItem] = useState<string | null>(careersMock[0]?.id || null);
+export default function CareerCarouselFull() {
+  const autoplay = useRef(Autoplay({ delay: 2000 }));
+  const [isMouseInside, setIsMouseInside] = useState(false);
 
   const careers = careersMock.map((career, index) => (
-    <Accordion.Item
-      value={career.id}
-      key={index}
-      onMouseEnter={() => setOpenedItem(career.id)}
-      onMouseLeave={() => setOpenedItem(careersMock[0]?.id)}
-    >
-      <Accordion.Control pos={"relative"} style={{
-        cursor: "default",
+    <Carousel.Slide key={index}>
+      <Flex p={'md'} gap={"md"} direction={'column'} bg={'dark.6'} style={{
+        borderRadius: "4px"
       }}>
-        <Flex gap={"md"} align={"center"}>
+        <Group>
+
           <Avatar
             src={career.company_logo && career.company_logo}
             size={"50"}
@@ -50,17 +50,9 @@ export default function CareersAccordion() {
               )
             }
           </Stack>
-        </Flex>
-        <Stack pos={"absolute"} right={"10px"} top={"10px"}>
-          <IconArrowDownLeft size={"28"} color="grey" style={{
-            rotate: openedItem === career.id ? "180deg" : "0deg",
-            transition: "0.4s ease",
-          }} />
-        </Stack>
-      </Accordion.Control>
-      <Accordion.Panel>
+        </Group>
         <Stack px={"sm"} gap={"xs"}>
-          <Text fz={"sm"}>
+          <Text fz={"sm"} lh={'xs'}>
             {career.description}
           </Text>
           <Group gap={"xs"}>
@@ -85,20 +77,37 @@ export default function CareersAccordion() {
             )}
           </Group>
         </Stack>
-      </Accordion.Panel>
-    </Accordion.Item>
+      </Flex>
+    </Carousel.Slide>
   ));
 
   return (
     <>
-      <Accordion
-        value={openedItem}
-        variant={"contained"}
-        transitionDuration={400}
-        chevron={false}
+      <Carousel
+        classNames={classes}
+        w={"60vw"}
+        withIndicators
+        withControls={false}
+        m={"auto"}
+        loop
+        height={"max-content"}
+        slideGap={"xs"}
+        plugins={[autoplay.current]}
+        onMouseEnter={() => {
+          setIsMouseInside(true);
+          autoplay.current.stop()
+        }}
+        onMouseLeave={() => {
+          setIsMouseInside(false);
+          autoplay.current.play()
+        }}
+        onPointerDown={() => autoplay.current.stop()}
+        onPointerUp={() => {
+          if (!isMouseInside) autoplay.current.play();
+        }}
       >
         {careers}
-      </Accordion>
+      </Carousel>
     </>
   );
 }

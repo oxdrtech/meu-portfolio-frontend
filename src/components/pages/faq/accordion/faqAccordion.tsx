@@ -23,7 +23,7 @@ export default function FaqAccordion() {
         </Text>
       </Accordion.Control>
       <Accordion.Panel>
-        <Text fz={"sm"} inline={isMobile} mr={'28'}>
+        <Text fz={"sm"} lh={"xs"} mr={'28'}>
           {item.answer}
         </Text>
       </Accordion.Panel>

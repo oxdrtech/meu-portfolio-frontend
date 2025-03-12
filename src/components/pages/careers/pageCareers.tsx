@@ -1,11 +1,10 @@
 import themeDevices from "@/styles/themeDevices";
 import { Flex, Highlight, Paper, Stack } from "@mantine/core";
-import CareersAccordion from "./accordion/careersAccordion";
 import CareerCarousel from "./carousel/careersCarousel";
+import CareerCarouselFull from "./carousel/careersCarouselFull";
 
 export default function PageCareers() {
   const { isMobile, isDesktop } = themeDevices();
-
   const currentYear = new Date().getFullYear();
   const startYear = 2023;
   const yearsOfExperience = currentYear - startYear;
@@ -46,7 +45,7 @@ export default function PageCareers() {
               {
                 isMobile
                   ? <CareerCarousel />
-                  : <CareersAccordion />
+                  : <CareerCarouselFull />
               }
             </Stack>
           </Stack>

@@ -59,7 +59,8 @@ export default function CareerCarousel() {
         </Stack>
       </Flex>
     </Carousel.Slide>
-  ))
+  ));
+
   return (
     <>
       <Carousel
