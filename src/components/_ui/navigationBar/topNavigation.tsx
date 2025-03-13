@@ -55,11 +55,13 @@ export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
         style={{
           zIndex: "100",
         }} >
-        <Group component={"span"} ta={"center"} gap={"sm"} pl={"5"} style={{
+        <Group component={"span"} style={{
           overflow: "hidden",
         }}>
-          <Text className={"object-animated"} component={"a"} href={"/"} display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>DDR23 |</Text>
-          <Text className={"object-animated"} display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} inline>{activeSection}</Text>
+          <Group className={"object-animated"} ta={"center"} pl={"5"} gap={"sm"} display={"none"}>
+            <Text component={"a"} href={"/"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>DDR23 |</Text>
+            <Text fz={isMobile ? "sm" : ""} fw={"bold"} inline>{activeSection}</Text>
+          </Group>
         </Group>
         <Group component={"span"} style={{
           overflow: "hidden",

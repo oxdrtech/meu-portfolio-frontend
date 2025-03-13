@@ -12,7 +12,7 @@ import PageFeedbacks from "@/components/pages/feedbacks/pageFeedbacks";
 
 export default function Home() {
   const [renderCompleted, setRenderCompleted] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("home");
 
   const sectionsRef = {
     home: useRef<HTMLDivElement>(null),
