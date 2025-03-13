@@ -1,42 +1,54 @@
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+
 export const testimonialsMock = [
   {
-    id: "1",
+    name: "Júlio Moraes",
+    picture: "./testimonialsPhotos/julioPicture.webp",
+    socials: [
+      {
+        icon: IconBrandLinkedin,
+        url: "https://www.linkedin.com/in/julio-cesarm/",
+      },
+      {
+        icon: IconBrandGithub,
+        url: "https://github.com/juliocesardemoraes",
+      },
+    ],
+    position: "Senior Fullstack Developer",
+    company: "Zeus Tech",
+    companyLogo: "./testimonialsPhotos/julioCompany.webp",
+    feedback: "O André é um dos desenvolvedores mais talentosos com quem já tive o prazer de trabalhar. Todos os trabalhos que solicitei a ele foram muito bem entregues, mesmo sendo desafios complexos e em diversas áreas, como frontend, backend, banco de dados e deploy de aplicações. Altamente recomendado!",
+  },
+  {
     name: "Hortência Santiago",
-    linkedin: "https://www.linkedin.com/in/hort%C3%AAncia-santiago-7609a518a/",
-    picture: "https://media.licdn.com/dms/image/v2/D4D03AQG9yU-IGt_mSw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724760179642?e=1747267200&v=beta&t=tQkOv6JdWrwYd8EfG5ZoEyfzpSGmlh4RbEd2vuQZfdY",
-    company: "Ômega Screen Indústria",
-    companyLogo: "https://media.licdn.com/dms/image/v2/C4D0BAQGOFOwukbCi5g/company-logo_100_100/company-logo_100_100/0/1669890865489/mega_indstria_e_comrcio_de_tintas_ltda_logo?e=1749686400&v=beta&t=lrxy5F6aRYp8KWg2fVZVTLKSVohFeIkimOCu82aKptM",
+    picture: "./testimonialsPhotos/hortenciaPicture.webp",
+    socials: [
+      {
+        icon: IconBrandLinkedin,
+        url: "https://www.linkedin.com/in/hort%C3%AAncia-santiago-7609a518a/",
+      },
+    ],
     position: "Analista de Marketing",
+    company: "Ômega Screen Indústria",
+    companyLogo: "./testimonialsPhotos/hortenciaCompany.webp",
     feedback: "Trabalhar com você foi uma experiência incrível! O projeto foi entregue antes do prazo, com um código limpo e bem documentado. Com certeza voltaremos a fazer negócios no futuro!",
   },
   {
-    id: "2",
-    name: "Mariana Costa",
-    linkedin: "https://www.linkedin.com/in/marianacosta",
-    picture: "",
-    company: "Inova Web",
+    name: "	Miguel Romaniw",
+    picture: "./testimonialsPhotos/miguelPicture.webp",
+    socials: [
+      {
+        icon: IconBrandLinkedin,
+        url: "https://www.linkedin.com/in/miguel-aquelino-romaniw-varnier-neto/",
+      },
+      {
+        icon: IconBrandGithub,
+        url: "https://github.com/MiguelRomaniw",
+      },
+    ],
+    position: "Senior Fullstack Developer",
+    company: "Space",
     companyLogo: "",
-    position: "CEO",
-    feedback: "Profissional super competente! Entregou uma solução escalável e segura para nossa plataforma. A comunicação foi excelente durante todo o processo.",
-  },
-  {
-    id: "3",
-    name: "Carlos Mendes",
-    linkedin: "https://www.linkedin.com/in/carlosmendes",
-    picture: "",
-    company: "NextGen Software",
-    companyLogo: "",
-    position: "Product Manager",
     feedback: "O projeto foi um sucesso absoluto! Ele entendeu perfeitamente nossas necessidades e entregou um sistema funcional e de alta performance. Recomendo fortemente!",
-  },
-  {
-    id: "4",
-    name: "Fernanda Oliveira",
-    linkedin: "https://www.linkedin.com/in/fernandaoliveira",
-    picture: "",
-    company: "Digital Boost",
-    companyLogo: "",
-    position: "COO",
-    feedback: "Profissional altamente qualificado! Sempre disposto a sugerir melhorias e trazer inovação para o projeto. Foi um prazer trabalhar juntos!",
   },
 ];

@@ -1,7 +1,6 @@
 import { testimonialsMock } from "@/mocks/testimonials.mock";
 import themeDevices from "@/styles/themeDevices";
-import { ActionIcon, Avatar, AvatarGroup, Center, Flex, Stack, Text } from "@mantine/core";
-import { IconBrandLinkedin } from "@tabler/icons-react";
+import { ActionIcon, Avatar, AvatarGroup, Center, Flex, Group, Stack, Text } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
@@ -9,36 +8,40 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
-
 export default function PageFeedbacks() {
   const { isDesktop } = themeDevices();
 
-  const testimonials = testimonialsMock.map((testimonial, index) => {
-    const { hovered, ref } = useHover();
+  const testimonials = testimonialsMock.map((testimonial, index) => (
+    <SwiperSlide key={index}>
+      <Stack h={"100%"} align={"center"} justify={"center"} ta={"center"} mb={"50"} gap={isDesktop ? "lg" : "xl"}>
+        <AvatarGroup spacing={"40"} >
+          <Avatar
+            src={testimonial.companyLogo}
+            size={100} />
+          <Avatar
+            src={testimonial.picture}
+            size={100} />
+        </AvatarGroup>
+        <Stack gap={"0"} align={"center"}>
+          <Group gap={"xs"}>
+            {testimonial.socials
+              .map((social, index) => {
+                const { hovered, ref } = useHover();
 
-    return (
-      <SwiperSlide key={index}>
-        <Stack h={"100%"} align={"center"} justify={"center"} ta={"center"} mb={"50"} gap={isDesktop ? "lg" : "xl"}>
-          <AvatarGroup spacing={"40"} >
-            <Avatar
-              src={testimonial.companyLogo}
-              size={100} />
-            <Avatar
-              src={testimonial.picture}
-              size={100} />
-          </AvatarGroup>
-          <Stack gap={"0"} align={"center"}>
-            <ActionIcon ref={ref} component={"a"} href={testimonial.linkedin} variant="transparent" fz={"sm"} c={hovered ? "defaultColor" : "#C9C9C9"}>
-              <IconBrandLinkedin />
-            </ActionIcon>
-            <Text fw={"bold"} fz={"h3"} c={"defaultColor"}>{testimonial.name}</Text>
-            <Text c={"dimmed"} inline>{`${testimonial.position} na empresa ${testimonial.company}`}</Text>
-          </Stack>
-          <Text fz={isDesktop ? "h3" : "h4"} w={isDesktop ? "40vw" : "90vw"}>"{testimonial.feedback}"</Text>
+                return (
+                  <ActionIcon key={index} ref={ref} component={"a"} href={social.url} variant="transparent" fz={"sm"} c={hovered ? "defaultColor" : "#C9C9C9"}>
+                    <social.icon />
+                  </ActionIcon>
+                )
+              })}
+          </Group>
+          <Text fw={"bold"} fz={"h3"} c={"defaultColor"}>{testimonial.name}</Text>
+          <Text c={"dimmed"} inline>{`${testimonial.position} na ${testimonial.company}`}</Text>
         </Stack>
-      </SwiperSlide>
-    )
-  });
+        <Text fz={isDesktop ? "h3" : "h4"} w={isDesktop ? "40vw" : "90vw"}>"{testimonial.feedback}"</Text>
+      </Stack>
+    </SwiperSlide>
+  ));
 
   return (
     <>
