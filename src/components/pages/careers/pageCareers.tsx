@@ -18,7 +18,7 @@ export default function PageCareers() {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={isMobile ? "lg" : "xl"}>
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "30" : ""} gap={isMobile ? "lg" : "xl"}>
             <Stack w={isMobile ? "90vw" : "80vw"} gap={"0"}>
               <Highlight
                 highlight={[
@@ -41,7 +41,7 @@ export default function PageCareers() {
               </Highlight>
             </Stack>
             <Paper w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
-            <Stack w={isMobile ? "90vw" : "80vw"}>
+            <Stack w={isMobile ? "90vw" : "80vw"} align={"center"}>
               {
                 isMobile
                   ? <CareerCarousel />

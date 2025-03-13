@@ -1,7 +1,6 @@
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
 import '@mantine/notifications/styles.css';
-import '@mantine/carousel/styles.css';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from "@mantine/core";
 import type { Metadata } from "next";
 import { theme } from "../styles/theme";

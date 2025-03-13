@@ -17,3 +17,11 @@
 * {
   user-select: none;
 }
+
+.swiper-pagination-bullet {
+  background-color: #4f542f !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #DAFF01 !important;
+}

@@ -1,6 +1,6 @@
 import { testimonialsMock } from "@/mocks/testimonials.mock";
 import themeDevices from "@/styles/themeDevices";
-import { ActionIcon, Avatar, AvatarGroup, Flex, Stack, Text } from "@mantine/core";
+import { ActionIcon, Avatar, AvatarGroup, Center, Flex, Stack, Text } from "@mantine/core";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 import { useHover } from "@mantine/hooks";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,14 +11,14 @@ import 'swiper/css/pagination';
 
 
 export default function PageFeedbacks() {
-  const { isMobile, isDesktop } = themeDevices();
+  const { isDesktop } = themeDevices();
 
   const testimonials = testimonialsMock.map((testimonial, index) => {
     const { hovered, ref } = useHover();
 
     return (
       <SwiperSlide key={index}>
-        <Stack h={"100%"} align={"center"} justify={"center"} ta={"center"} gap={isMobile ? "lg" : "xl"} bg={"dark.7"}>
+        <Stack h={"100%"} align={"center"} justify={"center"} ta={"center"} mb={"50"} gap={isDesktop ? "lg" : "xl"}>
           <AvatarGroup spacing={"40"} >
             <Avatar
               src={testimonial.companyLogo}
@@ -34,7 +34,7 @@ export default function PageFeedbacks() {
             <Text fw={"bold"} fz={"h3"} c={"defaultColor"}>{testimonial.name}</Text>
             <Text c={"dimmed"} inline>{`${testimonial.position} na empresa ${testimonial.company}`}</Text>
           </Stack>
-          <Text fz={"h3"} w={"40vw"}>"{testimonial.feedback}"</Text>
+          <Text fz={isDesktop ? "h3" : "h4"} w={isDesktop ? "40vw" : "90vw"}>"{testimonial.feedback}"</Text>
         </Stack>
       </SwiperSlide>
     )
@@ -49,20 +49,27 @@ export default function PageFeedbacks() {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Swiper
-            modules={[Autoplay, EffectFade, Pagination]}
-            effect="fade"
-            loop
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            pagination={true}
-            slidesPerView={1} // Exibe um slide por vez
-            spaceBetween={0} // Distância entre os slides
-          >
-            {testimonials}
-          </Swiper>
+          <Center w={isDesktop ? "40vw" : "90vw"}>
+            <Swiper
+              modules={[Autoplay, EffectFade, Pagination]}
+              effect="fade"
+              fadeEffect={{
+                crossFade: true,
+              }}
+              loop
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              slidesPerView={1}
+            >
+              {testimonials}
+            </Swiper>
+          </Center>
         </Flex>
       </Flex>
     </>
