@@ -19,7 +19,7 @@ export default function Home() {
     carreira: useRef<HTMLDivElement>(null),
     habilidades: useRef<HTMLDivElement>(null),
     recomendações: useRef<HTMLDivElement>(null),
-    duvidas: useRef<HTMLDivElement>(null),
+    perguntas: useRef<HTMLDivElement>(null),
     contato: useRef<HTMLDivElement>(null),
   };
 
@@ -70,7 +70,7 @@ export default function Home() {
                 {key === "carreira" && <PageCareers triggerGSAP={activeSection === "carreira"} />}
                 {key === "habilidades" && <PageSkills triggerGSAP={activeSection === "habilidades"} />}
                 {key === "recomendações" && <PageFeedbacks triggerGSAP={activeSection === "recomendações"} />}
-                {key === "duvidas" && <PageFaq triggerGSAP={activeSection === "duvidas"} />}
+                {key === "perguntas" && <PageFaq triggerGSAP={activeSection === "perguntas"} />}
                 {key === "contato" && <PageContact triggerGSAP={activeSection === "contato"} />}
               </div>
             ))}

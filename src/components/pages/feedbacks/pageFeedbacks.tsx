@@ -98,7 +98,6 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
             zIndex: -1,
           }}>RECOMENDÇOES</Text>
           <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "30" : ""} gap={isMobile ? "lg" : "xl"}>
-
             <Group component={"span"} gap={"sm"} style={{
               overflow: "hidden",
             }}>
