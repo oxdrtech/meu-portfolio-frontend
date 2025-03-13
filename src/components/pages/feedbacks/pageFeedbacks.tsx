@@ -8,7 +8,11 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
-export default function PageFeedbacks() {
+interface Props {
+  triggerGSAP: boolean;
+}
+
+export default function PageFeedbacks({ triggerGSAP }: Props) {
   const { isDesktop } = themeDevices();
 
   const testimonials = testimonialsMock.map((testimonial, index) => (

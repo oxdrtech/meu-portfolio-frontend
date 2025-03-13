@@ -6,7 +6,11 @@ import { useScrambledText } from "@/utils/useScrambledText";
 
 const works = ["DDR23", "André Campos"];
 
-export default function PageContact() {
+interface Props {
+  triggerGSAP: boolean;
+}
+
+export default function PageContact({ triggerGSAP }: Props) {
   const { isMobile } = themeDevices();
   const displayText = useScrambledText(works);
 

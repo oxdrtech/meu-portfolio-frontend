@@ -66,12 +66,12 @@ export default function Home() {
           <>
             {Object.entries(sectionsRef).map(([key, ref]) => (
               <div key={key} ref={ref} data-section={key}>
-                {key === "home" && <PageHero />}
-                {key === "carreira" && <PageCareers />}
-                {key === "habilidades" && <PageSkills />}
-                {key === "recomendações" && <PageFeedbacks />}
-                {key === "duvidas" && <PageFaq />}
-                {key === "contato" && <PageContact />}
+                {key === "home" && <PageHero triggerGSAP={activeSection === "home"} />}
+                {key === "carreira" && <PageCareers triggerGSAP={activeSection === "carreira"} />}
+                {key === "habilidades" && <PageSkills triggerGSAP={activeSection === "habilidades"} />}
+                {key === "recomendações" && <PageFeedbacks triggerGSAP={activeSection === "recomendações"} />}
+                {key === "duvidas" && <PageFaq triggerGSAP={activeSection === "duvidas"} />}
+                {key === "contato" && <PageContact triggerGSAP={activeSection === "contato"} />}
               </div>
             ))}
           </>

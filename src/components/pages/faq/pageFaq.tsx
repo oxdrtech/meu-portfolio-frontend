@@ -2,7 +2,11 @@ import themeDevices from "@/styles/themeDevices";
 import { Flex, Stack } from "@mantine/core";
 import FaqAccordion from "./accordion/faqAccordion";
 
-export default function PageFaq() {
+interface Props {
+  triggerGSAP: boolean;
+}
+
+export default function PageFaq({ triggerGSAP }: Props) {
   const { isMobile, isDesktop } = themeDevices();
 
   return (

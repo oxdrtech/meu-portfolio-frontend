@@ -3,7 +3,11 @@ import { Badge, Flex, Group, Highlight, Image, List, Paper, Stack, Title } from 
 import { iconTechs } from "@/mocks/iconTechs.mock";
 import classes from "./pageSkill.module.css";
 
-export default function PageSkills() {
+interface Props {
+  triggerGSAP: boolean;
+}
+
+export default function PageSkills({ triggerGSAP }: Props) {
   const { isMobile, isDesktop } = themeDevices();
 
   const animationTechs = iconTechs.map((icon, index) => (

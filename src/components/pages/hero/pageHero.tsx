@@ -6,7 +6,11 @@ import { useScrambledText } from "@/utils/useScrambledText";
 
 const works = ["interfaces", "API's REST", "databases", "automações"];
 
-export default function PageHero() {
+interface Props {
+  triggerGSAP: boolean;
+}
+
+export default function PageHero({ triggerGSAP }: Props) {
   const { isMobile, isDesktop } = themeDevices();
   const displayText = useScrambledText(works);
 

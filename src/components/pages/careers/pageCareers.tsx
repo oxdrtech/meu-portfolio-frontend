@@ -3,7 +3,11 @@ import { Flex, Highlight, Paper, Stack } from "@mantine/core";
 import CareerCarousel from "./carousel/careersCarousel";
 import CareerCarouselFull from "./carousel/careersCarouselFull";
 
-export default function PageCareers() {
+interface Props {
+  triggerGSAP: boolean;
+}
+
+export default function PageCareers({ triggerGSAP }: Props) {
   const { isMobile, isDesktop } = themeDevices();
   const currentYear = new Date().getFullYear();
   const startYear = 2023;
