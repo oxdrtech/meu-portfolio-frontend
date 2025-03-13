@@ -11,9 +11,10 @@ import TopNavigationDrawer from "./drawer/topNavigationDrawer";
 
 interface Props {
   triggerGSAP: boolean;
+  activeSection: string;
 }
 
-export default function TopNavigation({ triggerGSAP }: Props) {
+export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
   const { isMobile } = themeDevices();
   const gsapRef = useRef(null);
   const [opened, { open, close }] = useDisclosure(false);
@@ -58,7 +59,7 @@ export default function TopNavigation({ triggerGSAP }: Props) {
           overflow: "hidden",
         }}>
           <Text className={"object-animated"} component={"a"} href={"/"} display={"none"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>DDR23 |</Text>
-          <Text className={"object-animated"} component={"a"} href={"/"} display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} inline>Portfólio</Text>
+          <Text className={"object-animated"} display={"none"} fz={isMobile ? "sm" : ""} fw={"bold"} inline>{activeSection}</Text>
         </Group>
         <Group component={"span"} style={{
           overflow: "hidden",

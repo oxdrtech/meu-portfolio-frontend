@@ -2,9 +2,13 @@ import themeDevices from "@/styles/themeDevices";
 import { Avatar, BackgroundImage, Flex, Paper, Stack, Text, Title } from "@mantine/core";
 import SocialButtons from "@/components/_ui/socialButtons/socialButtons";
 import ContactForm from "./form/contactForm";
+import { useScrambledText } from "@/utils/useScrambledText";
+
+const works = ["DDR23", "André Campos"];
 
 export default function PageContact() {
   const { isMobile } = themeDevices();
+  const displayText = useScrambledText(works);
 
   return (
     <>
@@ -32,7 +36,7 @@ export default function PageContact() {
                   <SocialButtons />
                   <Text ff={"monospace"} fz={"xs"}>
                     Desenvolvido por {" "}
-                    <Text fz={"xs"} component={"a"} href={"https://github.com/DDR23"} c={"defaultColor"}>DDR23</Text>
+                    <Text fz={"xs"} component={"a"} href={"https://github.com/DDR23"} c={"defaultColor"}>{displayText}</Text>
                   </Text>
                   <Text ff={"monospace"} fz={"10"} c={"dimmed"}>© {new Date().getFullYear()}. Todos os direitos reservados.</Text>
                 </Stack>

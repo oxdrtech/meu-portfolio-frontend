@@ -1,44 +1,14 @@
-import { useState, useEffect } from "react";
 import themeDevices from "@/styles/themeDevices";
 import { Avatar, BackgroundImage, Badge, Flex, Group, Paper, Stack, Text, Title } from "@mantine/core";
 import { IconMouse } from "@tabler/icons-react";
 import SocialButtons from "@/components/_ui/socialButtons/socialButtons";
+import { useScrambledText } from "@/utils/useScrambledText";
 
 const works = ["interfaces", "API's REST", "databases", "automações"];
-const randomChars = "!@#$%&*?";
 
 export default function PageHero() {
   const { isMobile, isDesktop } = themeDevices();
-  const [displayText, setDisplayText] = useState("");
-  const [loopIndex, setLoopIndex] = useState(0);
-
-  useEffect(() => {
-    const word = works[loopIndex % works.length];
-    let progress = 0;
-
-    const interval = setInterval(() => {
-      if (progress <= word.length) {
-        let scrambledText = word
-          .split("")
-          .map((char, i) =>
-            i < progress
-              ? char
-              : randomChars[Math.floor(Math.random() * randomChars.length)]
-          )
-          .join("");
-
-        setDisplayText(scrambledText);
-        progress++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          setLoopIndex((prev) => (prev + 1) % works.length);
-        }, 2000);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [loopIndex]);
+  const displayText = useScrambledText(works);
 
   return (
     <>

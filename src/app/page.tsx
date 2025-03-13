@@ -1,6 +1,6 @@
 "use client";
 import { Stack } from "@mantine/core";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Loading from "@/components/_ui/loading/loading";
 import PageSkills from "@/components/pages/skills/pageSkills";
 import PageCareers from "@/components/pages/careers/pageCareers";
@@ -12,28 +12,71 @@ import PageFeedbacks from "@/components/pages/feedbacks/pageFeedbacks";
 
 export default function Home() {
   const [renderCompleted, setRenderCompleted] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const sectionsRef = {
+    home: useRef<HTMLDivElement>(null),
+    carreira: useRef<HTMLDivElement>(null),
+    habilidades: useRef<HTMLDivElement>(null),
+    recomendações: useRef<HTMLDivElement>(null),
+    duvidas: useRef<HTMLDivElement>(null),
+    contato: useRef<HTMLDivElement>(null),
+  };
+
+  useEffect(() => {
+    if (!renderCompleted) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const section = entry.target.getAttribute("data-section") || "";
+            setActiveSection(section);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    Object.values(sectionsRef).forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+
+    return () => {
+      Object.values(sectionsRef).forEach((ref) => {
+        if (ref.current) observer.unobserve(ref.current);
+      });
+    };
+  }, [renderCompleted]);
 
   return (
-    <>
-      <Stack>
-        <Loading onComplete={() => setRenderCompleted(true)} />
-        <TopNavigation triggerGSAP={renderCompleted} />
-        <Stack display={"block"} h={"100vh"} w={"100vw"} style={{
+    <Stack>
+      <Loading onComplete={() => setRenderCompleted(true)} />
+      <TopNavigation triggerGSAP={renderCompleted} activeSection={activeSection} />
+      <Stack
+        display={"block"}
+        h={"100vh"}
+        w={"100vw"}
+        style={{
           overflowY: "scroll",
           scrollSnapType: "y mandatory",
-        }}>
-          {renderCompleted && (
-            <>
-              <PageHero />
-              <PageCareers />
-              <PageSkills />
-              <PageFeedbacks />
-              <PageFaq />
-              <PageContact />
-            </>
-          )}
-        </Stack>
+        }}
+      >
+        {renderCompleted && (
+          <>
+            {Object.entries(sectionsRef).map(([key, ref]) => (
+              <div key={key} ref={ref} data-section={key}>
+                {key === "home" && <PageHero />}
+                {key === "carreira" && <PageCareers />}
+                {key === "habilidades" && <PageSkills />}
+                {key === "recomendações" && <PageFeedbacks />}
+                {key === "duvidas" && <PageFaq />}
+                {key === "contato" && <PageContact />}
+              </div>
+            ))}
+          </>
+        )}
       </Stack>
-    </>
+    </Stack>
   );
 }
