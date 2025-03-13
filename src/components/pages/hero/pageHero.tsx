@@ -57,7 +57,7 @@ export default function PageHero({ triggerGSAP }: Props) {
       <Flex ref={gsapRef} id="inicio" w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Flex className={"containerHero"} h={"100%"} display={"none"} m={"56 10 10 10"} flex={"1"} style={{
+        <Flex className={"containerHero"} display={"none"} h={"100%"} m={"56 10 10 10"} flex={"1"} style={{
           borderRadius: "16px",
           overflow: "hidden",
         }}>
