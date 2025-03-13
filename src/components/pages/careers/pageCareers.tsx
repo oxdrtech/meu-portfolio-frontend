@@ -60,7 +60,7 @@ export default function PageCareers({ triggerGSAP }: Props) {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Text pos={"absolute"} fz={isDesktop ? "80vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={-50} ml={"xl"} opacity={.3} inline style={{
+          <Text pos={"absolute"} fz={isDesktop ? "70vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={-50} ml={"xl"} opacity={.3} inline style={{
             zIndex: -1,
           }}>CARREIRA</Text>
           <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "30" : ""} gap={isMobile ? "lg" : "xl"}>

@@ -7,13 +7,51 @@ import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface Props {
   triggerGSAP: boolean;
 }
 
 export default function PageFeedbacks({ triggerGSAP }: Props) {
-  const { isDesktop } = themeDevices();
+  const { isDesktop, isMobile } = themeDevices();
+  const gsapRef = useRef(null);
+
+  useGSAP(() => {
+    if (triggerGSAP) {
+      gsap.set(".containerFeedbacks", {
+        display: "flex",
+        yPercent: -100,
+        opacity: 0,
+      });
+      gsap.set(".objectFeedbacks", {
+        display: "flex",
+        yPercent: 100,
+        opacity: 0,
+      });
+
+      gsap.timeline()
+        .to(".containerFeedbacks", {
+          delay: .1,
+          opacity: 1,
+          yPercent: 0,
+          duration: 0.5,
+        })
+        .to(".objectFeedbacks", {
+          opacity: 1,
+          yPercent: 0,
+          duration: 0.5,
+        });
+    } else {
+      gsap.to(".containerFeedbacks", {
+        opacity: 0,
+        duration: 0.25,
+        display: "none",
+      });
+    }
+  }, [triggerGSAP]);
 
   const testimonials = testimonialsMock.map((testimonial, index) => (
     <SwiperSlide key={index}>
@@ -49,34 +87,44 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
 
   return (
     <>
-      <Flex w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
+      <Flex ref={gsapRef} w={"100vw"} h={"100vh"} justify={"center"} direction={"column"} style={{
         scrollSnapAlign: "start",
       }}>
-        <Flex m={"56 10 10 10"} flex={"1"} justify={"center"} align={"center"} style={{
+        <Flex className={"containerFeedbacks"} display={"none"} m={"56 10 10 10"} flex={"1"} justify={"center"} align={"center"} style={{
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Center w={isDesktop ? "40vw" : "90vw"}>
-            <Swiper
-              modules={[Autoplay, EffectFade, Pagination]}
-              effect="fade"
-              fadeEffect={{
-                crossFade: true,
-              }}
-              loop
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              slidesPerView={1}
-            >
-              {testimonials}
-            </Swiper>
-          </Center>
+          <Text pos={"absolute"} fz={isDesktop ? "70vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={-50} ml={"xl"} opacity={.3} inline style={{
+            zIndex: -1,
+          }}>RECOMENDÇOES</Text>
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "30" : ""} gap={isMobile ? "lg" : "xl"}>
+
+            <Group component={"span"} gap={"sm"} style={{
+              overflow: "hidden",
+            }}>
+              <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "40vw" : "90vw"}>
+                <Swiper
+                  modules={[Autoplay, EffectFade, Pagination]}
+                  effect="fade"
+                  fadeEffect={{
+                    crossFade: true,
+                  }}
+                  loop
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                  }}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  slidesPerView={1}
+                >
+                  {testimonials}
+                </Swiper>
+              </Center>
+            </Group>
+          </Stack>
         </Flex>
       </Flex>
     </>
