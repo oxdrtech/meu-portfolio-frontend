@@ -13,6 +13,7 @@ import PageFeedbacks from "@/components/pages/feedbacks/pageFeedbacks";
 export default function Home() {
   const [renderCompleted, setRenderCompleted] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const sectionOrder = ["home", "carreira", "habilidades", "recomendações", "perguntas", "contato"];
 
   const sectionsRef = {
     home: useRef<HTMLDivElement>(null),
@@ -52,7 +53,7 @@ export default function Home() {
   return (
     <Stack>
       <Loading onComplete={() => setRenderCompleted(true)} />
-      <TopNavigation triggerGSAP={renderCompleted} activeSection={activeSection} />
+      <TopNavigation triggerGSAP={renderCompleted} activeSection={activeSection} sections={sectionOrder} />
       <Stack
         display={"block"}
         h={"100vh"}

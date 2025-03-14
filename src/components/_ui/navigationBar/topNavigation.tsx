@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import { Burger, Drawer, Flex, Group, Input, Paper, Text } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import CustomSpotlight from "../spotlight/customSpotlight";
 import { spotlight } from "@mantine/spotlight";
 import themeDevices from "@/styles/themeDevices";
@@ -12,12 +12,15 @@ import TopNavigationDrawer from "./drawer/topNavigationDrawer";
 interface Props {
   triggerGSAP: boolean;
   activeSection: string;
+  sections: string[];
 }
 
-export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
+export default function TopNavigation({ triggerGSAP, activeSection, sections }: Props) {
   const { isMobile, isDesktop } = themeDevices();
   const gsapRef = useRef(null);
   const [opened, { open, close }] = useDisclosure(false);
+  const textRef = useRef<HTMLDivElement>(null);
+  const [prevIndex, setPrevIndex] = useState(0);
 
   useGSAP(() => {
     if (triggerGSAP) {
@@ -38,6 +41,34 @@ export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
         });
     }
   }, [triggerGSAP]);
+
+  useEffect(() => {
+    const currentIndex = sections.indexOf(activeSection);
+    const direction = currentIndex > prevIndex ? 1 : -1;
+
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        { yPercent: 0, opacity: 1 },
+        {
+          yPercent: direction * -100,
+          opacity: 0,
+          duration: 0.3,
+          onComplete: () => {
+            if (textRef.current) {
+              textRef.current.innerText = activeSection;
+              gsap.fromTo(
+                textRef.current,
+                { yPercent: direction * 100, opacity: 0 },
+                { yPercent: 0, opacity: 1, duration: 0.3 }
+              );
+            }
+          },
+        }
+      );
+    }
+    setPrevIndex(currentIndex);
+  }, [activeSection, sections]);
 
   return (
     <>
@@ -60,7 +91,15 @@ export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
         }}>
           <Group className={"object-animated"} ta={"center"} pl={"5"} gap={"sm"} display={"none"}>
             <Text component={"a"} href={"/"} fz={isMobile ? "h4" : "h3"} fw={"bold"}>oxdrtech |</Text>
-            <Text fz={isMobile ? "sm" : ""} fw={"bold"} inline>{activeSection}</Text>
+            <Group component={"span"} style={{
+              overflow: "hidden",
+            }}>
+              <div ref={textRef} style={{ position: "relative", display: "inline-block" }}>
+                <Text fz={isMobile ? "sm" : ""} fw="bold" inline>
+                  {activeSection}
+                </Text>
+              </div>
+            </Group>
           </Group>
         </Group>
         <Group component={"span"} style={{
