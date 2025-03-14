@@ -5,9 +5,6 @@ import CareerCarouselFull from "./carousel/careersCarouselFull";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useScrambledText } from "@/utils/useScrambledText";
-
-const works = ["CARREIRA", "CARREIRA"];
 
 interface Props {
   triggerGSAP: boolean;
@@ -19,7 +16,6 @@ export default function PageCareers({ triggerGSAP }: Props) {
   const startYear = 2023;
   const yearsOfExperience = currentYear - startYear;
   const gsapRef = useRef(null);
-  const displayText = useScrambledText(works);
 
   useGSAP(() => {
     if (triggerGSAP) {
@@ -64,11 +60,10 @@ export default function PageCareers({ triggerGSAP }: Props) {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Text pos={"absolute"} fz={isDesktop ? "70vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={-50} ml={"xl"} opacity={.3} inline style={{
+          <Text pos={"absolute"} fz={isDesktop ? "60vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={isDesktop ? -50 : 0} ml={"xl"} opacity={.3} inline style={{
             zIndex: -1,
-            textWrap: "nowrap" // TODO ficou legal?
-          }}>{displayText}</Text>
-          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "30" : ""} gap={isMobile ? "lg" : "xl"}>
+          }}>CARREIRA</Text>
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isMobile ? "center" : "flex-end"} pb={isMobile ? "0" : "30"} gap={isMobile ? "lg" : "xl"}>
             <Group component={"span"} gap={"sm"} style={{
               overflow: "hidden",
             }}>

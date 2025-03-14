@@ -22,7 +22,7 @@ export default function PageHero({ triggerGSAP }: Props) {
     if (triggerGSAP) {
       gsap.set(".containerHero", {
         display: "flex",
-        yPercent: -100,
+        yPercent: 100,
         opacity: 0,
       });
       gsap.set(".objectHero", {

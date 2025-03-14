@@ -80,7 +80,7 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
           <Text fw={"bold"} fz={"h3"} c={"defaultColor"}>{testimonial.name}</Text>
           <Text c={"dimmed"} inline>{`${testimonial.position} na ${testimonial.company}`}</Text>
         </Stack>
-        <Text fz={isDesktop ? "h3" : "h4"} w={isDesktop ? "40vw" : "90vw"}>"{testimonial.feedback}"</Text>
+        <Text fz={isDesktop ? "h3" : "h4"}>"{testimonial.feedback}"</Text>
       </Stack>
     </SwiperSlide>
   ));
@@ -94,14 +94,14 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Text pos={"absolute"} fz={isDesktop ? "70vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={-50} ml={"xl"} opacity={.3} inline style={{
+          <Text pos={"absolute"} fz={isDesktop ? "60vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={isDesktop ? -50 : 0} ml={"xl"} opacity={.3} inline style={{
             zIndex: -1,
           }}>RECOMENDÇOES</Text>
-          <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "30" : ""} gap={isMobile ? "lg" : "xl"}>
+          <Stack h={"100%"} px={"lg"} align={"center"} justify={isMobile ? "center" : "flex-end"} pb={isMobile ? "0" : "100"} gap={isMobile ? "lg" : "xl"}>
             <Group component={"span"} gap={"sm"} style={{
               overflow: "hidden",
             }}>
-              <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "40vw" : "90vw"}>
+              <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "60vw" : isMobile ? "90vw" : "70vw"}>
                 <Swiper
                   modules={[Autoplay, EffectFade, Pagination]}
                   effect="fade"

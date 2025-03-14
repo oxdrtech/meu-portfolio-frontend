@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
-  const { isMobile } = themeDevices();
+  const { isMobile, isDesktop } = themeDevices();
   const gsapRef = useRef(null);
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -67,20 +67,8 @@ export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
           overflow: "hidden",
         }}>
           {
-            isMobile
+            isDesktop
               ? (
-                <Group
-                  className="object-animated"
-                  display={"none"}
-                >
-                  <Burger
-                    opened={opened}
-                    onClick={open}
-                    aria-label="Toggle drawer"
-                    size={"sm"}
-                  />
-                </Group>
-              ) : (
                 <Input
                   className="object-animated"
                   display={"none"}
@@ -101,6 +89,18 @@ export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
                 >
                   <Input.Placeholder>Pesquisar</Input.Placeholder>
                 </Input>
+              ) : (
+                <Group
+                  className="object-animated"
+                  display={"none"}
+                >
+                  <Burger
+                    opened={opened}
+                    onClick={open}
+                    aria-label="Toggle drawer"
+                    size={"sm"}
+                  />
+                </Group>
               )
           }
         </Group>

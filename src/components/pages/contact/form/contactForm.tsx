@@ -74,21 +74,25 @@ export default function ContactForm() {
 
   return (
     <>
-      <Stack w={isMobile ? "90vw" : "80vw"} mih={"100"} justify={"center"}>
-        <Title
-          order={2}
-          c={"defaultColor"}
-          fz={isMobile ? "h3" : ""}
-          style={{
-            textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
-          }}
-        >
-          Tem um projeto empolgante e precisa de ajuda?
-        </Title>
-        <Button onClick={open} variant={"light"}>
-          Preencher formulário
-        </Button>
-      </Stack>
+      <Group component={"span"} gap={"sm"} style={{
+        overflow: "hidden",
+      }}>
+        <Stack className={"objectContact"} display={"none"} w={isMobile ? "90vw" : "80vw"} mih={"100"} justify={"center"}>
+          <Title
+            order={2}
+            c={"defaultColor"}
+            fz={isMobile ? "h3" : ""}
+            style={{
+              textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
+            }}
+          >
+            Tem um projeto empolgante e precisa de ajuda?
+          </Title>
+          <Button onClick={open} variant={"light"}>
+            Preencher formulário
+          </Button>
+        </Stack>
+      </Group>
       <Modal
         opened={opened}
         onClose={close}

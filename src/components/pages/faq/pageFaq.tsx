@@ -56,14 +56,14 @@ export default function PageFaq({ triggerGSAP }: Props) {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <Text pos={"absolute"} fz={isDesktop ? "70vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={-50} ml={"xl"} opacity={.3} inline style={{
+          <Text pos={"absolute"} fz={isDesktop ? "70vh" : isMobile ? "20vh" : "40vh"} fw={"bolder"} c={"#4f542f"} left={0} top={isDesktop ? -50 : 0} ml={"xl"} opacity={.3} inline style={{
             zIndex: -1,
           }}>PERGUNTAS</Text>
-          <Stack w={isDesktop ? "60vw" : "90vw"} h={"100%"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={isMobile ? "lg" : "xl"}>
+          <Stack w={isDesktop ? "60vw" : "90vw"} h={"100%"} align={"center"} justify={isMobile ? "center" : "flex-end"} pb={isMobile ? "0" : "100"} gap={isMobile ? "lg" : "xl"}>
             <Group component={"span"} gap={"sm"} style={{
               overflow: "hidden",
             }}>
-              <Group className={"objectFaq"} display={"none"}>
+              <Group className={"objectFaq"} display={"none"} w={isMobile ? "90vw" : "80vw"}>
                 <FaqAccordion />
               </Group>
             </Group>

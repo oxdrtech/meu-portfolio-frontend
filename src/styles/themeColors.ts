@@ -16,3 +16,5 @@ const defaultColor: MantineColorsTuple = [
 export const themeColors = {
   defaultColor,
 };
+
+// #DAFF01 -- defaultColor

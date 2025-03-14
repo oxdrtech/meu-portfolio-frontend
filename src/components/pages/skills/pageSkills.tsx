@@ -13,13 +13,12 @@ interface Props {
 export default function PageSkills({ triggerGSAP }: Props) {
   const { isMobile, isDesktop } = themeDevices();
   const gsapRef = useRef(null);
-  const listRef = useRef(null); // Ref para os itens da lista
 
   useGSAP(() => {
     if (triggerGSAP) {
       gsap.set(".containerSkills", {
         display: "flex",
-        yPercent: -100,
+        yPercent: 100,
         opacity: 0,
       });
       gsap.set(".objectSkills", {
@@ -40,23 +39,6 @@ export default function PageSkills({ triggerGSAP }: Props) {
           yPercent: 0,
           duration: 0.5,
         });
-
-      // Animar os itens da lista com GSAP (integrando com animação CSS)
-      gsap.fromTo(
-        ".root li",
-        {
-          opacity: 0,
-          y: 0,
-        },
-        {
-          opacity: 0.5,
-          y: -1000,
-          rotation: 720,
-          duration: 20,
-          repeat: -1,  // Repeate indefinido
-          ease: "linear", // Usar linear para a animação contínua
-        }
-      );
     } else {
       gsap.to(".containerSkills", {
         opacity: 0,
@@ -81,7 +63,7 @@ export default function PageSkills({ triggerGSAP }: Props) {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <List classNames={classes} ref={listRef}>
+          <List classNames={classes}>
             {animationTechs}
           </List>
           <Stack h={"100%"} px={"lg"} align={"center"} justify={isDesktop ? "flex-end" : "center"} pb={isDesktop ? "80" : ""} gap={isMobile ? "lg" : "xl"} style={{
@@ -113,7 +95,7 @@ export default function PageSkills({ triggerGSAP }: Props) {
               </Stack>
             </Group>
             <Paper className={"objectSkills"} display={"none"} w={isMobile ? "90vw" : "80vw"} h={1} bg={"defaultColor"} />
-            <Group component={"span"} gap={"sm"} style={{
+            <Group component={"span"} gap={"sm"} pb={"xs"} style={{
               overflow: "hidden",
             }}>
               <Stack className={"objectSkills"} display={"none"} w={isMobile ? "90vw" : "80vw"} gap={"0"} ta={"end"}>

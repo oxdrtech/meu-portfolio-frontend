@@ -83,7 +83,7 @@ export default function CareerCarouselFull() {
 
   return (
     <>
-      <Center w={"60vw"}>
+      <Center w={"80vw"}>
         <Swiper
           modules={[Autoplay, EffectFade, Pagination]}
           effect="fade"
