@@ -54,7 +54,7 @@ export default function ContactForm() {
 
   if (formAlreadySent) {
     return (
-      <Stack h={"100"} align={"center"} gap={"md"} justify={"center"}>
+      <Stack className={"objectContact"} display={"none"} h={"100"} align={"center"} gap={"md"} justify={"center"}>
         <Group gap={"6"}>
           <Text ta={"center"} c={"defaultColor"} fz={isMobile ? "" : "h3"} style={{
             textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
