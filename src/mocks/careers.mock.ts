@@ -2,7 +2,6 @@ import { Career } from "@/types/career";
 
 export const careersMock: Career[] = [
   {
-    id: "1",
     company: "Ômega Screen Indústria",
     company_logo: "https://media.licdn.com/dms/image/v2/C4D0BAQGOFOwukbCi5g/company-logo_200_200/company-logo_200_200/0/1669890865489/mega_indstria_e_comrcio_de_tintas_ltda_logo?e=1746662400&v=beta&t=riQ6QdLEHo5OfSNvkWktxfjDLrELbBTnP131ayLhBvI",
     name: "Analista de des. de software",
@@ -24,7 +23,6 @@ export const careersMock: Career[] = [
     ]
   },
   {
-    id: "2",
     company: "Freelancer",
     company_logo: "",
     name: "Desenvolvedor Web Fullstack",

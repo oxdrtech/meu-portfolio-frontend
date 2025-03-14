@@ -1,5 +1,4 @@
 export interface Career {
-  id: string;
   name: string;
   company: string;
   company_logo: string;
