@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function PageContact({ triggerGSAP }: Props) {
-  const { isMobile, isDesktop } = themeDevices();
+  const { isMobile } = themeDevices();
   const displayText = useScrambledText(works);
   const gsapRef = useRef(null);
 
