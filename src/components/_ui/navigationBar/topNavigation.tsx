@@ -59,7 +59,7 @@ export default function TopNavigation({ triggerGSAP, activeSection }: Props) {
           overflow: "hidden",
         }}>
           <Group className={"object-animated"} ta={"center"} pl={"5"} gap={"sm"} display={"none"}>
-            <Text component={"a"} href={"/"} fz={isMobile ? "h4" : "h3"} fw={"bold"} inline>oxdrtech |</Text>
+            <Text component={"a"} href={"/"} fz={isMobile ? "h4" : "h3"} fw={"bold"}>oxdrtech |</Text>
             <Text fz={isMobile ? "sm" : ""} fw={"bold"} inline>{activeSection}</Text>
           </Group>
         </Group>
