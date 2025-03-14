@@ -7,7 +7,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-const works = ["DDR23", "André Campos"];
+const works = ["oxdrtech", "André Campos"];
 
 interface Props {
   triggerGSAP: boolean;
