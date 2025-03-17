@@ -1,15 +1,11 @@
-import { testimonialsMock } from "@/mocks/testimonials.mock";
 import themeDevices from "@/styles/themeDevices";
-import { ActionIcon, Avatar, AvatarGroup, Center, Flex, Group, Stack, Text } from "@mantine/core";
+import { ActionIcon, Avatar, AvatarGroup, Card, Center, Flex, Group, Stack, Text } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { testimonialsMock } from "@/mocks/testimonials.mock";
 
 interface Props {
   triggerGSAP: boolean;
@@ -54,8 +50,8 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
   }, [triggerGSAP]);
 
   const testimonials = testimonialsMock.map((testimonial, index) => (
-    <SwiperSlide key={index}>
-      <Stack h={"100%"} align={"center"} justify={"center"} ta={"center"} mb={"50"} gap={isDesktop ? "lg" : "xl"}>
+    <SplideSlide key={index}>
+      <Stack align={"center"} ta={"center"} gap={isDesktop ? "lg" : "xl"}>
         <AvatarGroup spacing={"40"} >
           <Avatar
             src={testimonial.companyLogo}
@@ -82,7 +78,7 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
         </Stack>
         <Text fz={isDesktop ? "h3" : "h4"}>"{testimonial.feedback}"</Text>
       </Stack>
-    </SwiperSlide>
+    </SplideSlide>
   ));
 
   return (
@@ -102,25 +98,28 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
               overflow: "hidden",
             }}>
               <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "60vw" : isMobile ? "90vw" : "70vw"}>
-                <Swiper
-                  modules={[Autoplay, EffectFade, Pagination]}
-                  effect="fade"
-                  fadeEffect={{
-                    crossFade: true,
-                  }}
-                  loop
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                  }}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  slidesPerView={1}
-                >
-                  {testimonials}
-                </Swiper>
+                <Card p={"md"} withBorder radius={"lg"} style={{
+                  backgroundColor: "#23232350",
+                  backdropFilter: "blur(2px)"
+                }}>
+                  <Splide
+                    options={{
+                      width: isDesktop ? "60vw" : isMobile ? "90vw" : "70vw",
+                      arrows: false,
+                      autoplay: true,
+                      interval: 3000,
+                      pauseOnHover: true,
+                      pauseOnFocus: true,
+                      type: "loop",
+                      perPage: 1,
+                      perMove: 1,
+                      speed: 800,
+                      pagination: false,
+                    }}
+                  >
+                    {testimonials}
+                  </Splide>
+                </Card>
               </Center>
             </Group>
           </Stack>

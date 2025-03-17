@@ -2,16 +2,12 @@ import { careersMock } from '@/mocks/careers.mock';
 import { formatDate } from '@/utils/formatDate';
 import { Avatar, Badge, Center, Flex, Group, HoverCard, Paper, Stack, Text } from '@mantine/core';
 import { IconBriefcaseFilled } from '@tabler/icons-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 export default function CareerCarouselFull() {
 
   const careers = careersMock.map((career, index) => (
-    <SwiperSlide key={index}>
+    <SplideSlide key={index}>
       <Paper shadow='lg'>
         <Flex p={'md'} gap={"md"} direction={'column'} bg={'dark.6'} mb={"50"} style={{
           borderRadius: "4px"
@@ -78,31 +74,29 @@ export default function CareerCarouselFull() {
           </Stack>
         </Flex>
       </Paper>
-    </SwiperSlide>
+    </SplideSlide>
   ));
 
   return (
     <>
       <Center w={"80vw"}>
-        <Swiper
-          modules={[Autoplay, EffectFade, Pagination]}
-          effect="fade"
-          fadeEffect={{
-            crossFade: true,
+        <Splide
+          options={{
+            width: "80vw",
+            arrows: false,
+            autoplay: true,
+            interval: 3000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            type: "loop",
+            perPage: 1,
+            perMove: 1,
+            speed: 800,
+            pagination: false,
           }}
-          loop
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          slidesPerView={1}
         >
           {careers}
-        </Swiper>
+        </Splide>
       </Center>
     </>
   );

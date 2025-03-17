@@ -6,11 +6,7 @@ import { useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Career } from "@/types/career";
 import CareersModal from "./modal/careersModal";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 export default function CareerCarousel() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -22,7 +18,7 @@ export default function CareerCarousel() {
   };
 
   const careers = careersMock.map((career, index) => (
-    <SwiperSlide key={index}>
+    <SplideSlide key={index}>
       <Paper shadow={"sm"}>
         <Flex onClick={() => handleOpen(career)} p={"sm"} gap={"md"} align={"center"} mb={"40"} bg={"dark.6"} style={{
           borderRadius: "4px"
@@ -61,31 +57,29 @@ export default function CareerCarousel() {
           </Stack>
         </Flex>
       </Paper>
-    </SwiperSlide>
+    </SplideSlide>
   ));
 
   return (
     <>
       <Center w={"90vw"}>
-        <Swiper
-          modules={[Autoplay, EffectFade, Pagination]}
-          effect="fade"
-          fadeEffect={{
-            crossFade: true,
+        <Splide
+          options={{
+            width: "90vw",
+            arrows: false,
+            autoplay: true,
+            interval: 3000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            type: "loop",
+            perPage: 1,
+            perMove: 1,
+            speed: 800,
+            pagination: false,
           }}
-          loop
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          slidesPerView={1}
         >
           {careers}
-        </Swiper>
+        </Splide>
       </Center>
       <Modal
         opened={opened}

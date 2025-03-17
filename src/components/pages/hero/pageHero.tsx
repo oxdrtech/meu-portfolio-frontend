@@ -130,7 +130,7 @@ export default function PageHero({ triggerGSAP }: Props) {
                 <Flex className="objectHero" display={"none"} direction={isMobile ? "column" : "row"} ta={isMobile ? "center" : "start"} w={"80vw"} align={isMobile ? "center" : ""} gap={isMobile ? "xs" : "sm"}>
                   <Avatar src={"https://avatars.githubusercontent.com/u/83263335?v=4"} size={"50"} m={"auto"} />
                   <Stack flex={isMobile ? "" : "1"} justify={isMobile ? "" : "space-between"} gap={"0"}>
-                    <Text fz={isMobile ? "h5" : "h3"} pl={"4"} fw={"lighter"} inline style={{
+                    <Text fz={isMobile ? "h5" : "h3"} pl={"4"} inline style={{
                       textShadow: "-2px 2px 1px rgba(89, 112, 8, 0.50)",
                     }}>
                       André Campos

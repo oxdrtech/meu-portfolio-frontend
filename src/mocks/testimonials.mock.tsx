@@ -31,7 +31,12 @@ export const testimonialsMock = [
     position: "Analista de Marketing",
     company: "Ômega Screen Indústria",
     companyLogo: "./testimonialsPhotos/hortenciaCompany.webp",
-    feedback: "Trabalhar com você foi uma experiência incrível! O projeto foi entregue antes do prazo, com um código limpo e bem documentado. Com certeza voltaremos a fazer negócios no futuro!",
+    feedback: (
+      <>
+        Foi de extrema importância desenvolver esse projeto!<br />
+        A construção do site institucional da Ômega, junto com André, os prazos foram cumpridos de maneira precisa e com atenção aos detalhes.
+      </>
+    ),
   },
   {
     name: "	Miguel Romaniw",

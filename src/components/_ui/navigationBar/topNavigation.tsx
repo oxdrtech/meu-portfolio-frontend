@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { Burger, Drawer, Flex, Group, Input, Paper, Text } from "@mantine/core";
+import { Burger, Drawer, Flex, Group, Image, Input, Paper, Text } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
@@ -90,7 +90,8 @@ export default function TopNavigation({ triggerGSAP, activeSection, sections }: 
           overflow: "hidden",
         }}>
           <Group className={"object-animated"} ta={"center"} pl={"5"} gap={"sm"} display={"none"}>
-            <Text component={"a"} href={"/"} fz={isMobile ? "h4" : "h3"} fw={"bold"}>oxdrtech |</Text>
+            <Image src={"./oxdrtech.png"} w={86} mb={"2"} />
+            <Text component={"a"} href={"/"} fz={isMobile ? "h4" : "h3"}>|</Text>
             <Group component={"span"} style={{
               overflow: "hidden",
             }}>
