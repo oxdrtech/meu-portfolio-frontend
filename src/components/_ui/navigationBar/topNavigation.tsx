@@ -53,14 +53,14 @@ export default function TopNavigation({ triggerGSAP, activeSection, sections }: 
         {
           yPercent: direction * -100,
           opacity: 0,
-          duration: 0.3,
+          duration: 0.2,
           onComplete: () => {
             if (textRef.current) {
               textRef.current.innerText = activeSection;
               gsap.fromTo(
                 textRef.current,
                 { yPercent: direction * 100, opacity: 0 },
-                { yPercent: 0, opacity: 1, duration: 0.3 }
+                { yPercent: 0, opacity: 1, duration: 0.2 }
               );
             }
           },
