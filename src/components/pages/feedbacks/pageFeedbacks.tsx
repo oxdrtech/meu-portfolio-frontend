@@ -1,7 +1,7 @@
 import themeDevices from "@/styles/themeDevices";
 import { ActionIcon, Avatar, AvatarGroup, Card, Center, Flex, Group, Stack, Text } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -14,6 +14,7 @@ interface Props {
 export default function PageFeedbacks({ triggerGSAP }: Props) {
   const { isDesktop, isMobile } = themeDevices();
   const gsapRef = useRef(null);
+  const [isSplideReady, setIsSplideReady] = useState(false);
 
   useGSAP(() => {
     if (triggerGSAP) {
@@ -34,6 +35,7 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
           opacity: 1,
           yPercent: 0,
           duration: 0.5,
+          onComplete: () => setIsSplideReady(true),
         })
         .to(".objectFeedbacks", {
           opacity: 1,
@@ -41,6 +43,7 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
           duration: 0.5,
         });
     } else {
+      setIsSplideReady(false);
       gsap.to(".containerFeedbacks", {
         opacity: 0,
         duration: 0.25,
@@ -108,23 +111,25 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
             }}>
               <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "60vw" : isMobile ? "90vw" : "80vw"}>
                 <Card p={"md"} withBorder={isMobile} bg={isMobile ? "#232323" : "transparent"}>
-                  <Splide
-                    options={{
-                      width: isDesktop ? "60vw" : isMobile ? "90vw" : "80vw",
-                      arrows: false,
-                      autoplay: true,
-                      interval: 3000,
-                      pauseOnHover: true,
-                      pauseOnFocus: true,
-                      type: "loop",
-                      perPage: 1,
-                      perMove: 1,
-                      speed: 800,
-                      pagination: false,
-                    }}
-                  >
-                    {testimonials}
-                  </Splide>
+                  {isSplideReady && (
+                    <Splide
+                      options={{
+                        width: isDesktop ? "60vw" : isMobile ? "90vw" : "80vw",
+                        arrows: false,
+                        autoplay: true,
+                        interval: 3000,
+                        pauseOnHover: true,
+                        pauseOnFocus: true,
+                        type: "loop",
+                        perPage: 1,
+                        perMove: 1,
+                        speed: 800,
+                        pagination: false,
+                      }}
+                    >
+                      {testimonials}
+                    </Splide>
+                  )}
                 </Card>
               </Center>
             </Group>

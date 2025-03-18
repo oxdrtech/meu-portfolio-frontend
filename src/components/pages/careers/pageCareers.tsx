@@ -2,7 +2,7 @@ import themeDevices from "@/styles/themeDevices";
 import { Flex, Group, Highlight, Paper, Stack, Text } from "@mantine/core";
 import CareerCarousel from "./carousel/careersCarousel";
 import CareerCarouselFull from "./carousel/careersCarouselFull";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -16,6 +16,7 @@ export default function PageCareers({ triggerGSAP }: Props) {
   const startYear = 2023;
   const yearsOfExperience = currentYear - startYear;
   const gsapRef = useRef(null);
+  const [isSplideReady, setIsSplideReady] = useState(false);
 
   useGSAP(() => {
     if (triggerGSAP) {
@@ -36,6 +37,7 @@ export default function PageCareers({ triggerGSAP }: Props) {
           opacity: 1,
           yPercent: 0,
           duration: 0.5,
+          onComplete: () => setIsSplideReady(true),
         })
         .to(".objectCareers", {
           opacity: 1,
@@ -43,6 +45,7 @@ export default function PageCareers({ triggerGSAP }: Props) {
           duration: 0.5,
         });
     } else {
+      setIsSplideReady(false);
       gsap.to(".containerCareers", {
         opacity: 0,
         duration: 0.25,
@@ -94,11 +97,15 @@ export default function PageCareers({ triggerGSAP }: Props) {
               overflow: "hidden",
             }}>
               <Stack className={"objectCareers"} display={"none"} w={isMobile ? "90vw" : "80vw"} align={"center"}>
-                {
-                  isMobile
-                    ? <CareerCarousel />
-                    : <CareerCarouselFull />
-                }
+                {isSplideReady && (
+                  <Group>
+                    {
+                      isMobile
+                        ? <CareerCarousel />
+                        : <CareerCarouselFull />
+                    }
+                  </Group>
+                )}
               </Stack>
             </Group>
           </Stack>
