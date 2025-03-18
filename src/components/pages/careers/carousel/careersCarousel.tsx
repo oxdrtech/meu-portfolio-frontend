@@ -7,8 +7,10 @@ import { useDisclosure } from "@mantine/hooks";
 import { Career } from "@/types/career";
 import CareersModal from "./modal/careersModal";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import themeDevices from "@/styles/themeDevices";
 
 export default function CareerCarousel() {
+  const { isMobile } = themeDevices();
   const [opened, { open, close }] = useDisclosure(false);
   const [modalContent, setModalContent] = useState<Career | null>(null);
 
@@ -60,10 +62,10 @@ export default function CareerCarousel() {
 
   return (
     <>
-      <Center w={"90vw"}>
+      <Center>
         <Splide
           options={{
-            width: "90vw",
+            width: isMobile ? "90vw" : "80vw",
             arrows: false,
             autoplay: true,
             interval: 3000,

@@ -12,7 +12,7 @@ import { IconMailFast } from "@tabler/icons-react";
 import { Controller, useForm } from "react-hook-form";
 
 export default function ContactForm() {
-  const { isMobile } = themeDevices();
+  const { isMobile, isDesktop } = themeDevices();
   const [opened, { open, close }] = useDisclosure(false);
   const [formAlreadySent, setFormAlreadySent] = useState(false);
 
@@ -96,10 +96,10 @@ export default function ContactForm() {
       <Modal
         opened={opened}
         onClose={close}
-        closeOnClickOutside={!isMobile}
-        withCloseButton={isMobile}
+        closeOnClickOutside={isDesktop}
+        withCloseButton={!isDesktop}
         size={"auto"}
-        centered={!isMobile}
+        centered={isDesktop}
         transitionProps={{
           duration: 200,
           timingFunction: "easy",
