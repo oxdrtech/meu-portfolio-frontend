@@ -100,9 +100,9 @@ export default function PageCareers({ triggerGSAP }: Props) {
                 {isSplideReady && (
                   <Group>
                     {
-                      isMobile
-                        ? <CareerCarousel />
-                        : <CareerCarouselFull />
+                      isDesktop
+                        ? <CareerCarouselFull />
+                        : <CareerCarousel />
                     }
                   </Group>
                 )}
