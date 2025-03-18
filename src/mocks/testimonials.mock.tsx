@@ -17,7 +17,7 @@ export const testimonialsMock = [
     position: "Senior Fullstack Developer",
     company: "Zeus Tech",
     companyLogo: "./testimonialsPhotos/julioCompany.webp",
-    feedback: "O André é um dos desenvolvedores mais talentosos com quem já tive o prazer de trabalhar. Todos os trabalhos que solicitei a ele foram muito bem entregues, mesmo sendo desafios complexos e em diversas áreas, como frontend, backend, banco de dados e deploy de aplicações. Altamente recomendado!",
+    feedback: "O André é um dos desenvolvedores mais talentosos com quem já tive o prazer de trabalhar. Todos os trabalhos que solicitei a ele foram muito bem entregues, mesmo sendo desafios complexos e em diversas áreas, como frontend, backend, banco de dados e deploy. Altamente recomendado!",
   },
   {
     name: "Hortência Santiago",
@@ -39,7 +39,7 @@ export const testimonialsMock = [
     ),
   },
   {
-    name: "	Miguel Romaniw",
+    name: "Miguel Romaniw",
     picture: "./testimonialsPhotos/miguelPicture.webp",
     socials: [
       {
@@ -55,5 +55,14 @@ export const testimonialsMock = [
     company: "Space",
     companyLogo: "",
     feedback: "O projeto foi um sucesso absoluto! Ele entendeu perfeitamente nossas necessidades e entregou um sistema funcional e de alta performance. Recomendo fortemente!",
+  },
+  {
+    name: "Laiane Bernardo",
+    picture: "./testimonialsPhotos/laianePicture.webp",
+    socials: [],
+    position: "Licenciatura em História",
+    company: "",
+    companyLogo: "",
+    feedback: "Durante todo o processo de desenvolvimento do meu site, André demonstrou interesse em entregar um trabalho de qualidade e competência. Sempre atento às minhas necessidades enquanto professora, minha pagina ficou linda, superou muito minhas expectativas.",
   },
 ];

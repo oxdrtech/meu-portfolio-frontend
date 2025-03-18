@@ -22,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" {...mantineHtmlProps}>
       <head>
+        <link rel="icon" type="image/png" href="./favicon.png" />
         <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>

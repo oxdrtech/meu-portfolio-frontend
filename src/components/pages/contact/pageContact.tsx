@@ -61,7 +61,7 @@ export default function PageContact({ triggerGSAP }: Props) {
           borderRadius: "16px",
           overflow: "hidden",
         }}>
-          <BackgroundImage src={"./backgroundGrain.jpg"}>
+          <BackgroundImage src={"./backgroundGrain.webp"}>
             <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={isMobile ? "lg" : "xl"} pb={"56"}>
               <Group component={"span"} gap={"sm"} style={{
                 overflow: "hidden",

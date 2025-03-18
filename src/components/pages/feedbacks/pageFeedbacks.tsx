@@ -51,11 +51,16 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
 
   const testimonials = testimonialsMock.map((testimonial, index) => (
     <SplideSlide key={index}>
-      <Stack align={"center"} ta={"center"} gap={isDesktop ? "lg" : "xl"}>
+      <Stack align={"center"} ta={"center"} gap={isDesktop ? "lg" : "md"}>
         <AvatarGroup spacing={"40"} >
-          <Avatar
-            src={testimonial.companyLogo}
-            size={100} />
+          {
+            testimonial.companyLogo
+            && (
+              <Avatar
+                src={testimonial.companyLogo}
+                size={100} />
+            )
+          }
           <Avatar
             src={testimonial.picture}
             size={100} />
@@ -74,9 +79,13 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
               })}
           </Group>
           <Text fw={"bold"} fz={"h3"} c={"defaultColor"}>{testimonial.name}</Text>
-          <Text c={"dimmed"} inline>{`${testimonial.position} na ${testimonial.company}`}</Text>
+          {
+            testimonial.company
+              ? <Text c={"dimmed"} fz={"sm"} inline>{`${testimonial.position} na ${testimonial.company}`}</Text>
+              : <Text c={"dimmed"} fz={"sm"} inline>{testimonial.position}</Text>
+          }
         </Stack>
-        <Text fz={isDesktop ? "h3" : "h4"}>"{testimonial.feedback}"</Text>
+        <Text fz={isDesktop ? "h3" : "md"}>"{testimonial.feedback}"</Text>
       </Stack>
     </SplideSlide>
   ));
@@ -97,14 +106,11 @@ export default function PageFeedbacks({ triggerGSAP }: Props) {
             <Group component={"span"} gap={"sm"} style={{
               overflow: "hidden",
             }}>
-              <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "60vw" : isMobile ? "90vw" : "70vw"}>
-                <Card p={"md"} withBorder radius={"lg"} style={{
-                  backgroundColor: "#23232350",
-                  backdropFilter: "blur(2px)"
-                }}>
+              <Center className={"objectFeedbacks"} display={"none"} w={isDesktop ? "60vw" : isMobile ? "90vw" : "80vw"}>
+                <Card p={"md"} withBorder={isMobile} bg={isMobile ? "#232323" : "transparent"}>
                   <Splide
                     options={{
-                      width: isDesktop ? "60vw" : isMobile ? "90vw" : "70vw",
+                      width: isDesktop ? "60vw" : isMobile ? "90vw" : "80vw",
                       arrows: false,
                       autoplay: true,
                       interval: 3000,

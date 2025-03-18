@@ -7,7 +7,7 @@ export const faqsMock = [
   {
     id: "2",
     question: "Como funciona o fluxo de trabalho?",
-    answer: "Se você não tiver a arte pronta, começamos com a prototipagem (cobrada à parte). Depois, partimos para o desenvolvimento do código. Quando o site estiver pronto, te mostro a versão final para aprovação, e depois a hospedagem."
+    answer: "Se você não tiver a arte pronta, começamos com a prototipagem. Depois, partimos para o desenvolvimento do código. Quando o site estiver pronto, te mostro a versão final para aprovação, e depois a hospedagem."
   },
   {
     id: "3",
@@ -17,7 +17,7 @@ export const faqsMock = [
   {
     id: "4",
     question: "E quanto custa?",
-    answer: "O custo é baseado no tempo que o projeto vai demandar. Minha tarifa é R$ 40/hora. Uma landing page pode ficar entre R$ 1.000 e R$ 3.000, e projetos maiores variam conforme o tempo estimado. Hospedagem e domínio são orçados separadamente e detalhados na proposta."
+    answer: "O custo é baseado no tempo que o projeto vai demandar. Minha tarifa é R$ 40/hora. Uma landing page pode ficar entre R$ 1.000 e R$ 3.000, e projetos maiores variam conforme o tempo estimado. Prototipagem, hospedagem e domínio são orçados separadamente e detalhados na proposta."
   },
   {
     id: "5",

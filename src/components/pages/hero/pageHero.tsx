@@ -64,7 +64,7 @@ export default function PageHero({ triggerGSAP }: Props) {
           <BackgroundImage src={"./backgroundHero.gif"}>
             <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={isMobile ? "lg" : "xl"} style={{
               backdropFilter: isMobile ? "blur(6px)" : "blur(6px)",
-              backgroundImage: 'url(./noise.png)',
+              backgroundImage: 'url(./noise.webp)',
               backgroundColor: "#11111130",
             }}>
               <Group component={"span"} gap={"sm"} style={{
