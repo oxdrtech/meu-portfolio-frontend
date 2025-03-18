@@ -39,24 +39,6 @@ export const testimonialsMock = [
     ),
   },
   {
-    name: "Miguel Romaniw",
-    picture: "./testimonialsPhotos/miguelPicture.webp",
-    socials: [
-      {
-        icon: IconBrandLinkedin,
-        url: "https://www.linkedin.com/in/miguel-aquelino-romaniw-varnier-neto/",
-      },
-      {
-        icon: IconBrandGithub,
-        url: "https://github.com/MiguelRomaniw",
-      },
-    ],
-    position: "Senior Fullstack Developer",
-    company: "Space",
-    companyLogo: "",
-    feedback: "O projeto foi um sucesso absoluto! Ele entendeu perfeitamente nossas necessidades e entregou um sistema funcional e de alta performance. Recomendo fortemente!",
-  },
-  {
     name: "Laiane Bernardo",
     picture: "./testimonialsPhotos/laianePicture.webp",
     socials: [],
@@ -65,4 +47,22 @@ export const testimonialsMock = [
     companyLogo: "",
     feedback: "Durante todo o processo de desenvolvimento do meu site, André demonstrou interesse em entregar um trabalho de qualidade e competência. Sempre atento às minhas necessidades enquanto professora, minha pagina ficou linda, superou muito minhas expectativas.",
   },
+  // {
+  //   name: "Miguel Romaniw",
+  //   picture: "./testimonialsPhotos/miguelPicture.webp",
+  //   socials: [
+  //     {
+  //       icon: IconBrandLinkedin,
+  //       url: "https://www.linkedin.com/in/miguel-aquelino-romaniw-varnier-neto/",
+  //     },
+  //     {
+  //       icon: IconBrandGithub,
+  //       url: "https://github.com/MiguelRomaniw",
+  //     },
+  //   ],
+  //   position: "Senior Fullstack Developer",
+  //   company: "Space",
+  //   companyLogo: "",
+  //   feedback: "O projeto foi um sucesso absoluto! Ele entendeu perfeitamente nossas necessidades e entregou um sistema funcional e de alta performance. Recomendo fortemente!",
+  // },
 ];

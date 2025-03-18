@@ -28,10 +28,10 @@ const useActionsHandlers = () => {
     () => ({
       copyLink: () => copyLink(window.location.href),
       downloadCV: () => downloadCV("./andre-campos-cv.pdf"),
-      openToLinkedin: () => openTo("https://www.linkedin.com/in/ddr23"),
-      openToGithub: () => openTo("https://github.com/DDR23"),
+      openToLinkedin: () => openTo("https://www.linkedin.com/in/oxdrtech"),
+      openToGithub: () => openTo("https://github.com/oxdrtech"),
       openToEmail: () => openTo("mailto:andreescampos@gmail.com"),
-      openToCode: () => openTo("https://github.com/DDR23/meu-portfolio-frontend"),
+      openToCode: () => openTo("https://github.com/oxdrtech/meu-portfolio-frontend"),
     }),
     []
   );

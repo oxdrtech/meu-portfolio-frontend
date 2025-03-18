@@ -85,9 +85,9 @@ export default function PageContact({ triggerGSAP }: Props) {
                     <SocialButtons />
                     <Text ff={"monospace"} fz={"xs"}>
                       Desenvolvido por {" "}
-                      <Text fz={"xs"} component={"a"} href={"https://github.com/DDR23"} c={"defaultColor"}>{displayText}</Text>
+                      <Text fz={"xs"} component={"a"} href={"https://github.com/oxdrtech"} target={"_blank"} c={"defaultColor"}>{displayText}</Text>
                     </Text>
-                    <Text ff={"monospace"} fz={"10"} c={"dimmed"}>© {new Date().getFullYear()}. Todos os direitos reservados.</Text>
+                    <Text ff={"monospace"} fz={"10"} c={"dimmed"}>© {new Date().getFullYear()} OXDRTECH. Todos os direitos reservados.</Text>
                   </Stack>
                 </Stack>
               </Group>
