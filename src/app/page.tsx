@@ -61,6 +61,7 @@ export default function Home() {
         style={{
           overflowY: "scroll",
           scrollSnapType: "y mandatory",
+          scrollbarWidth: "none"
         }}
       >
         {renderCompleted && (
