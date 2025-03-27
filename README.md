@@ -126,7 +126,7 @@ Se tudo estiver correto, o aplicativo estará rodando em [http://localhost:3000]
 4. **Verifique o funcionamento**
 
 ```bash
-curl http://localhost:3000/api/health/
+curl http://localhost:3000/api/health
 ```
 
 O retorno esperado é:
