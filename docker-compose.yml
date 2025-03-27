@@ -11,8 +11,8 @@ services:
     env_file:
       - .env
     networks:
-      - meuportfolio-front-network
+      - meu-portfolio-front-network
 
 networks:
-  meuportfolio-front-network:
+  meu-portfolio-front-network:
     driver: bridge
