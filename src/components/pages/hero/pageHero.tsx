@@ -65,7 +65,7 @@ export default function PageHero({ triggerGSAP }: Props) {
             <Stack h={"100%"} p={"lg"} align={"center"} justify={"flex-end"} gap={isMobile ? "lg" : "xl"} style={{
               backdropFilter: isMobile ? "blur(6px)" : "blur(6px)",
               backgroundImage: 'url(./noise.webp)',
-              backgroundColor: "#11111130",
+              backgroundColor: "#111111a8",
             }}>
               <Group component={"span"} gap={"sm"} style={{
                 overflow: "hidden",
